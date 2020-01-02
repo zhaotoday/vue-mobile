@@ -1,6 +1,6 @@
 {
   "name": "we-design",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a collect of mini program UI components",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/zhaotoday/we-design#readme",
   "dependencies": {
+    "jt-helpers": "0.0.7",
     "wx-bridge": "0.0.27"
   }
 }
