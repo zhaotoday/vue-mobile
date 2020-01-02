@@ -6,6 +6,21 @@
   "scripts": {
     "test": ""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaotoday/we-design.git"
+  },
+  "keywords": [
+    "uni-app",
+    "UI",
+    "components",
+    "mini",
+    "programe"
+  ],
   "author": "zhaojintian",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaotoday/we-design/issues"
+  },
+  "homepage": "https://github.com/zhaotoday/we-design#readme"
 }
