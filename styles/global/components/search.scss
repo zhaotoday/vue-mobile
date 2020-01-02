@@ -9,7 +9,7 @@
     height: px2rpx(68px);
     border-radius: px2rpx(16px);
     background: {
-      image: url("#{image-url}/search/search.png");
+      image: url("#{$image-url}/search/search.png");
       size: px2rpx(28px) px2rpx(28px);
       repeat: no-repeat;
       position: px2rpx(24px) center;
