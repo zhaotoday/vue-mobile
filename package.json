@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/zhaotoday/we-design/issues"
   },
-  "homepage": "https://github.com/zhaotoday/we-design#readme"
+  "homepage": "https://github.com/zhaotoday/we-design#readme",
+  "dependencies": {
+    "wx-bridge": "0.0.27"
+  }
 }

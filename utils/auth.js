@@ -1,4 +1,4 @@
-import wxb from './wxb'
+import wxb from 'wx-bridge'
 
 const OPEN_ID = 'openId'
 const USER = 'user'
@@ -15,6 +15,10 @@ export default {
   login ({ user, token }) {
     wxb.setStorageSync(USER, user)
     wxb.setStorageSync(TOKEN, `Bearer ${token}`)
+  },
+  logout () {
+    wxb.removeStorageSync(USER)
+    wxb.removeStorageSync(TOKEN)
   },
   set (data) {
     const user = this.get()[USER]
@@ -33,10 +37,6 @@ export default {
   setPhoneNumber ({ phoneNumber }) {
     const user = this.get()[USER]
     wxb.setStorageSync(USER, { ...user, phoneNumber })
-  },
-  logout () {
-    wxb.removeStorageSync(USER)
-    wxb.removeStorageSync(TOKEN)
   },
   loggedIn () {
     return !!wxb.getStorageSync(USER) && !!wxb.getStorageSync(TOKEN)
