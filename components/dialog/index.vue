@@ -28,7 +28,8 @@
           {{ cancelText }}
         </li>
         <li
-          :class="[ 'o-grid__cell', confirmDisabled ? 'c19' : 'c26' ]"
+          class="o-grid__cell"
+          :class="confirmDisabled ? 'c37' : 'c21'"
           @click="handleConfirm">
           {{ confirmText }}
         </li>
