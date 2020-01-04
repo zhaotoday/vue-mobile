@@ -1,9 +1,5 @@
-import CShareOptions from '@/components/share-options'
-import CPoster from '@/components/poster'
-
 export default {
   name: 'c-share',
-  components: { CShareOptions, CPoster },
   data () {
     return {
       cOptions: {
