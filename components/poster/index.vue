@@ -14,7 +14,7 @@
           <img :src="image" />
         </div>
         <div
-          class="c-button w260 h76 bg1 c11 fs30"
+          class="c-button w260 h76 bgc21 c11 fs30"
           @click="$emit('save')">
           <i class="c-icon c-icon--download"></i>
           保存图片
