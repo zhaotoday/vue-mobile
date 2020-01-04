@@ -10,7 +10,7 @@ export default {
     return {
       title: this.$consts.NAME,
       imageUrl: '',
-      path: `pages/home/index?shareOpenId=${this.$auth.getOpenId()}`
+      path: `/pages/home/index?shareOpenId=${this.$auth.getOpenId()}`
     }
   }
 }
