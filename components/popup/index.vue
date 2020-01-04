@@ -5,7 +5,9 @@
       class="c-overlay"
       @click="$emit('close')">
     </div>
-    <slot name="content"></slot>
+    <div v-show="visible">
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
