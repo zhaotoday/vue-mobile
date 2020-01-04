@@ -24,7 +24,7 @@
         </div>
       </div>
       <div
-        class="c-share-options__cancel bgc11 c31 fs32"
+        class="c-share-options__cancel bgc11 c37 fs32"
         @click="$emit('cancel')">
         取消
       </div>
