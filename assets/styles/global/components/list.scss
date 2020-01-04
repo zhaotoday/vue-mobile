@@ -25,7 +25,7 @@
         image: url("#{$image-url}/list/link.png");
         size: px2rpx(30px) px2rpx(30px);
         repeat: no-repeat;
-        position: right px2rpx(40px) center;
+        position: right px2rpx(30px) center;
       }
 
       @include c(list) {
