@@ -87,4 +87,10 @@
       left: 0;
     }
   }
+
+  @include e(upload) {
+    @include position--absolute(px2rpx(38px));
+
+    left: px2rpx(138px);
+  }
 }
