@@ -12,7 +12,7 @@
   }
 
   @include s(is-bottom) {
-    @include position--fixed(null, null, px2rpx(70px), 50%);
+    @include position--fixed(null, null, px2rpx(36px), 50%);
 
     transform: translateX(-50%);
   }
