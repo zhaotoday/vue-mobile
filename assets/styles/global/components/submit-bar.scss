@@ -5,17 +5,16 @@
   border-top: 1px solid map-get($colors, c34);
   display: flex;
 
-  @include e(price, submit) {
-    @include text--middle(px2rpx(96px));
+  @include e(content, submit) {
+    @include text--middle(px2rpx($submit-bar-height));
   }
 
-  @include e(price) {
+  @include e(content) {
     flex: 1;
-    text-indent: px2rpx(40px);
   }
 
   @include e(submit) {
     flex: 0 1 auto;
-    width: px2rpx(290px);
+    width: px2rpx($submit-bar-submit-width);
   }
 }
