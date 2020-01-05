@@ -1,20 +1,17 @@
 {
   "name": "we-design",
   "version": "0.0.16",
-  "description": "a collect of mini program UI components",
+  "description": "a collect of mini program UI components.",
   "main": "index.js",
-  "scripts": {
-    "test": ""
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhaotoday/we-design.git"
   },
   "keywords": [
     "uni-app",
-    "UI",
-    "components",
-    "mini-programe"
+    "ui-components",
+    "mini-program"
   ],
   "author": "zhaojintian",
   "license": "ISC",
