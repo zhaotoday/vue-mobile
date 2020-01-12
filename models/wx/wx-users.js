@@ -1,6 +1,6 @@
 import REST from '../../utils/rest'
+import restHelpers from '../../utils/helpers/rest-helpers'
 import consts from '@/utils/consts'
-import restHelpers from '@/utils/helpers/rest-helpers'
 
 export default class extends REST {
   constructor () {
