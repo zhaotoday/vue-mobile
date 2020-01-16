@@ -15,4 +15,22 @@
       border-radius: px2rpx($item * 1px);
     }
   }
+
+  @include s(is-deletable) {
+    position: relative;
+    padding-right: px2rpx(48px);
+
+    &:after {
+      @include size(px2rpx(16px), px2rpx(16px));
+      @include position--absolute(50%, px2rpx(18px));
+
+      content: "";
+      display: block;
+      transform: translateY(-50%);
+      background: {
+        image: url("#{$image-url}/tag/delete.png");
+        size: 100% 100%;
+      }
+    }
+  }
 }

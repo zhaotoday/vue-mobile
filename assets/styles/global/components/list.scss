@@ -18,6 +18,21 @@
       @include padding(px2rpx(25px), null, px2rpx(25px));
 
       height: auto;
+
+      label {
+        @include position--absolute(px2rpx(30px), null, null, 0);
+
+        line-height: 100%;
+      }
+
+      @include c(list) {
+        @include e(body) {
+          @include padding(px2rpx(2px), null, px2rpx(2px));
+          @include margin(null, px2rpx(30px), null, px2rpx(138px));
+
+          line-height: 120%;
+        }
+      }
     }
 
     @include s(is-link) {
