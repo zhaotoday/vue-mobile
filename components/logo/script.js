@@ -1,3 +1,9 @@
 export default {
-  name: 'c-logo'
+  name: 'c-logo',
+  props: {
+    name: {
+      type: String,
+      default: ''
+    }
+  }
 }
