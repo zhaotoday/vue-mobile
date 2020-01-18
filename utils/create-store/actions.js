@@ -12,8 +12,8 @@ export default ({ types, Model }) => {
       return data
     },
 
-    post ({ commit }, { showLoading, showError, body }) {
-      return new Model().POST({ showLoading, showError, body })
+    post ({ commit }, { showLoading, showError, query, body }) {
+      return new Model().POST({ showLoading, showError, query, body })
     },
 
     put ({ commit }, { showLoading, showError, id, body }) {

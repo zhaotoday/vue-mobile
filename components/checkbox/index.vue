@@ -2,7 +2,7 @@
   <div
     class="c-checkbox"
     :class="{ 'is-checked': checked }"
-    @click="$emit('change')">
+    @click.stop="$emit('change')">
   </div>
 </template>
 

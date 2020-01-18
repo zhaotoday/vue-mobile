@@ -18,6 +18,7 @@
       @include padding(px2rpx(25px), null, px2rpx(25px));
 
       height: auto;
+      min-height: px2rpx(50px);
 
       label {
         @include position--absolute(px2rpx(30px), null, null, 0);
@@ -96,7 +97,7 @@
     transform: translateY(-50%);
     border: 0;
     left: px2rpx(138px);
-    width: px2rpx(450px);
+    width: px2rpx(550px);
 
     @include s(is-full) {
       left: 0;
