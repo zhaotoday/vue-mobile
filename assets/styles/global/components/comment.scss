@@ -52,21 +52,22 @@
     @include size(px2rpx(180px), px2rpx(180px));
 
     position: relative;
+  }
 
-    img {
-      @include size(100%, 100%);
+  @include e(upload-close) {
+    position: absolute !important;
+    left: auto !important;
+    top: px2rpx(-20px) !important;
+    right: px2rpx(-20px) !important;
+    transform: none !important;
+  }
 
-      display: block;
-      border-radius: px2rpx(10px);
-      overflow: hidden;
-    }
+  @include e(upload-image) {
+    @include size(100%, 100%);
 
-    @include c(icon) {
-      position: absolute !important;
-      left: auto !important;
-      top: px2rpx(-20px) !important;
-      right: px2rpx(-20px) !important;
-      transform: none !important;
-    }
+    display: block;
+    border-radius: px2rpx(10px);
+    overflow: hidden;
+    background-color: #F5F7FA;
   }
 }
