@@ -17,9 +17,14 @@ export default {
       await this.loadDicts()
 
       const { config } = this.dicts
-      const { version } = await this.$store.dispatch('public/dicts/getList', {
-        query: { name: 'config' }
-      })
+      const { data: { version } } = await this.$store.dispatch(
+        'public/dicts/postAction',
+        {
+          body: {
+            actionType: 'GET_CONFIG'
+          }
+        }
+      )
 
       if (version !== config.version) this.getDictsList()
     }
