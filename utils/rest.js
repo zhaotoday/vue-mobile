@@ -1,6 +1,7 @@
 import REST from 'jt-rest'
 import wxb from './wxb'
 import auth from './auth'
+import consts from '@/utils/consts'
 
 export default class extends REST {
   _toString (obj) {
@@ -60,8 +61,8 @@ export default class extends REST {
 
         if (res.statusCode === 500) {
           showError && wxb.showToast({ title: '服务器出错' })
-        } else if (res.data.error.code === 'AUTHORIZATION/UNAUTHORIZED') {
-          wxb.navigateTo({ url: '/pages/login/index' })
+        } else if (res.statusCode === 401) {
+          wxb.navigateTo({ url: consts.LOGIN_PAGE })
         } else {
           showError && wxb.showToast({ title: res.data.error.message })
         }

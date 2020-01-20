@@ -16,8 +16,8 @@ export default ({ types, Model }) => {
       return new Model().POST({ showLoading, showError, query, body })
     },
 
-    put ({ commit }, { showLoading, showError, id, body }) {
-      return new Model().PUT({ showLoading, showError, id, body })
+    put ({ commit }, { showLoading, showError, id, query, body }) {
+      return new Model().PUT({ showLoading, showError, id, query, body })
     },
 
     del ({ commit }, { showLoading, showError, id }) {
