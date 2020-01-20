@@ -12,6 +12,16 @@ export default {
       if (!this.dicts.config) {
         await this.getDictsList()
       }
+    },
+    async updateDicts () {
+      await this.loadDicts()
+
+      const { config } = this.dicts
+      const { version } = await this.$store.dispatch('public/dicts/getList', {
+        query: { name: 'config' }
+      })
+
+      if (version !== config.version) this.getDictsList()
     }
   }
 }
