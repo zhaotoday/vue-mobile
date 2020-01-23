@@ -36,9 +36,9 @@ $z-indexes: (
 $avatar-width: 168px;
 
 // button
-$button-widths: 160, 260, 650;
-$button-heights: 48, 76, 88;
-$button-border-radii: 0, 8;
+$button-widths: 0px;
+$button-heights: 0px;
+$button-border-radii: 0px;
 
 // checkbox
 $checkbox-width: 48px;
@@ -58,6 +58,10 @@ $icon-items: (
 // submit-bar
 $submit-bar-height: 96px;
 $submit-bar-submit-width: 290px;
+
+// table
+$table-border-color: map-get($colors, c32);
+$table-th-widths: 0px;
 
 // tag
 $tag-heights: 30, 40, 50, 60;

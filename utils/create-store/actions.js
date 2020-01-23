@@ -6,8 +6,8 @@ export default ({ types, Model }) => {
       return data
     },
 
-    async getDetail ({ commit }, { showLoading, showError, id }) {
-      const { data } = await new Model().GET({ showLoading, showError, id })
+    async getDetail ({ commit }, { showLoading, showError, id, query }) {
+      const { data } = await new Model().GET({ showLoading, showError, id, query })
       commit(types.GET_DETAIL, { data })
       return data
     },

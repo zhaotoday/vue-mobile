@@ -22,22 +22,22 @@
   }
 
   @each $item in $button-widths {
-    &.w#{$item} {
-      width: px2rpx($item * 1px);
+    &.w#{$item / 1px} {
+      width: px2rpx($item);
     }
   }
 
   @each $item in $button-heights {
-    &.h#{$item} {
-      @include text--middle(px2rpx($item * 1px));
+    &.h#{$item / 1px} {
+      @include text--middle(px2rpx($item));
 
-      border-radius: px2rpx($item * 1px);
+      border-radius: px2rpx($item);
     }
   }
 
   @each $item in $button-border-radii {
-    &.br#{$item} {
-      border-radius: px2rpx($item * 1px);
+    &.br#{$item / 1px} {
+      border-radius: px2rpx($item);
     }
   }
 }
