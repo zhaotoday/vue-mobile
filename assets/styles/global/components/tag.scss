@@ -2,17 +2,17 @@
   display: inline-block;
 
   @each $item in $tag-heights {
-    &.h#{$item} {
-      @include text--middle(px2rpx($item * 1px));
-      @include padding(null, px2rpx($item / 2 * 1px), null, px2rpx($item / 2 * 1px));
+    &.h#{$item / 1px} {
+      @include text--middle(px2rpx($item));
+      @include padding(null, px2rpx($item / 2), null, px2rpx($item / 2));
 
-      border-radius: px2rpx($item / 2 * 1px);
+      border-radius: px2rpx($item / 2);
     }
   }
 
   @each $item in $tag-border-radii {
-    &.br#{$item} {
-      border-radius: px2rpx($item * 1px);
+    &.br#{$item / 1px} {
+      border-radius: px2rpx($item);
     }
   }
 
