@@ -27,7 +27,7 @@ export default {
           }
         } = await this.$store.dispatch('wx/wxUsers/postAction', {
           showError: false,
-          body: { type: 'GET_INFO' }
+          action: 'getUserInfo'
         })
 
         this.$auth.set({

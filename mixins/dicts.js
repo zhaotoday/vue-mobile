@@ -19,11 +19,7 @@ export default {
       const { config } = this.dicts
       const { data: { version } } = await this.$store.dispatch(
         'public/dicts/postAction',
-        {
-          body: {
-            actionType: 'GET_CONFIG'
-          }
-        }
+        { action: 'getVersion' }
       )
 
       if (version !== config.version) this.getDictsList()
