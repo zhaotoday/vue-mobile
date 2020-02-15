@@ -7,7 +7,8 @@ export default ({ types, Model }) => {
     },
 
     async getDetail ({ commit }, { showLoading, showError, id, query }) {
-      const { data } = await new Model().GET({ showLoading, showError, id, query })
+      const { data } = await new Model().GET(
+        { showLoading, showError, id, query })
       commit(types.GET_DETAIL, { data })
       return data
     },
@@ -20,12 +21,12 @@ export default ({ types, Model }) => {
       return new Model().PUT({ showLoading, showError, id, query, body })
     },
 
-    del ({ commit }, { showLoading, showError, id }) {
+    delete ({ commit }, { showLoading, showError, id }) {
       return new Model().DELETE({ showLoading, showError, id })
     },
 
-    postAction ({ commit }, { showLoading, showError, query, body }) {
-      return new Model().addPath('actions').
+    postAction ({ commit }, { showLoading, showError, action, query, body }) {
+      return new Model().addPath(`actions/${action}`).
         POST({ showLoading, showError, query, body })
     }
   }
