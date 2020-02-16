@@ -109,4 +109,14 @@
 
     left: px2rpx(138px);
   }
+
+  @include e(operation) {
+    @include position--absolute(50%, 0);
+    @include text--middle(px2rpx(60px));
+
+    transform: translateY(-50%);
+    width: px2rpx(200px);
+    text-align: center;
+    border-left: 1px solid map-get($colors, c32);
+  }
 }
