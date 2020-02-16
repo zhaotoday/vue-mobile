@@ -14,7 +14,7 @@ export default {
   },
   login ({ user, token }) {
     wxb.setStorageSync(USER, user)
-    wxb.setStorageSync(TOKEN, token)
+    wxb.setStorageSync(TOKEN, `Bearer ${token}`)
   },
   logout () {
     wxb.removeStorageSync(USER)
