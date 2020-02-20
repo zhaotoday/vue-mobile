@@ -1,10 +1,12 @@
-export default {
-  name: 'c-swiper',
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+
+@Component({
   props: {
     items: {
       type: Array,
-      default () {
-        return []
+      default() {
+        return [];
       }
     },
     autoplay: {
@@ -19,15 +21,12 @@ export default {
       type: Number,
       default: 300
     }
-  },
-  data () {
-    return {
-      current: 0
-    }
-  },
-  methods: {
-    handleChange (e) {
-      this.current = e.mp.detail.current
-    }
+  }
+})
+export default class Swiper extends Vue {
+  current = 0;
+
+  handleChange(e) {
+    this.current = e.mp.detail.current;
   }
 }

@@ -2,17 +2,14 @@
   <div
     class="c-search bgc11"
     :class="{ 'has-submit': showSubmit }"
-    @click="navigateToLink">
+    @click="navigateToLink"
+  >
     <div class="c-search__input-wrap bgc31">
-      <div
-        v-if="link"
-        class="c-search__input fs28">
+      <div v-if="link" class="c-search__input fs28">
         <span v-if="value">
           {{ value }}
         </span>
-        <span
-          v-else
-          class="c36">
+        <span v-else class="c36">
           {{ placeholder }}
         </span>
       </div>
@@ -28,9 +25,7 @@
         @confirm="confirm"
       />
     </div>
-    <div
-      class="c-search__submit fs28"
-      @click="confirm">
+    <div class="c-search__submit fs28" @click="confirm">
       搜索
     </div>
   </div>

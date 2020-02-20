@@ -1,5 +1,7 @@
-export default {
-  name: 'c-dialog',
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+
+@Component({
   props: {
     visible: {
       type: Boolean,
@@ -7,11 +9,11 @@ export default {
     },
     title: {
       type: String,
-      default: ''
+      default: ""
     },
     content: {
       type: String,
-      default: ''
+      default: ""
     },
     showCancel: {
       type: Boolean,
@@ -19,11 +21,11 @@ export default {
     },
     cancelText: {
       type: String,
-      default: '取消'
+      default: "取消"
     },
     confirmText: {
       type: String,
-      default: '确认'
+      default: "确认"
     },
     confirmDisabled: {
       type: Boolean,
@@ -31,14 +33,14 @@ export default {
     },
     width: {
       type: String,
-      default: '560'
+      default: "560"
     }
-  },
-  methods: {
-    handleConfirm () {
-      if (!this.confirmDisabled) {
-        this.$emit('confirm')
-      }
+  }
+})
+export default class Dialog extends Vue {
+  handleConfirm() {
+    if (!this.confirmDisabled) {
+      this.$emit("confirm");
     }
   }
 }

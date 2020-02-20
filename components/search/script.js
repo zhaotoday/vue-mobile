@@ -1,5 +1,7 @@
-export default {
-  name: 'c-search',
+import Vue from "vue";
+import { Component, Watch } from "vue-property-decorator";
+
+@Component({
   props: {
     autoFocus: {
       type: Boolean,
@@ -11,38 +13,37 @@ export default {
     },
     link: {
       type: String,
-      default: ''
+      default: ""
     },
     defaultValue: {
       type: String,
-      default: ''
+      default: ""
     },
     placeholder: {
       type: String,
-      default: ''
+      default: ""
     }
-  },
-  data () {
-    return {
-      value: ''
+  }
+})
+export default class Search extends Vue {
+  value = "";
+
+  @Watch("defaultValue")
+  onDefaultValueChange(newVal) {
+    this.value = newVal;
+  }
+
+  navigateToLink() {
+    if (this.link) {
+      this.$wx.navigateTo({ url: this.link });
     }
-  },
-  watch: {
-    defaultValue () {
-      this.value = this.defaultValue
-    }
-  },
-  methods: {
-    navigateToLink () {
-      if (this.link) {
-        this.$wx.navigateTo({ url: this.link })
-      }
-    },
-    confirm () {
-      this.$emit('confirm', this.value)
-    },
-    getValue () {
-      return this.value
-    }
+  }
+
+  confirm() {
+    this.$emit("confirm", this.value);
+  }
+
+  getValue() {
+    return this.value;
   }
 }

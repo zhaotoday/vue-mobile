@@ -6,11 +6,13 @@
       :autoplay="autoplay"
       :interval="interval"
       @change="handleChange"
-      :style="{ height: `${height}rpx` }">
+      :style="{ height: `${height}rpx` }"
+    >
       <swiper-item
         v-for="(item, index) in items"
         :key="index"
-        :style="{ height: `${height}rpx` }">
+        :style="{ height: `${height}rpx` }"
+      >
         <img
           class="c-swiper__image"
           mode="aspectFill"
@@ -24,7 +26,8 @@
       <span
         v-for="(item, index) in items.length"
         :key="index"
-        :class="[ 'cc-indicator__item', { 'is-active': item === current } ]">
+        :class="['cc-indicator__item', { 'is-active': item === current }]"
+      >
       </span>
     </div>
   </div>

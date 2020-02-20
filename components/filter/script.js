@@ -1,9 +1,11 @@
-export default {
-  name: 'c-filter',
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+
+@Component({
   props: {
     placeholder: {
       type: String,
-      default: ''
+      default: ""
     },
     range: {
       type: Array,
@@ -17,10 +19,10 @@ export default {
       type: Number,
       default: 0
     }
-  },
-  methods: {
-    handleChange (e) {
-      this.$emit('change', e)
-    }
+  }
+})
+export default class Filter extends Vue {
+  handleChange(e) {
+    this.$emit("change", e);
   }
 }

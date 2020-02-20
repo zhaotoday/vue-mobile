@@ -1,16 +1,20 @@
-export default {
-  name: 'c-share-options',
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+
+@Component({
   props: {
     visible: {
       type: Boolean,
       default: false
     }
-  },
-  onShareAppMessage () {
+  }
+})
+export default class ShareOptions extends Vue {
+  onShareAppMessage() {
     return {
       title: this.$consts.NAME,
-      imageUrl: '',
+      imageUrl: "",
       path: `/pages/home/index?shareOpenId=${this.$auth.getOpenId()}`
-    }
+    };
   }
 }

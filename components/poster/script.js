@@ -1,5 +1,7 @@
-export default {
-  name: 'c-poster',
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+
+@Component({
   props: {
     visible: {
       type: Boolean,
@@ -7,7 +9,8 @@ export default {
     },
     image: {
       type: String,
-      default: ''
+      default: ""
     }
   }
-}
+})
+export default class Poster extends Vue {}
