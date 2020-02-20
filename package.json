@@ -1,9 +1,12 @@
 {
   "name": "we-design",
-  "version": "0.0.35",
+  "version": "0.0.36",
   "description": "a collect of mini program UI components.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "format": "prettier --write \"models/**/*.js\" \"pages/**/*.js\" \"plugins/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\"",
+    "lint": "eslint \"models/**/*.js\" \"pages/**/*.js\" \"plugins/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\" --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zhaotoday/we-design.git"
@@ -24,5 +27,12 @@
     "jt-rest": "0.0.11",
     "vuex": "^3.1.2",
     "wx-bridge": "0.0.28"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "eslint": "^6.8.0",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^7.3.1"
   }
 }
