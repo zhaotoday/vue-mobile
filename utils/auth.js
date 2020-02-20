@@ -1,50 +1,54 @@
-import wxb from 'wx-bridge'
+import wxb from "wx-bridge";
 
-const OPEN_ID = 'openId'
-const USER = 'user'
-const TOKEN = 'token'
+const OPEN_ID = "openId";
+const USER = "user";
+const TOKEN = "token";
 
 export default {
-  get () {
+  get() {
     return {
       [OPEN_ID]: wxb.getStorageSync(OPEN_ID),
       [USER]: wxb.getStorageSync(USER),
       [TOKEN]: wxb.getStorageSync(TOKEN)
-    }
+    };
   },
-  login ({ user, token }) {
-    wxb.setStorageSync(USER, user)
-    wxb.setStorageSync(TOKEN, `Bearer ${token}`)
+  login({ user, token }) {
+    wxb.setStorageSync(USER, user);
+    wxb.setStorageSync(TOKEN, `Bearer ${token}`);
   },
-  logout () {
-    wxb.removeStorageSync(USER)
-    wxb.removeStorageSync(TOKEN)
+  logout() {
+    wxb.removeStorageSync(USER);
+    wxb.removeStorageSync(TOKEN);
   },
-  set (data) {
-    const user = this.get()[USER]
-    wxb.setStorageSync(USER, { ...user, ...data })
+  set(data) {
+    const user = this.get()[USER];
+    wxb.setStorageSync(USER, { ...user, ...data });
   },
-  setOpenId (value) {
-    wxb.setStorageSync(OPEN_ID, value)
+  setOpenId(value) {
+    wxb.setStorageSync(OPEN_ID, value);
   },
-  getOpenId () {
-    return wxb.getStorageSync(OPEN_ID)
+  getOpenId() {
+    return wxb.getStorageSync(OPEN_ID);
   },
-  setName ({ name }) {
-    const user = this.get()[USER]
-    wxb.setStorageSync(USER, { ...user, name })
+  setName({ name }) {
+    const user = this.get()[USER];
+    wxb.setStorageSync(USER, { ...user, name });
   },
-  setPhoneNumber ({ phoneNumber }) {
-    const user = this.get()[USER]
-    wxb.setStorageSync(USER, { ...user, phoneNumber })
+  setPhoneNumber({ phoneNumber }) {
+    const user = this.get()[USER];
+    wxb.setStorageSync(USER, { ...user, phoneNumber });
   },
-  loggedIn () {
-    return !!wxb.getStorageSync(USER) && !!wxb.getStorageSync(TOKEN)
+  loggedIn() {
+    return !!wxb.getStorageSync(USER) && !!wxb.getStorageSync(TOKEN);
   },
-  infoModified () {
-    return this.loggedIn() && !!this.get()['user'].name && !!this.get()['user'].phoneNumber
+  infoModified() {
+    return (
+      this.loggedIn() &&
+      !!this.get()["user"].name &&
+      !!this.get()["user"].phoneNumber
+    );
   },
-  phoneNumberBound () {
-    return this.loggedIn() && !!this.get()['user'].phoneNumber
+  phoneNumberBound() {
+    return this.loggedIn() && !!this.get()["user"].phoneNumber;
   }
-}
+};

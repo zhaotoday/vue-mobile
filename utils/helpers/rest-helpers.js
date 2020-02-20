@@ -1,9 +1,9 @@
-import auth from '../auth'
+import auth from "../auth";
 
 export default {
-  getHeaders () {
+  getHeaders() {
     return {
-      Authorization: auth.get()['token']
-    }
+      Authorization: auth.get()["token"]
+    };
   }
-}
+};

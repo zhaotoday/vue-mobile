@@ -1,7 +1,7 @@
-import getGetters from './getters'
-import getActions from './actions'
-import getMutations from './mutations'
-import helpers from 'jt-helpers'
+import getGetters from "./getters";
+import getActions from "./actions";
+import getMutations from "./mutations";
+import helpers from "jt-helpers";
 
 export default ({
   Model = null,
@@ -18,13 +18,13 @@ export default ({
     },
     detail: {},
     ...state
-  }
+  };
 
   types = helpers.keyMirror({
     GET_LIST: null,
     GET_DETAIL: null,
     ...types
-  })
+  });
 
   return {
     namespaced: true,
@@ -35,5 +35,5 @@ export default ({
     getters: { ...getGetters(), ...getters() },
     mutations: { ...getMutations({ types }), ...mutations({ types }) },
     actions: { ...getActions({ types, Model }), ...actions({ types, Model }) }
-  }
-}
+  };
+};

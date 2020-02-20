@@ -1,4 +1,4 @@
-import createStore from '../../../utils/create-store'
-import Model from '../../../models/wx/wx-users'
+import createStore from "../../../utils/create-store";
+import Model from "../../../models/wx/wx-users";
 
-export default createStore({ Model })
+export default createStore({ Model });
