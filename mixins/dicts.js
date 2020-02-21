@@ -1,28 +1,33 @@
-import { mapState } from 'vuex'
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import { mapState } from "vuex";
 
-export default {
+@Component({
   computed: mapState({
-    dicts: state => state['public/dicts'].list
-  }),
-  methods: {
-    getDictsList () {
-      return this.$store.dispatch('public/dicts/getList', {})
-    },
-    async loadDicts () {
-      if (!this.dicts.config) {
-        await this.getDictsList()
-      }
-    },
-    async updateDicts () {
-      await this.loadDicts()
+    dicts: state => state["public/dicts"].list
+  })
+})
+export default class DictsMixin extends Vue {
+  getDictsList() {
+    return this.$store.dispatch("public/dicts/getList", {});
+  }
 
-      const { config } = this.dicts
-      const { data: { version } } = await this.$store.dispatch(
-        'public/dicts/postAction',
-        { action: 'getVersion' }
-      )
-
-      if (version !== config.version) this.getDictsList()
+  async loadDicts() {
+    if (!this.dicts.config) {
+      await this.getDictsList();
     }
+  }
+
+  async updateDicts() {
+    await this.loadDicts();
+
+    const { config } = this.dicts;
+    const {
+      data: { version }
+    } = await this.$store.dispatch("public/dicts/postAction", {
+      action: "getVersion"
+    });
+
+    if (version !== config.version) this.getDictsList();
   }
 }

@@ -1,43 +1,41 @@
-export default {
-  methods: {
-    async setOpenId () {
-      if (!this.$auth.get()['openId']) {
-        const { code } = await this.$wx.login({
-          withCredentials: true
-        })
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
 
-        const { data: { openId } } = await this.$store.dispatch(
-          'public/wxUsers/postAction', {
-            showError: false,
-            body: { type: 'MP_CODE_TO_SESSION', code }
-          })
+@Component
+export default class WxUserMixin extends Vue {
+  async setOpenId() {
+    if (!this.$auth.get()["openId"]) {
+      const { code } = await this.$wx.login({
+        withCredentials: true
+      });
 
-        this.$auth.setOpenId(openId)
-      }
-    },
-    async refreshWxUserInfo () {
-      if (this.$auth.loggedIn()) {
-        const {
-          data: {
-            nickName,
-            avatarUrl,
-            phoneNumber,
-            name = '',
-            extra = {}
-          }
-        } = await this.$store.dispatch('wx/wxUsers/postAction', {
-          showError: false,
-          action: 'getUserInfo'
-        })
+      const {
+        data: { openId }
+      } = await this.$store.dispatch("public/wxUsers/postAction", {
+        showError: false,
+        body: { type: "MP_CODE_TO_SESSION", code }
+      });
 
-        this.$auth.set({
-          nickName,
-          avatarUrl,
-          phoneNumber,
-          name,
-          extra
-        })
-      }
+      this.$auth.setOpenId(openId);
+    }
+  }
+
+  async refreshWxUserInfo() {
+    if (this.$auth.loggedIn()) {
+      const {
+        data: { nickName, avatarUrl, phoneNumber, name = "", extra = {} }
+      } = await this.$store.dispatch("wx/wxUsers/postAction", {
+        showError: false,
+        action: "getUserInfo"
+      });
+
+      this.$auth.set({
+        nickName,
+        avatarUrl,
+        phoneNumber,
+        name,
+        extra
+      });
     }
   }
 }
