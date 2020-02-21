@@ -16,7 +16,7 @@
         </div>
         <div
           v-for="city in cityGroup.items"
-          :key="cityGroup.initial + city.code"
+          :key="city.code"
           class="cc-list__item bgc11 fs26"
         >
           {{ city.name }}
