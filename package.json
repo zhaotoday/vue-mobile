@@ -1,11 +1,11 @@
 {
   "name": "we-design",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "description": "a collect of mini program UI components.",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"models/**/*.js\" \"pages/**/*.js\" \"plugins/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\"",
-    "lint": "eslint \"models/**/*.js\" \"pages/**/*.js\" \"plugins/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\" --fix"
+    "format": "prettier --write \"components/**/*.js\" \"mixins/**/*.js\" \"models/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\"",
+    "lint": "eslint \"components/**/*.js\" \"mixins/**/*.js\" \"models/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\" --fix"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "node-sass": "^4.13.0",
     "prettier": "^1.19.1",
     "sass-loader": "^7.3.1"
