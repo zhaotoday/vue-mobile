@@ -4,28 +4,6 @@ import auth from "./auth";
 import consts from "@/utils/consts";
 
 export default class extends REST {
-  _toString(obj) {
-    let ret = {};
-    let types = [];
-
-    Object.keys(obj).forEach(v => {
-      ret[v] = {};
-      types = Object.keys(obj[v]);
-
-      types.forEach(type => {
-        if (obj[v][type] === undefined || obj[v][type] === "") {
-          delete ret[v];
-        } else if (type === "$like") {
-          ret[v][type] = `%${obj[v][type]}%`;
-        } else {
-          ret[v] = obj[v];
-        }
-      });
-    });
-
-    return JSON.stringify(ret);
-  }
-
   request(
     method = "GET",
     { id, query = {}, body = {}, showLoading = false, showError = true }
@@ -37,16 +15,14 @@ export default class extends REST {
       body.wxUserId = userId;
     }
 
-    // 转 where 对象为字符串
     if (query.where) {
-      query.where = this._toString(query.where);
+      query.where = JSON.stringify(query.where);
     }
 
-    if (body.where) {
-      body.where = JSON.parse(this._toString(body.where));
+    if (query.include) {
+      query.include = JSON.stringify(query.include);
     }
 
-    // 清楚缓存
     if (method === "GET") {
       query._ = new Date().getTime();
     }
