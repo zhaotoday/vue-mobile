@@ -13,7 +13,8 @@ export default class WxUserMixin extends Vue {
         data: { openId }
       } = await this.$store.dispatch("public/wxUsers/postAction", {
         showError: false,
-        body: { type: "MP_CODE_TO_SESSION", code }
+        action: "getOpenId",
+        body: { code }
       });
 
       this.$auth.setOpenId(openId);
