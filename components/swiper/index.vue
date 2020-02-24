@@ -26,7 +26,8 @@
       <span
         v-for="(item, index) in items.length"
         :key="index"
-        :class="['cc-indicator__item', { 'is-active': item === current }]"
+        class="cc-indicator__item"
+        :class="{ 'is-active': index === current }"
       >
       </span>
     </div>
