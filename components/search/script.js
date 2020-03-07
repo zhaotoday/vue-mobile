@@ -42,8 +42,4 @@ export default class Search extends Vue {
   confirm() {
     this.$emit("confirm", this.value);
   }
-
-  getValue() {
-    return this.value;
-  }
 }
