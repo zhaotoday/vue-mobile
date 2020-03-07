@@ -1,6 +1,6 @@
 {
   "name": "we-design",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "a collect of mini program UI components.",
   "main": "index.js",
   "scripts": {
