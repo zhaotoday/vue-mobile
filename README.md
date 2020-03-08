@@ -38,10 +38,10 @@ $ npm run lint
 #### 目录规范
 
 ```
-|- assets               未编译的静态资源
+|- assets               待编译的静态资源
 |  |- images            图片（必须小于 40K）
 |     |- components     组件图片
-|        |- icon        icon 组件的图片
+|        |- icon        icon 组件图片
 |  |- styles            样式
 |     |- global         全局样式
 |     |- utils          Sass 工具
@@ -78,6 +78,7 @@ $ npm run lint
 |        |- wx-users    微信用户状态管理
 |     |- wx             微信端状态管理
 |        |- wx-users    微信用户状态管理
+|
 |- utils                工具
 ```
 
