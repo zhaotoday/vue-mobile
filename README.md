@@ -167,7 +167,7 @@ app.$mount()
 
 models/wx/products.js
 
-```
+```js
 import REST from "we-design/utils/rest";
 import restHelpers from "we-design/utils/helpers/rest-helpers";
 import consts from "@/utils/consts";
