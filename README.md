@@ -14,7 +14,7 @@ Vue、Vuex、ES6、Sass、PostCSS 等。
 
 #### 开发工具
 
-HBuildX IDE。
+HBuilderX IDE。
 
 ## 使用
 
@@ -33,7 +33,7 @@ $ npm run lint
 
 #### 开发与构建
 
-请参考 HBuild X 的使用。
+请参考 HBuilderX 的使用。
 
 #### 目录规范
 
@@ -84,7 +84,7 @@ $ npm run lint
 
 #### 定义 Sass 变量
 
-可定义 CDN 地址/版本、本地图片地址、颜色值、组件相关 Sass 变量、自定义 Sass 变量等·
+可定义 CDN 地址/版本、本地图片地址、颜色值、组件相关 Sass 变量、自定义 Sass 变量等。
 
 ```scss
 // CDN
@@ -107,10 +107,10 @@ $colors: (
 $button-widths: 680px, 84px;
 ```
 
-#### 覆盖 We Design 组件默认的图片资源
+#### 覆盖 We Design 内置组件默认的图片资源
 
 请参考 We Design 图片目录结构，将图片放置在 assets/images/components/ 目录下。
-> 注：需要修改 Sass 变量，指向对应目录：$image-url: "~@/assets/images/components";
+> 注：需要修改 Sass 变量 $image-url，指向对应目录：$image-url: "~@/assets/images/components";
 
 #### 按需引用内置组件样式
 
@@ -133,7 +133,7 @@ assets/styles/global/index.scss
 @import "~we-design/assets/styles/global/utils/padding";
 ```
 
-#### 按需引用内置组件
+#### 按需引用并注册内置组件
 
 main.js
 
@@ -235,4 +235,4 @@ export default createStore({ Model });
 #### 链接
 
 - [Uni App 官网](https://uniapp.dcloud.io/)
-- [HBuild X 下载](https://www.dcloud.io/hbuilderx.html)
+- [HBuilderX 下载](https://www.dcloud.io/hbuilderx.html)
