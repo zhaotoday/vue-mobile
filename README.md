@@ -82,6 +82,34 @@ $ npm run lint
 |- utils                工具
 ```
 
+#### 定义 Sass 变量
+
+```scss
+// CDN
+$cdn: "http://localhost:88";
+
+// CDN 版本号
+$cdn-version: 0.1;
+
+// 图片地址
+$image-url: "~@/assets/images/components";
+
+// 颜色
+$colors: (
+  c11: white,
+  c12: black,
+  ...
+);
+
+// button
+$button-widths: 680px, 84px;
+```
+
+#### 覆盖 We Design 组件默认的图片资源
+
+请参考 We Design 图片目录结构，将图片放置在 assets/images/components/ 目录下。
+> 注：需要修改 Sass 变量，指向对应目录：$image-url: "~@/assets/images/components";
+
 #### 链接
 
 - [Uni App 官网](https://uniapp.dcloud.io/)
