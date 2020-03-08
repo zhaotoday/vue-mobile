@@ -16,6 +16,10 @@ Vue、Vuex、ES6、Sass、PostCSS 等。
 
 HBuilderX IDE。
 
+## 示例项目
+
+https://github.com/zhaotoday/uni-app
+
 ## 使用
 
 #### 命令
