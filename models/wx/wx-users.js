@@ -1,5 +1,5 @@
 import REST from "../../utils/rest";
-import restHelpers from "../../utils/helpers/rest-helpers";
+import auth from "../../utils/auth";
 import consts from "@/utils/consts";
 
 export default class extends REST {
@@ -7,7 +7,7 @@ export default class extends REST {
     super();
 
     this.baseURL = consts.API_URL;
-    this.headers = restHelpers.getHeaders();
+    this.headers = auth.getHeaders();
     this.path = "wx/wxUsers";
   }
 }

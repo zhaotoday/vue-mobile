@@ -50,5 +50,8 @@ export default {
   },
   phoneNumberBound() {
     return this.loggedIn() && !!this.get()["user"].phoneNumber;
+  },
+  getHeaders() {
+    return { Authorization: this.get()["token"] };
   }
 };

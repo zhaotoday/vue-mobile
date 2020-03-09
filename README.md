@@ -1,6 +1,6 @@
 ## 关于
 
-#### 是什么
+#### 简介
 
 We Design 框架为微信小程序开发而生，帮助开发团队降低开发和维护成本。
 
@@ -173,7 +173,7 @@ models/wx/products.js
 
 ```js
 import REST from "we-design/utils/rest";
-import restHelpers from "we-design/utils/helpers/rest-helpers";
+import auth from "we-design/utils/auth";
 import consts from "@/utils/consts";
 
 export default class extends REST {
@@ -181,7 +181,7 @@ export default class extends REST {
     super();
 
     this.baseURL = consts.API_URL;
-    this.headers = restHelpers.getHeaders();
+    this.headers = auth.getHeaders();
     this.path = "wx/products";
   }
 }
@@ -236,7 +236,7 @@ import Model from "../../../models/wx/products";
 export default createStore({ Model });
 ```
 
-#### 链接
+## 链接
 
 - [Uni App 官网](https://uniapp.dcloud.io/)
 - [HBuilderX 下载](https://www.dcloud.io/hbuilderx.html)
