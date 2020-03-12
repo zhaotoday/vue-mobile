@@ -31,7 +31,7 @@ export default ({ types, Model }) => {
 
     postAction({ commit }, { showLoading, showError, action, query, body }) {
       return new Model()
-        .addPath(`actions/${action}`)
+        .addPath(action ? `actions/${action}` : "actions")
         .POST({ showLoading, showError, query, body });
     }
   };
