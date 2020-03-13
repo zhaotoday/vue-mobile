@@ -236,6 +236,11 @@ import Model from "../../../models/wx/products";
 export default createStore({ Model });
 ```
 
+## 贴士
+
+- 忽略目录，便于查找源码：选中目录 - 右键 - Mark Directory as - Excluded； 
+- 代码格式化：Ctrl + Alt + Shift + P；
+
 ## 链接
 
 - [Uni App 官网](https://uniapp.dcloud.io/)
