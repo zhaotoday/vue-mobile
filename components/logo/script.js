@@ -5,7 +5,15 @@ import { Vue, Component } from "vue-property-decorator";
     name: {
       type: String,
       default: ""
+    },
+    width: {
+      type: String,
+      default: ""
     }
   }
 })
-export default class Logo extends Vue {}
+export default class Logo extends Vue {
+  get widthModifier() {
+    return this.width ? `w${this.width}` : "";
+  }
+}
