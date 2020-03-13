@@ -29,7 +29,7 @@
       @if ($heights) {
         @each $height-item in $heights {
           &.h#{$height-item / 1px} {
-            width: px2rpx($height-item);
+            height: px2rpx($height-item);
           }
         }
       }
