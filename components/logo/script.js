@@ -9,11 +9,19 @@ import { Vue, Component } from "vue-property-decorator";
     width: {
       type: String,
       default: ""
+    },
+    height: {
+      type: String,
+      default: ""
     }
   }
 })
 export default class Logo extends Vue {
   get widthModifier() {
     return this.width ? `w${this.width}` : "";
+  }
+
+  get heightModifier() {
+    return this.height ? `h${this.height}` : "";
   }
 }
