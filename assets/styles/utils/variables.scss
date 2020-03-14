@@ -4,12 +4,12 @@ $image-url: "~we-design/assets/images/components";
 // 颜色
 $colors: (
   // 黑白
-  c11: white,
+    c11: white,
   c12: black,
   // 主色调
-  c21: #1DA677,
+    c21: #1da677,
   // 灰色
-  c31: #F5F7FA,
+    c31: #f5f7fa,
   c32: #f2f6fc,
   c33: #ebeef5,
   c34: #e4e7ed,
@@ -45,14 +45,46 @@ $checkbox-width: 48px;
 
 // icon
 $icon-items: (
-  (icon: logo, width: 160px, height: 160px),
-  (icon: empty, width: 220px, height: 144px),
-  (icon: drop, width: 20px, height: 20px),
-  (icon: more, width: 20px, height: 20px),
-  (icon: image, width: 160px, height: 160px),
-  (icon: wechat, width: 160px, height: 160px),
-  (icon: close, width: 40px, height: 40px),
-  (icon: attachment, width: 180px, height: 180px)
+  (
+    icon: logo,
+    width: 160px,
+    height: 160px
+  ),
+  (
+    icon: empty,
+    width: 220px,
+    height: 144px
+  ),
+  (
+    icon: drop,
+    width: 20px,
+    height: 20px
+  ),
+  (
+    icon: more,
+    width: 20px,
+    height: 20px
+  ),
+  (
+    icon: image,
+    width: 160px,
+    height: 160px
+  ),
+  (
+    icon: wechat,
+    width: 160px,
+    height: 160px
+  ),
+  (
+    icon: close,
+    width: 40px,
+    height: 40px
+  ),
+  (
+    icon: attachment,
+    width: 180px,
+    height: 180px
+  )
 );
 
 // submit-bar
@@ -66,3 +98,9 @@ $table-th-widths: 0px;
 // tag
 $tag-heights: 0px;
 $tag-border-radii: 0px;
+
+// margin
+$margin-items: 16px, 18px, 20px, 22px, 24px;
+
+// padding
+$padding-items: 16px, 18px, 20px, 22px, 24px;

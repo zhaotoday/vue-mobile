@@ -18,13 +18,6 @@ export default class GlobalMixin extends Vue {
     };
   }
 
-  onShareAppMessage() {
-    return {
-      title: this.$consts.NAME,
-      path: this.$consts.HOME_PAGE
-    };
-  }
-
   onShow() {
     if (this.$auth.loggedIn()) {
       this.$store.dispatch("setUser", {
@@ -106,7 +99,7 @@ export default class GlobalMixin extends Vue {
     };
   }
 
-  getImageById(id) {
+  getFileURL({ id }) {
     return `${this.$consts.API_URL}/public/files/${id}`;
   }
 
