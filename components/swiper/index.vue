@@ -6,18 +6,18 @@
       :autoplay="autoplay"
       :interval="interval"
       @change="handleChange"
-      :style="{ height: `${height}rpx` }"
+      :style="style"
     >
       <swiper-item
         v-for="(item, index) in items"
         :key="index"
-        :style="{ height: `${height}rpx` }"
+        :style="style"
       >
         <img
           class="c-swiper__image"
           mode="aspectFill"
           :src="item.image"
-          :style="{ height: `${height}rpx` }"
+          :style="style"
           @click="navigateTo(item.url)"
         />
       </swiper-item>

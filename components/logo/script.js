@@ -7,11 +7,11 @@ import { Vue, Component } from "vue-property-decorator";
       default: ""
     },
     width: {
-      type: String,
+      type: Number,
       default: ""
     },
     height: {
-      type: String,
+      type: Number,
       default: ""
     }
   }
