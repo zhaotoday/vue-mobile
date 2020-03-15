@@ -12,4 +12,47 @@
       flex: 0 1 auto;
     }
   }
+
+  @include e(row) {
+    @include clearfix;
+
+    width: 100%;
+
+    @each $item in $grid-paddings {
+      > .p#{$item / 1px} {
+        @include padding(null, px2rpx($item), null, px2rpx($item));
+
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  @include e(col) {
+    float: left;
+    min-height: 1px;
+  }
+
+  @include m(10) {
+    @include o(grid) {
+      @include e(col) {
+        @for $i from 1 through 10 {
+          @include m(#{$i}) {
+            width: 100% / 10 * $i;
+          }
+        }
+      }
+    }
+  }
+
+  @include m(12) {
+    @include o(grid) {
+      @include e(col) {
+        @for $i from 1 through 12 {
+          @include m(#{$i}) {
+            width: 100% / 12 * $i;
+          }
+        }
+      }
+    }
+  }
 }
