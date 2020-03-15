@@ -61,10 +61,14 @@
       }
     }
 
-    @include c(icon) {
+    @include c(icon, iconfont) {
       @include position--absolute(50%, null, null, 0);
 
       transform: translateY(-50%);
+    }
+
+    @include c(iconfont) {
+      text-indent: 0;
     }
   }
 

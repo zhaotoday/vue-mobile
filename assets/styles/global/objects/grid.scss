@@ -1,8 +1,4 @@
 @include o(grid) {
-  @include s(is-flexible) {
-    display: flex;
-  }
-
   @include m(full) {
     flex-wrap: wrap;
   }
@@ -23,8 +19,6 @@
     @each $item in $grid-paddings {
       > .p#{$item / 1px} {
         @include padding(null, px2rpx($item), null, px2rpx($item));
-
-        box-sizing: border-box;
       }
     }
   }
@@ -32,9 +26,12 @@
   @include e(col) {
     float: left;
     min-height: 1px;
+    box-sizing: border-box;
   }
 
   @include m(10) {
+    display: block;
+
     @include o(grid) {
       @include e(col) {
         @for $i from 1 through 10 {
@@ -47,6 +44,8 @@
   }
 
   @include m(12) {
+    display: block;
+
     @include o(grid) {
       @include e(col) {
         @for $i from 1 through 12 {
