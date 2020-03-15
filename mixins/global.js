@@ -116,4 +116,22 @@ export default class GlobalMixin extends Vue {
 
     return `${this.$consts.CDN_URL}/${id}${sizeParams}`;
   }
+
+  page(array, size) {
+    const length = array.length;
+    const newArray = [];
+    const i = Math.ceil(length / size);
+
+    let j = 0;
+
+    while (j < i) {
+      const spare = length - j * size >= size ? size : length - j * size;
+      const temp = array.slice(j * size, j * size + spare);
+
+      newArray.push(temp);
+      j++;
+    }
+
+    return newArray;
+  }
 }

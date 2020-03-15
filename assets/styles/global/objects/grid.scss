@@ -1,5 +1,7 @@
 @include o(grid) {
-  display: flex;
+  @include s(is-flexible) {
+    display: flex;
+  }
 
   @include m(full) {
     flex-wrap: wrap;
