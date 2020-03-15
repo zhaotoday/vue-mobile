@@ -29,13 +29,6 @@ import { Vue, Component } from "vue-property-decorator";
 export default class Swiper extends Vue {
   current = 0;
 
-  get style() {
-    return {
-      width: `${this.width}rpx`,
-      height: `${this.height}rpx`
-    };
-  }
-
   handleChange(e) {
     this.current = e.mp.detail.current;
   }
