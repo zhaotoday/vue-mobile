@@ -1,4 +1,6 @@
 @include o(grid) {
+  display: flex;
+
   @include m(full) {
     flex-wrap: wrap;
   }
