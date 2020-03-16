@@ -18,11 +18,9 @@
 
     width: 100%;
 
-    @if ($grid-paddings) {
-      @each $item in $grid-paddings {
-        > .p#{$item / 1px} {
-          @include padding(null, px2rpx($item), null, px2rpx($item));
-        }
+    @each $item in $grid-paddings {
+      > .p#{$item / 1px} {
+        @include padding(null, px2rpx($item), null, px2rpx($item));
       }
     }
   }

@@ -8,11 +8,11 @@ import { Vue, Component } from "vue-property-decorator";
     },
     width: {
       type: Number,
-      default: ""
+      default: 0
     },
     height: {
       type: Number,
-      default: ""
+      default: 0
     }
   }
 })
