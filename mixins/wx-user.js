@@ -23,7 +23,14 @@ export default class WxUserMixin extends Vue {
   async refreshWxUserInfo() {
     if (this.$auth.loggedIn()) {
       const {
-        data: { nickName, avatarUrl, avatarId, phoneNumber, name = "", extra = {} }
+        data: {
+          nickName,
+          avatarUrl,
+          avatarId,
+          phoneNumber,
+          name = "",
+          extra = {}
+        }
       } = await this.$store.dispatch("wx/wxUsers/postAction", {
         showError: false,
         action: "getUserInfo"
