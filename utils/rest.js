@@ -69,7 +69,13 @@ export default class extends REST {
           } else if (res.statusCode === 401) {
             wxb.navigateTo({ url: consts.LoginPage });
           } else {
-            showError && wxb.showToast({ title: res.data.error.message });
+            if (showError) {
+              if (res.data && res.data.error) {
+                wxb.showToast({ title: res.data.error.message });
+              } else {
+                wxb.showToast({ title: "服务器出错" });
+              }
+            }
           }
         });
     });
