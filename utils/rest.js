@@ -68,7 +68,7 @@ export default class extends REST {
           if (res.statusCode === 500) {
             showError && wxb.showToast({ title: "服务器出错" });
           } else if (res.statusCode === 401) {
-            wxb.navigateTo({ url: consts.LOGIN_PAGE });
+            wxb.navigateTo({ url: consts.LoginPage });
           } else {
             showError && wxb.showToast({ title: res.data.error.message });
           }

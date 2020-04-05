@@ -14,7 +14,7 @@ export default class Share extends Vue {
   cPainter = {
     palette: {
       background: `${
-        this.$consts.STATIC_URL
+        this.$consts.StaticUrl
       }/components/share/poster.jpg?_t=${new Date().getTime()}`,
       width: "840px",
       height: "1308px",
@@ -37,7 +37,7 @@ export default class Share extends Vue {
 
   async init() {
     this.cPainter.palette.views[0].url = `${
-      this.$consts.API_URL
+      this.$consts.ApiUrl
     }/wx/apis/wxa?func=getWXACodeUnLimit&shareOpenId=${this.$auth.getOpenId()}`;
   }
 

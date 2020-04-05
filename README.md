@@ -180,7 +180,7 @@ export default class extends REST {
   constructor() {
     super();
 
-    this.baseURL = consts.API_URL;
+    this.baseURL = consts.ApiUrl;
     this.headers = auth.getHeaders();
     this.path = "wx/products";
   }

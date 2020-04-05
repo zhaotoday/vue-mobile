@@ -50,7 +50,7 @@ export default class GlobalMixin extends Vue {
     return new Promise(async (resolve, reject) => {
       if (!this.$auth.loggedIn()) {
         await this.$wx.navigateTo({
-          url: this.$consts.LOGIN_PAGE
+          url: this.$consts.LoginPage
         });
         reject();
       } else {
@@ -64,7 +64,7 @@ export default class GlobalMixin extends Vue {
     return new Promise(async (resolve, reject) => {
       if (!this.$auth.infoModified()) {
         await this.$wx.navigateTo({
-          url: this.$consts.INFO_PAGE
+          url: this.$consts.InfoPage
         });
         reject();
       } else {
@@ -78,7 +78,7 @@ export default class GlobalMixin extends Vue {
     return new Promise(async (resolve, reject) => {
       if (!this.$auth.phoneNumberBound()) {
         await this.$wx.navigateTo({
-          url: this.$consts.PHONE_NUMBER_PAGE
+          url: this.$consts.PhoneNumberPage
         });
         reject();
       } else {
@@ -100,7 +100,7 @@ export default class GlobalMixin extends Vue {
   }
 
   getFileURL({ id }) {
-    return `${this.$consts.API_URL}/public/files/${id}`;
+    return `${this.$consts.ApiUrl}/public/files/${id}`;
   }
 
   getImageURL({ id, width, height }) {
@@ -114,7 +114,7 @@ export default class GlobalMixin extends Vue {
       sizeParams = `?imageView2/2/h/${height}/q/100`;
     }
 
-    return `${this.$consts.CDN_URL}/${id}${sizeParams}`;
+    return `${this.$consts.CdnUrl}/${id}${sizeParams}`;
   }
 
   page(array, size) {
