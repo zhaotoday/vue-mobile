@@ -34,7 +34,6 @@ export default class extends REST {
       const userId = auth.get()["user"]["id"];
 
       query.wxUserId = userId;
-      body.wxUserId = userId;
     }
 
     if (query.where) {
