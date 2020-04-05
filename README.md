@@ -238,8 +238,23 @@ export default createStore({ Model });
 
 ## 贴士
 
-- 忽略目录，便于查找源码：选中目录 - 右键 - Mark Directory as - Excluded； 
-- 代码格式化：Ctrl + Alt + Shift + P；
+#### 忽略目录
+
+忽略目录，便于查找源码。选中目录 -> 右键 -> Mark Directory as -> Excluded； 
+
+#### 代码格式化
+
+快捷键：Ctrl + Alt + Shift + P；
+
+#### 识别项目别名
+
+- 复制 `alias.config.js` 文件到项目根目录下；
+- WebStorm -> File -> Settings -> Languages & Frameworks -> JavaScript -> Webpack -> webpack configuration file 选择 alias.config.js；
+
+#### 使用 iconfont
+
+- 在 iconfont 相应图标项目，点击 `下方新 icon 来袭，点击更新代码，更新后将支持 WOFF2 格式`；
+- 复制代码到 `/assets/styles/global/components/iconfont.scss`，`.c-iconfont` 去掉样式 `font-size: 16px;`，添加样式 `display: inline-block;`；
 
 ## 链接
 
