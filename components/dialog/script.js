@@ -18,6 +18,10 @@ import { Vue, Component } from "vue-property-decorator";
       type: Boolean,
       default: true
     },
+    showConfirm: {
+      type: Boolean,
+      default: true
+    },
     cancelText: {
       type: String,
       default: "取消"
@@ -25,6 +29,14 @@ import { Vue, Component } from "vue-property-decorator";
     confirmText: {
       type: String,
       default: "确认"
+    },
+    cancelStyle: {
+      type: String,
+      default: ""
+    },
+    confirmStyle: {
+      type: String,
+      default: "c21"
     },
     confirmDisabled: {
       type: Boolean,

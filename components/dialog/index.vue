@@ -10,12 +10,18 @@
       </div>
       <slot name="body"></slot>
       <ul class="c-dialog__foot o-grid u-tac fs32">
-        <li v-if="showCancel" class="o-grid__cell" @click="$emit('cancel')">
+        <li
+          v-if="showCancel"
+          class="o-grid__cell"
+          :class="cancelStyle"
+          @click="$emit('cancel')"
+        >
           {{ cancelText }}
         </li>
         <li
+          v-if="showConfirm"
           class="o-grid__cell"
-          :class="confirmDisabled ? 'c37' : 'c21'"
+          :class="confirmDisabled ? 'c37' : confirmStyle"
           @click="handleConfirm"
         >
           {{ confirmText }}
