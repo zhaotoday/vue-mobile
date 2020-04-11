@@ -88,7 +88,7 @@ export default class GlobalMixin extends Vue {
     });
   }
 
-  wrapHTML(html) {
+  wrapHtml(html = "") {
     return html.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
   }
 
@@ -99,11 +99,11 @@ export default class GlobalMixin extends Vue {
     };
   }
 
-  getFileURL({ id }) {
+  getFileUrl({ id }) {
     return `${this.$consts.ApiUrl}/public/files/${id}`;
   }
 
-  getImageURL({ id, width, height }) {
+  getImageUrl({ id, width, height }) {
     let sizeParams = "";
 
     if (width && height) {
