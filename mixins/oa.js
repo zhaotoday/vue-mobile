@@ -7,7 +7,7 @@ const { code } = qs.parse(window.location.search);
 
 @Component
 export default class OaMixin extends Vue {
-  async oaLogin(query = {}) {
+  async oaLogin(query = {}, cb) {
     const {
       data: { wxUser, token }
     } = await this.$store.dispatch("public/wxUsers/postAction", {
@@ -15,7 +15,7 @@ export default class OaMixin extends Vue {
       body: { type: "Oa", code, ...query }
     });
 
-    return { wxUser, token };
+    cb({ wxUser, token });
   }
 
   async configWxJsSdk(apiList = []) {

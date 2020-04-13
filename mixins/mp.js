@@ -2,7 +2,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class MpMixin extends Vue {
-  async mpLogin() {
+  async mpLogin(cb) {
     const { authSetting } = await this.$wx.getSetting();
 
     if (!authSetting["scope.userInfo"]) {
@@ -20,7 +20,7 @@ export default class MpMixin extends Vue {
         body: { type: "Mp", code, iv, encryptedData }
       });
 
-      return { wxUser, token };
+      cb({ wxUser, token });
     }
   }
 }
