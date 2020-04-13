@@ -3,9 +3,9 @@ import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class MpMixin extends Vue {
   async mpLogin() {
-    const getSettingRes = await this.$wx.getSetting();
+    const { authSetting } = await this.$wx.getSetting();
 
-    if (!getSettingRes.authSetting["scope.userInfo"]) {
+    if (!authSetting["scope.userInfo"]) {
       this.$wx.navigateBack();
     } else {
       const { code } = await this.$wx.login();
