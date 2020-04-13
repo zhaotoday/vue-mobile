@@ -29,7 +29,10 @@ export default ({ types, Model }) => {
       return new Model().DELETE({ showLoading, showError, id });
     },
 
-    postAction({ commit }, { showLoading, showError, action, id, query, body }) {
+    postAction(
+      { commit },
+      { showLoading, showError, action, id, query, body }
+    ) {
       return new Model()
         .addPath(`${id ? id + "/" : ""}actions/${action}`)
         .POST({ showLoading, showError, query, body });
