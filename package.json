@@ -1,6 +1,6 @@
 {
   "name": "we-design",
-  "version": "0.0.71",
+  "version": "0.0.73",
   "description": "a collect of mini program UI components.",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/zhaotoday/we-design#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "jt-helpers": "0.0.8",
     "jt-rest": "0.0.11",
+    "jweixin-module": "^1.6.0",
+    "query-string": "^6.12.1",
     "vue-property-decorator": "^8.4.0",
     "vuex": "^3.1.2",
     "wx-bridge": "0.0.28"
