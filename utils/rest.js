@@ -30,12 +30,6 @@ export default class extends REST {
     method = "GET",
     { id, query = {}, body = {}, showLoading = false, showError = true }
   ) {
-    if (auth.loggedIn()) {
-      const userId = auth.get()["user"]["id"];
-
-      query.wxUserId = userId;
-    }
-
     if (query.where) {
       query.where = this._toString(query.where);
     }
