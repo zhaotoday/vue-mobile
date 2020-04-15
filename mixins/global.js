@@ -89,7 +89,12 @@ export default class GlobalMixin extends Vue {
   }
 
   wrapHtml(html = "") {
-    return html.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ');
+    return html
+      .replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+      .replace(
+        /src="(.*)\/public\/files\/(\d)"/g,
+        `src="${this.$consts.CdnUrl}/$2?imageView2/0/w/750/q/100"`
+      );
   }
 
   filterList(list, key) {
