@@ -1,3 +1,11 @@
 .s-cms-content {
   line-height: 180%;
+
+  img {
+    max-width: 100%;
+  }
+
+  iframe {
+    width: 100%;
+  }
 }
