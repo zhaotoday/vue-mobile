@@ -32,4 +32,12 @@ export default class Swiper extends Vue {
   handleChange(e) {
     this.current = e.mp.detail.current;
   }
+
+  goLink(url) {
+    if (url.indexOf("https://") || url.indexOf("http://")) {
+      window.location.href = url;
+    } else {
+      this.$wx.navigateTo({ url });
+    }
+  }
 }
