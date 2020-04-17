@@ -92,8 +92,8 @@ export default class GlobalMixin extends Vue {
     return html
       .replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
       .replace(
-        /src="(.*)\/public\/files\/(\d+)"/gi,
-        `src="${this.$consts.CdnUrl}/$2?imageView2/2/w/750/q/100"`
+        new RegExp(`src="${this.$consts.ApiUrl}\/public\/files\/(\d+)"`, "gi"),
+        `src="${this.$consts.CdnUrl}/$2?imageView2/0/w/750/q/100"`
       );
   }
 
