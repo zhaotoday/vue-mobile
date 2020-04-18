@@ -6,6 +6,14 @@
   text-align: center;
 }
 
+.u-tal {
+  text-align: left;
+}
+
+.u-tar {
+  text-align: right;
+}
+
 .u-cf {
   @include clearfix;
 }
