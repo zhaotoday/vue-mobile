@@ -20,7 +20,7 @@
       height: auto;
       min-height: px2rpx(50px);
 
-      label {
+      > label {
         @include position--absolute(px2rpx(30px), null, null, 0);
 
         line-height: 100%;
