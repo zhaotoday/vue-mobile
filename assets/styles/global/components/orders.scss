@@ -52,10 +52,10 @@
 
   @include cc(products) {
     @include e(item) {
-      @include margin(px2rpx(-6px), null, px2rpx(4px));
+      @include margin(px2rpx(-4px), null, px2rpx(4px));
       @include text--overflow(2);
 
-      height: px2rpx(70px);
+      height: px2rpx(68px);
       line-height: 120%;
       position: relative;
     }
