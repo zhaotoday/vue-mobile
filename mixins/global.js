@@ -1,5 +1,6 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mapActions, mapState } from "vuex";
+import helpers from "jt-helpers";
 
 @Component({
   computed: mapState(["user"]),
@@ -123,9 +124,7 @@ export default class GlobalMixin extends Vue {
   }
 
   getItem(items, key, val) {
-    return items && items.length
-      ? items.find(item => item[key] === val) || {}
-      : {};
+    return helpers.getItem(items, key, val);
   }
 
   page(array, size) {
