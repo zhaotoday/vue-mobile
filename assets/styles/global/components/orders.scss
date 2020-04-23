@@ -1,23 +1,14 @@
 @include c(orders) {
-  $__head_height: 70px;
-  $__head_margin-left: 30px;
-  $border-color: map-get($colors, c34);
-  $__body_margin: 30px;
-  $__image_width: 160px;
-  $__image_height: 100px;
-  $__foot_padding-top: 16px;
-  $__foot_padding-right: 30px;
-
   @include e(item) {
     @include clearfix;
   }
 
   @include e(head) {
-    @include text--middle(px2rpx($__head_height));
+    @include text--middle(px2rpx(70px));
 
     position: relative;
-    margin-left: px2rpx($__head_margin-left);
-    border-bottom: 1px solid $border-color;
+    margin-left: px2rpx(30px);
+    border-bottom: 1px solid map-get($colors, c32);
 
     span {
       line-height: 100%;
@@ -32,11 +23,11 @@
   }
 
   @include e(body) {
-    margin: px2rpx($__body_margin);
+    margin: px2rpx(30px);
 
     @include o(media) {
       @include e(image) {
-        @include size(px2rpx($__image_width), px2rpx($__image_height));
+        @include size(px2rpx(160px), px2rpx(100px));
 
         border-radius: px2rpx(9px);
       }
@@ -48,11 +39,11 @@
   }
 
   @include e(foot) {
-    @include padding(px2rpx($__foot_padding-top), px2rpx($__foot_padding-right), px2rpx($__foot_padding-top));
+    @include padding(px2rpx(16px), px2rpx(30px), px2rpx(16px));
 
     line-height: 100%;
     text-align: right;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid map-get($colors, c32);
 
     @include c(button) {
       margin-left: px2rpx(20px);
@@ -61,9 +52,12 @@
 
   @include cc(products) {
     @include e(item) {
-      line-height: 100%;
+      @include margin(px2rpx(-6px), null, px2rpx(4px));
+      @include text--overflow(2);
+
+      height: px2rpx(70px);
+      line-height: 120%;
       position: relative;
-      margin-bottom: px2rpx(30px);
     }
 
     @include e(number) {
