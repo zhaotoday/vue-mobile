@@ -122,6 +122,12 @@ export default class GlobalMixin extends Vue {
     return `${this.$consts.CdnUrl}/${id}${sizeParams}`;
   }
 
+  getItem(items, key, val) {
+    return items && items.length
+      ? items.find(item => item[key] === val) || {}
+      : {};
+  }
+
   page(array, size) {
     const length = array.length;
     const newArray = [];
