@@ -1,7 +1,7 @@
 @include c(definition) {
   @include padding(px2rpx(30px), null, px2rpx(30px));
 
-  @include m(pb0) {
+  &.pb0 {
     padding-bottom: 0;
   }
 
