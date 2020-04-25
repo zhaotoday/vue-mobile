@@ -3,10 +3,10 @@
 
   background: {
     size: 100% 100%;
-    image: url("#{$image-url}/checkbox/normal.png");
+    image: url("#{$image-url}/components/checkbox/normal.png");
   }
 
   @include s(is-checked) {
-    background-image: url("#{$image-url}/checkbox/checked.png");
+    background-image: url("#{$image-url}/components/checkbox/checked.png");
   }
 }

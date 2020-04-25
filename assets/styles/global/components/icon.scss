@@ -16,7 +16,7 @@
     @include m(#{$icon}) {
       @include size(px2rpx($width), px2rpx($height));
 
-      background-image: url("#{$image-url}/icon/#{$icon}.png");
+      background-image: url("#{$image-url}/components/icon/#{$icon}.png");
 
       @if ($widths) {
         @each $width-item in $widths {
