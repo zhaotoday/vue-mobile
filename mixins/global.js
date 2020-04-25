@@ -35,7 +35,19 @@ export default class GlobalMixin extends Vue {
     this.$wx.switchTab({ url });
   }
 
-  redirectTo(url) {
+  async redirectTo(options) {
+    let url = "";
+    let requiresAuth = false;
+
+    if (typeof options === "string") {
+      url = options;
+    } else {
+      url = options.url || "";
+      requiresAuth = options.requiresAuth || false;
+    }
+
+    if (requiresAuth) await this.loggedIn();
+
     this.$wx.redirectTo({ url });
   }
 
