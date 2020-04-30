@@ -27,15 +27,7 @@ export default class GlobalMixin extends Vue {
     }
   }
 
-  navigateTo(url) {
-    this.$wx.navigateTo({ url });
-  }
-
-  switchTab(url) {
-    this.$wx.switchTab({ url });
-  }
-
-  async redirectTo(options) {
+  async _getUrl(options) {
     let url = "";
     let requiresAuth = false;
 
@@ -47,11 +39,25 @@ export default class GlobalMixin extends Vue {
     }
 
     if (requiresAuth) await this.loggedIn();
+  }
 
+  async navigateTo(options) {
+    const url = await this._getUrl(options);
+    this.$wx.navigateTo({ url });
+  }
+
+  async switchTab(options) {
+    const url = await this._getUrl(options);
+    this.$wx.switchTab({ url });
+  }
+
+  async redirectTo(options) {
+    const url = await this._getUrl(options);
     this.$wx.redirectTo({ url });
   }
 
-  reLaunch(url) {
+  async reLaunch(options) {
+    const url = await this._getUrl(options);
     this.$wx.reLaunch({ url });
   }
 
