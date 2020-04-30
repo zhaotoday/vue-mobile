@@ -39,6 +39,8 @@ export default class GlobalMixin extends Vue {
     }
 
     if (requiresAuth) await this.loggedIn();
+
+    return url;
   }
 
   async navigateTo(options) {
