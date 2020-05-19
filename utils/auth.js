@@ -40,7 +40,7 @@ export default {
     const user = this.get()[USER];
     wxb.setStorageSync(USER, { ...user, phoneNumber });
   },
-  loggedIn(version = "") {
+  loggedIn({ version = "" } = {}) {
     return (
       (!version || wxb.getStorageSync(VERSION) === version) &&
       !!wxb.getStorageSync(USER) &&
