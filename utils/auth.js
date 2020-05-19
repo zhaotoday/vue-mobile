@@ -3,6 +3,7 @@ import wxb from "wx-bridge";
 const OPEN_ID = "openId";
 const USER = "user";
 const TOKEN = "token";
+const VERSION = "version";
 
 export default {
   get() {
@@ -12,9 +13,10 @@ export default {
       [TOKEN]: wxb.getStorageSync(TOKEN)
     };
   },
-  login({ user, token }) {
+  login({ user, token, version = "" }) {
     wxb.setStorageSync(USER, user);
     wxb.setStorageSync(TOKEN, `Bearer ${token}`);
+    wxb.setStorageSync(VERSION, version);
   },
   logout() {
     wxb.removeStorageSync(USER);
@@ -38,8 +40,12 @@ export default {
     const user = this.get()[USER];
     wxb.setStorageSync(USER, { ...user, phoneNumber });
   },
-  loggedIn() {
-    return !!wxb.getStorageSync(USER) && !!wxb.getStorageSync(TOKEN);
+  loggedIn(version = "") {
+    return (
+      (!version || wxb.getStorageSync(VERSION) === version) &&
+      !!wxb.getStorageSync(USER) &&
+      !!wxb.getStorageSync(TOKEN)
+    );
   },
   infoModified() {
     return (
