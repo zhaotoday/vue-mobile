@@ -34,7 +34,7 @@ export default class Swiper extends Vue {
   }
 
   goLink(url) {
-    if (url.indexOf("https://") || url.indexOf("http://")) {
+    if (url.indexOf("https://") !== -1 || url.indexOf("http://") !== -1) {
       window.location.href = url;
     } else {
       this.$wx.navigateTo({ url });
