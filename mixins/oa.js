@@ -13,7 +13,7 @@ export default class OaMixin extends Vue {
       data: { wxUser, token }
     } = await this.$store.dispatch("public/wxUsers/postAction", {
       action: "login",
-      body: { type: "Oa", _, code, page, ...query }
+      body: { type: "Oa", _, code, page, query }
     });
 
     return { wxUser, token };
