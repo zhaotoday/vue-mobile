@@ -3,7 +3,8 @@ import axios from "axios";
 import jweixin from "jweixin-module";
 import qs from "query-string";
 
-const { code } = qs.parse(window.location.search);
+const { _, code } = qs.parse(window.location.search);
+const page = window.location.hash.substr(1);
 
 @Component
 export default class OaMixin extends Vue {
@@ -12,7 +13,7 @@ export default class OaMixin extends Vue {
       data: { wxUser, token }
     } = await this.$store.dispatch("public/wxUsers/postAction", {
       action: "login",
-      body: { type: "Oa", code, ...query }
+      body: { type: "Oa", _, code, page, ...query }
     });
 
     return { wxUser, token };
