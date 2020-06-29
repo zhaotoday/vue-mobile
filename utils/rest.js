@@ -1,6 +1,5 @@
 import REST from "jt-rest";
 import wxb from "./wxb";
-import auth from "./auth";
 import consts from "@/utils/consts";
 
 export default class extends REST {
@@ -40,6 +39,10 @@ export default class extends REST {
 
     if (query.order) {
       query.order = JSON.stringify(query.order);
+    }
+
+    if (query.attributes) {
+      query.attributes = JSON.stringify(query.attributes);
     }
 
     if (method === "GET") {
