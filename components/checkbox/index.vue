@@ -1,9 +1,9 @@
 <template>
-  <div
-    class="c-checkbox"
-    :class="{ 'is-checked': checked }"
+  <i
+    class="c-checkbox c-iconfont"
+    :class="checked ? 'c-iconfont--checkbox-checked' : 'c-iconfont--checkbox'"
     @click.stop="$emit('change')"
-  ></div>
+  ></i>
 </template>
 
 <script src="./script.js"></script>
