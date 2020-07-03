@@ -42,10 +42,9 @@
     @include padding(px2rpx(16px), px2rpx(30px), px2rpx(16px));
 
     line-height: 100%;
-    text-align: right;
     border-top: 1px solid map-get($colors, c32);
 
-    @include c(button) {
+    @include c(tag) {
       margin-left: px2rpx(20px);
     }
   }
