@@ -8,7 +8,7 @@ import { Component, Vue } from "vue-property-decorator";
     },
     normalClass: {
       type: String,
-      default: "c32"
+      default: "c36"
     },
     checkedClass: {
       type: String,
