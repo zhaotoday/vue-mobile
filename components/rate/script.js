@@ -2,9 +2,13 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   props: {
-    checked: {
-      type: Boolean,
-      default: false
+    modifier: {
+      type: String,
+      default: "sm"
+    },
+    score: {
+      type: Number,
+      default: 0
     },
     normalClass: {
       type: String,
@@ -16,4 +20,4 @@ import { Component, Vue } from "vue-property-decorator";
     }
   }
 })
-export default class Checkbox extends Vue {}
+export default class Rate extends Vue {}
