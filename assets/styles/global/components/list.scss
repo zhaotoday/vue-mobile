@@ -110,6 +110,12 @@
     }
   }
 
+  @include e(content) {
+    margin-left: px2rpx(138px);
+    line-height: 160%;
+    width: px2rpx(550px);
+  }
+
   @include e(upload) {
     @include position--absolute(px2rpx(38px));
 
