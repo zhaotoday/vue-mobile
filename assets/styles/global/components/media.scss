@@ -126,6 +126,10 @@
         padding-top: px2rpx(16px);
         line-height: 160%;
       }
+
+      @include e(extra) {
+        width: px2rpx(670px);
+      }
     }
   }
 }
