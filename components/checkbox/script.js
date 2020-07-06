@@ -8,7 +8,7 @@ import { Component, Vue } from "vue-property-decorator";
     },
     normalClass: {
       type: String,
-      default: "c36"
+      default: "c37"
     },
     activeClass: {
       type: String,

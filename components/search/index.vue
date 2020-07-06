@@ -9,14 +9,14 @@
         <span v-if="value">
           {{ value }}
         </span>
-        <span v-else class="c36">
+        <span v-else class="c37">
           {{ placeholder }}
         </span>
       </div>
       <input
         v-else
         class="c-search__input fs28"
-        placeholder-class="c36"
+        placeholder-class="c37"
         :placeholder="placeholder"
         confirm-type="search"
         :auto-focus="autoFocus"
