@@ -81,11 +81,11 @@ export default class GlobalMixin extends Vue {
     });
   }
 
-  infoModified() {
+  infoModified(from = "") {
     return new Promise(async (resolve, reject) => {
       if (!this.$auth.infoModified()) {
         await this.$wx.navigateTo({
-          url: this.$consts.InfoPage
+          url: `${this.$consts.InfoPage}?from=${from}`
         });
         reject();
       } else {
