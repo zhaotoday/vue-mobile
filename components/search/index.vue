@@ -4,7 +4,7 @@
     :class="{ 'has-submit': showSubmit }"
     @click="navigateToLink"
   >
-    <div class="c-search__input-wrap bgc31">
+    <div class="c-search__input-wrap bgc32">
       <div v-if="link" class="c-search__input fs28">
         <span v-if="value">
           {{ value }}
