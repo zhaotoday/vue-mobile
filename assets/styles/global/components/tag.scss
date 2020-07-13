@@ -1,5 +1,6 @@
 @include c(tag) {
   display: inline-block;
+  box-sizing: border-box;
 
   @each $item in $tag-heights {
     &.h#{$item / 1px} {
