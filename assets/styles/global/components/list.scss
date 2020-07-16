@@ -21,8 +21,9 @@
       min-height: px2rpx(50px);
 
       > label {
-        @include position--absolute(px2rpx(30px), null, null, 0);
+        @include position--absolute(px2rpx(33px), null, null, 0);
 
+        transform: none;
         line-height: 100%;
       }
 
@@ -72,6 +73,13 @@
         text-indent: 0;
       }
     }
+  }
+
+  label {
+    @include position--absolute(50%);
+    @include text--middle(px2rpx(106px));
+
+    transform: translateY(-50%);
   }
 
   @include e(desc) {
