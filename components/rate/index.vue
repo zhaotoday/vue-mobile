@@ -5,6 +5,7 @@
       :key="index"
       class="c-iconfont c-iconfont--star"
       :class="score >= index + 1 ? activeClass : normalClass"
+      @click="rate(index + 1)"
     ></i>
     <span>{{ score }}分</span>
   </div>
