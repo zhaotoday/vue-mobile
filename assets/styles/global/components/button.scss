@@ -3,6 +3,16 @@
   text-align: center;
   display: inline-block;
 
+  @include e(bottom-wrap) {
+    @include position--fixed(null, null, 0, 0);
+    @include padding(px2rpx(30px), null, px2rpx(30px));
+
+    width: 100%;
+    line-height: 0;
+    text-align: center;
+    border-top: 1px solid map-get($colors, c32);
+  }
+
   &::after {
     border: none;
   }
@@ -12,7 +22,7 @@
   }
 
   @include s(is-bottom) {
-    @include position--fixed(null, null, px2rpx(36px), 50%);
+    @include position--fixed(null, null, px2rpx(30px), 50%);
 
     transform: translateX(-50%);
   }
