@@ -1,7 +1,12 @@
 <template>
   <picker :range="range" :value.sync="value" @change="handleChange">
-    <div class="c-filter bgc11 c37 fs24 u-tac">
-      <span>{{ array[value].name || placeholder }}</span>
+    <div class="c-filter bgc11 fs24 u-tac">
+      <span v-if="value === -1" class="c37">
+        {{ placeholder }}
+      </span>
+      <span v-else>
+        {{ range[value] }}
+      </span>
       <i class="c-icon c-icon--drop"></i>
     </div>
   </picker>

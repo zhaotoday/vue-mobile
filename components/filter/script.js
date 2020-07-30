@@ -10,13 +10,9 @@ import { Component, Vue } from "vue-property-decorator";
       type: Array,
       default: () => []
     },
-    array: {
-      type: Array,
-      default: () => []
-    },
     value: {
       type: Number,
-      default: 0
+      default: -1
     }
   }
 })
