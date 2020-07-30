@@ -4,7 +4,7 @@ import { Component, Vue } from "vue-property-decorator";
   props: {
     placeholder: {
       type: String,
-      default: ""
+      default: "请选择"
     },
     range: {
       type: Array,
