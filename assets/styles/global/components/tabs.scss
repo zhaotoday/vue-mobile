@@ -3,6 +3,7 @@
   $__item_height: 72px;
   $__item-is-active_color: map-get($colors, c21);
 
+  position: relative;
   display: flex;
   border-bottom: 1px solid $border-bottom_color;
   z-index: map-get($z-indexes, c-tabs);
