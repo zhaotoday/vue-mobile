@@ -21,6 +21,14 @@
     @each $item in $grid-paddings {
       > .p#{$item / 1px} {
         @include padding(null, px2rpx($item), null, px2rpx($item));
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
       }
     }
   }
