@@ -36,7 +36,7 @@ export default {
       : {};
   },
   formatNumber(number) {
-    return parseFloat(number.toFixed(2));
+    return parseFloat((number || 0).toFixed(2));
   },
   toLowerCamelCase(str) {
     return str.replace(/-([a-z])/g, (all, letter) => letter.toUpperCase());
