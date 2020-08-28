@@ -12,6 +12,10 @@ import { Component, Vue } from "vue-property-decorator";
       type: Boolean,
       default: true
     },
+    previewable: {
+      type: Boolean,
+      default: false
+    },
     interval: {
       type: Number,
       default: 3000
@@ -33,16 +37,14 @@ export default class Swiper extends Vue {
     this.current = e.mp.detail.current;
   }
 
-  goLink(url) {
-    if (url.indexOf("https://") !== -1 || url.indexOf("http://") !== -1) {
-      // #ifdef APP-PLUS
-      plus.runtime.openWeb(url);
-      // #endif
-      // #ifdef H5
-      window.location.href = url;
-      // #endif
+  handleClick(item) {
+    if (this.previewable) {
+      this.$wx.previewImage({
+        urls: this.images.map(item => item.image),
+        current: item.image
+      });
     } else {
-      this.$wx.navigateTo({ url });
+      this.navigateTo(item.url);
     }
   }
 }

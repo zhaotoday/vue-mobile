@@ -18,7 +18,7 @@
           mode="aspectFill"
           :src="item.image"
           :style="{ width: `${width}rpx`, height: `${height}rpx` }"
-          @click="goLink(item.url)"
+          @click="handleClick(item)"
         />
       </swiper-item>
     </swiper>

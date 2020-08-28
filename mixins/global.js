@@ -45,7 +45,17 @@ export default class GlobalMixin extends Vue {
 
   async navigateTo(options) {
     const url = await this._getUrl(options);
-    this.$wx.navigateTo({ url });
+
+    if (url.indexOf("https://") !== -1 || url.indexOf("http://") !== -1) {
+      // #ifdef APP-PLUS
+      plus.runtime.openWeb(url);
+      // #endif
+      // #ifdef H5
+      window.location.href = url;
+      // #endif
+    } else {
+      this.$wx.navigateTo({ url });
+    }
   }
 
   async switchTab(options) {
