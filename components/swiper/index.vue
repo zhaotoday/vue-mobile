@@ -2,6 +2,7 @@
   <div class="c-swiper">
     <swiper
       class="c-swiper__swiper"
+      :circular="true"
       :autoplay="autoplay"
       :interval="interval"
       @change="handleChange"

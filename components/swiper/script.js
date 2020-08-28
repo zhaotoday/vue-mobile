@@ -41,7 +41,9 @@ export default class Swiper extends Vue {
     if (this.previewable) {
       this.$wx.previewImage({
         urls: this.items.map(item => item.image),
-        current: item.image
+        current: item.image,
+        loop: true,
+        indicator: "number"
       });
     } else {
       this.navigateTo(item.url);
