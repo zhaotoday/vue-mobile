@@ -40,7 +40,7 @@ export default class Swiper extends Vue {
   handleClick(item) {
     if (this.previewable) {
       this.$wx.previewImage({
-        urls: this.images.map(item => item.image),
+        urls: this.items.map(item => item.image),
         current: item.image
       });
     } else {
