@@ -13,7 +13,7 @@
         :key="index"
         :style="{ width: `${width}rpx`, height: `${height}rpx` }"
       >
-        <img
+        <image
           class="c-swiper__image"
           mode="aspectFill"
           :src="item.image"
