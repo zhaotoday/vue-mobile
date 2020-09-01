@@ -20,14 +20,17 @@ export default class TagCheckbox extends Vue {
   checkedValues = [];
 
   check(item) {
-    if (!this.checkable) {
-      return;
-    }
+    if (!this.checkable) return;
+
     if (!this.checkedValues.includes(item.value)) {
-      if (this.maxCount > 0 && this.checkedValues.length >= this.maxCount) {
-        this.$emit("exceeded-count");
+      if (this.maxCount === 1) {
+        this.checkedValues = [item.value];
       } else {
-        this.checkedValues.push(item.value);
+        if (this.maxCount > 0 && this.checkedValues.length >= this.maxCount) {
+          this.$emit("exceeded-count");
+        } else {
+          this.checkedValues.push(item.value);
+        }
       }
     } else {
       const index = this.checkedValues.indexOf(item.value);
