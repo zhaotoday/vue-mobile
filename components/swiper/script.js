@@ -30,7 +30,7 @@ import { Component, Vue } from "vue-property-decorator";
     }
   }
 })
-export default class Swiper extends Vue {
+export default class CSwiper extends Vue {
   current = 0;
 
   handleChange(e) {
