@@ -5,4 +5,8 @@ import { Component, Vue } from "vue-property-decorator";
     src: String
   }
 })
-export default class CImage extends Vue {}
+export default class CImage extends Vue {
+  get html() {
+    return `<img src="${this.src}" />`;
+  }
+}
