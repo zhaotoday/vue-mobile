@@ -5,4 +5,4 @@ import { Component, Vue } from "vue-property-decorator";
     src: String
   }
 })
-export default class Img extends Vue {}
+export default class CImage extends Vue {}
