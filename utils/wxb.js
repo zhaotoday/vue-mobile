@@ -7,15 +7,13 @@ wxb.showToast = helpers.intercept(wxb.showToast, {
   }
 });
 
-wxb.navigateTo = helpers.intercept(wxb.showToast, {
+wxb.navigateTo = helpers.intercept(wxb.navigateTo, {
   req(options) {
-    return !options.icon
-      ? {
-          ...options,
-          animationType: "slide-in-right",
-          animationDuration: 200
-        }
-      : options;
+    return {
+      animationType: "slide-in-right",
+      animationDuration: 200,
+      ...options
+    };
   }
 });
 
