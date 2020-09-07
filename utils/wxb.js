@@ -7,4 +7,16 @@ wxb.showToast = helpers.intercept(wxb.showToast, {
   }
 });
 
+wxb.navigateTo = helpers.intercept(wxb.showToast, {
+  req(options) {
+    return !options.icon
+      ? {
+          ...options,
+          animationType: "slide-in-right",
+          animationDuration: 200
+        }
+      : options;
+  }
+});
+
 export default wxb;
