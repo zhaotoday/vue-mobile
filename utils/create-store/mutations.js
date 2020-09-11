@@ -5,6 +5,9 @@ export default ({ types }) => {
     },
     [types.GET_DETAIL](state, payload) {
       state.detail = payload.data;
+    },
+    [types.SET](state, { key, value }) {
+      state[key] = value;
     }
   };
 };

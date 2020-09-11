@@ -36,6 +36,10 @@ export default ({ types, Model }) => {
       return new Model()
         .addPath(`${id ? id + "/" : ""}actions/${action}`)
         .POST({ showLoading, showError, query, body });
+    },
+
+    set({ commit }, { key, value }) {
+      commit(types.SET, { key, value });
     }
   };
 };
