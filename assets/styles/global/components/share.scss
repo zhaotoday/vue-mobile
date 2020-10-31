@@ -1,5 +1,0 @@
-@include c(share) {
-  @include c(painter) {
-    @include position--absolute(0, null, null, px2rpx(-2000px));
-  }
-}

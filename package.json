@@ -1,7 +1,7 @@
 {
-  "name": "we-design",
-  "version": "0.0.157",
-  "description": "a collect of mini program UI components.",
+  "name": "vue-mobile",
+  "version": "1.0.1",
+  "description": " a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
     "format": "prettier --write \"components/**/*.js\" \"mixins/**/*.js\" \"models/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\"",
@@ -9,9 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaotoday/we-design.git"
+    "url": "git+https://github.com/zhaotoday/vue-mobile.git"
   },
   "keywords": [
+    "vue-mobile",
     "uni-app",
     "ui-components",
     "mini-program"
@@ -19,9 +20,9 @@
   "author": "zhaojintian",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhaotoday/we-design/issues"
+    "url": "https://github.com/zhaotoday/vue-mobile/issues"
   },
-  "homepage": "https://github.com/zhaotoday/we-design#readme",
+  "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "jt-helpers": "0.0.8",
