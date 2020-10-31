@@ -1,4 +1,4 @@
-import { Component, Vue, Watch, Prop } from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 
 @Component
 export default class Search extends Vue {

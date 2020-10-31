@@ -1,4 +1,4 @@
-import { Component, Vue, Prop, Emit } from "vue-property-decorator";
+import { Component, Emit, Prop, Vue } from "vue-property-decorator";
 
 @Component
 export default class Tabs extends Vue {
