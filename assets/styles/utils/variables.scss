@@ -3,13 +3,10 @@ $image-url: "~we-design/assets/images";
 
 // 颜色
 $colors: (
-  // 黑白
-    c11: white,
+  c11: white,
   c12: black,
-  // 主色调
-    c21: #1da677,
-  // 灰色
-    c31: #f5f7fa,
+  c21: #1da677,
+  c31: #f5f7fa,
   c32: #f2f6fc,
   c33: #ebeef5,
   c34: #e4e7ed,
@@ -27,9 +24,7 @@ $z-indexes: (
   c-fixed-cart: 4,
   c-overlay: 5,
   c-dialog: 6,
-  c-popup: 6,
-  c-poster: 6,
-  c-share-options: 7
+  c-popup: 6
 );
 
 // avatar

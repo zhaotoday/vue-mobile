@@ -2,7 +2,7 @@
 
 #### 简介
 
-We Design 框架为微信小程序开发而生，帮助开发团队降低开发和维护成本。
+Vue Mobile 是一个基于 Vue 的移动端 UI 框架，为多端开发而生，支持发布到 iOS、Android、H5、以及各种小程序。
 
 #### 依赖框架
 
@@ -26,7 +26,7 @@ https://github.com/zhaotoday/uni-app
 
 ```bash
 # 安装
-$ npm install we-design --save
+$ npm install vue-mobile --save
 
 # 格式化代码
 $ npm run format
@@ -59,11 +59,11 @@ $ npm run lint
 |
 |- mixins               混合
 |
-|- models               模型
-|  |- public            前端模型
-|     |- wx-users       微信用户模型
-|  |- wx                微信端模型
-|     |- wx-users       微信用户模型
+|- models               数据模型
+|  |- public            前端数据模型
+|     |- wx-users       微信用户数据模型
+|  |- wx                微信端数据模型
+|     |- wx-users       微信用户数据模型
 |
 |- pages                页面
 |  |- home              主页
@@ -88,7 +88,7 @@ $ npm run lint
 
 #### 定义 Sass 变量
 
-可定义 CDN 地址/版本、本地图片地址、颜色值、组件相关 Sass 变量、自定义 Sass 变量等。
+可定义 CDN 地址/版本、本地图片地址、色值、组件相关 Sass 变量、自定义 Sass 变量等。
 
 ```scss
 // CDN
@@ -111,9 +111,10 @@ $colors: (
 $button-widths: 680px, 84px;
 ```
 
-#### 覆盖 We Design 内置组件默认的图片资源
+#### 覆盖 Vue Mobile 内置组件默认的图片资源
 
-请参考 We Design 图片目录结构，将图片放置在 assets/images/components/ 目录下。
+请参考 Vue Mobile 图片目录结构，将图片放置在 assets/images/components/ 目录下。
+
 > 注：需要修改 Sass 变量 $image-url，指向对应目录：$image-url: "~@/assets/images/components";
 
 #### 按需引用内置组件样式
@@ -122,19 +123,19 @@ assets/styles/global/index.scss
 
 ```scss
 @import "../utils/index";
-@import "~we-design/assets/styles/global/classes/colors";
-@import "~we-design/assets/styles/global/classes/font-sizes";
-@import "~we-design/assets/styles/global/classes/iconfont";
-@import "~we-design/assets/styles/global/components/avatar";
+@import "~vue-mobile/assets/styles/global/classes/colors";
+@import "~vue-mobile/assets/styles/global/classes/font-sizes";
+@import "~vue-mobile/assets/styles/global/classes/iconfont";
+@import "~vue-mobile/assets/styles/global/components/avatar";
 
 // 引用其他内置组件样式
 
-@import "~we-design/assets/styles/global/objects/grid";
-@import "~we-design/assets/styles/global/objects/media";
-@import "~we-design/assets/styles/global/reset/index";
-@import "~we-design/assets/styles/global/utils/base";
-@import "~we-design/assets/styles/global/utils/margin";
-@import "~we-design/assets/styles/global/utils/padding";
+@import "~vue-mobile/assets/styles/global/objects/grid";
+@import "~vue-mobile/assets/styles/global/objects/media";
+@import "~vue-mobile/assets/styles/global/reset/index";
+@import "~vue-mobile/assets/styles/global/utils/base";
+@import "~vue-mobile/assets/styles/global/utils/margin";
+@import "~vue-mobile/assets/styles/global/utils/padding";
 ```
 
 #### 按需引用并注册内置组件
@@ -142,38 +143,38 @@ assets/styles/global/index.scss
 main.js
 
 ```js
-import Vue from 'vue'
-import App from '@/App'
-import globalPlugin from '@/plugins/global'
-import Checkbox from 'we-design/components/checkbox'
+import Vue from "vue";
+import App from "@/App";
+import globalPlugin from "@/plugins/global";
+import Checkbox from "vue-mobile/components/checkbox";
 
 // 引用其他内置组件
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.use(globalPlugin)
+Vue.use(globalPlugin);
 
-Vue.component('c-checkbox', Checkbox)
+Vue.component("c-checkbox", Checkbox);
 
 // 注册其他内置组件
 
 const app = new Vue({
-  mpType: 'app',
+  mpType: "app",
   ...App
-})
+});
 
-app.$mount()
+app.$mount();
 ```
 
 ## 代码示例
 
-#### 模型
+#### 数据模型
 
 models/wx/products.js
 
 ```js
-import REST from "we-design/utils/rest";
-import auth from "we-design/utils/auth";
+import REST from "vue-mobile/utils/rest";
+import auth from "vue-mobile/utils/auth";
 import consts from "@/utils/consts";
 
 export default class extends REST {
@@ -206,7 +207,7 @@ pages/home/index.vue
 pages/home/script.js
 
 ```js
-import { Vue, Component } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class Home extends Vue {}
@@ -215,9 +216,10 @@ export default class Home extends Vue {}
 pages/home/style.scss
 
 ```scss
-@import '../../assets/styles/utils/index';
+@import "~@/assets/styles/utils/index";
 
 @include p(home) {
+  // ...
 }
 ```
 
@@ -230,8 +232,8 @@ pages/home/style.scss
 store/modules/wx/products.js
 
 ```js
-import createStore from "we-design/utils/create-store";
-import Model from "../../../models/wx/products";
+import createStore from "vue-mobile/utils/create-store";
+import Model from "@/models/wx/products";
 
 export default createStore({ Model });
 ```
@@ -240,7 +242,7 @@ export default createStore({ Model });
 
 #### 忽略目录
 
-忽略目录，便于查找源码。选中目录 -> 右键 -> Mark Directory as -> Excluded； 
+忽略目录，便于查找源码。选中目录 -> 右键 -> Mark Directory as -> Excluded；
 
 #### 代码格式化
 
