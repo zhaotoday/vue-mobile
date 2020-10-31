@@ -246,7 +246,8 @@ export default createStore({ Model });
 
 #### 代码格式化
 
-快捷键：Ctrl + Alt + Shift + P；
+- 当前文件格式化。快捷键：Ctrl + Alt + Shift + P；
+- 目录下所有文件格式化。选中目录 -> 右键 -> Optimize Imports；选中目录 -> 右键 -> Reformat with Prettier；
 
 #### 识别项目别名
 
