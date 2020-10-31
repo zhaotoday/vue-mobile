@@ -1,15 +1,16 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    visible: {
-      type: Boolean,
-      default: false
-    },
-    image: {
-      type: String,
-      default: ""
-    }
-  }
-})
-export default class Poster extends Vue {}
+@Component
+export default class Poster extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  visible;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  image;
+}

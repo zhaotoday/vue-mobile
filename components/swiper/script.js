@@ -1,36 +1,43 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    items: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
-    autoplay: {
-      type: Boolean,
-      default: true
-    },
-    previewable: {
-      type: Boolean,
-      default: false
-    },
-    interval: {
-      type: Number,
-      default: 3000
-    },
-    width: {
-      type: Number,
-      default: 750
-    },
-    height: {
-      type: Number,
-      default: 300
-    }
-  }
-})
+@Component
 export default class CSwiper extends Vue {
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  items;
+
+  @Prop({
+    type: Boolean,
+    default: true
+  })
+  autoplay;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  previewable;
+
+  @Prop({
+    type: Number,
+    default: 3000
+  })
+  interval;
+
+  @Prop({
+    type: Number,
+    default: 750
+  })
+  width;
+
+  @Prop({
+    type: Number,
+    default: 300
+  })
+  height;
+
   current = 0;
 
   handleChange(e) {

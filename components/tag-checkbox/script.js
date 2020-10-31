@@ -1,22 +1,25 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    checkable: {
-      type: Boolean,
-      default: false
-    },
-    items: {
-      type: Array,
-      default: () => []
-    },
-    maxCount: {
-      type: Number,
-      default: 0
-    }
-  }
-})
+@Component
 export default class TagCheckbox extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  checkable;
+
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  items;
+
+  @Prop({
+    type: Number,
+    default: 0
+  })
+  maxCount;
+
   checkedValues = [];
 
   check(item) {

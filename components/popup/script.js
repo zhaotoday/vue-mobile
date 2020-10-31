@@ -1,11 +1,10 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    visible: {
-      type: Boolean,
-      default: true
-    }
-  }
-})
-export default class Popup extends Vue {}
+@Component
+export default class Popup extends Vue {
+  @Prop({
+    type: Boolean,
+    default: true
+  })
+  visible;
+}

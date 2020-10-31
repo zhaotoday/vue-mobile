@@ -1,19 +1,21 @@
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop, Emit } from "vue-property-decorator";
 
-@Component({
-  props: {
-    tabs: {
-      type: Array,
-      default: () => []
-    },
-    index: {
-      type: Number,
-      default: 0
-    }
-  }
-})
+@Component
 export default class Tabs extends Vue {
-  handleChange(index) {
-    this.$emit("change", index);
+  @Prop({
+    type: Array,
+    default: () => []
+  })
+  tabs;
+
+  @Prop({
+    type: Number,
+    default: 0
+  })
+  index;
+
+  @Emit()
+  change(index) {
+    return index;
   }
 }

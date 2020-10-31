@@ -1,30 +1,37 @@
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue, Watch, Prop } from "vue-property-decorator";
 
-@Component({
-  props: {
-    autoFocus: {
-      type: Boolean,
-      default: false
-    },
-    showSubmit: {
-      type: Boolean,
-      default: false
-    },
-    link: {
-      type: String,
-      default: ""
-    },
-    defaultValue: {
-      type: String,
-      default: ""
-    },
-    placeholder: {
-      type: String,
-      default: ""
-    }
-  }
-})
+@Component
 export default class Search extends Vue {
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  autoFocus;
+
+  @Prop({
+    type: Boolean,
+    default: false
+  })
+  showSubmit;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  link;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  defaultValue;
+
+  @Prop({
+    type: String,
+    default: ""
+  })
+  placeholder;
+
   value = "";
 
   @Watch("defaultValue")
