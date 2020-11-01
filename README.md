@@ -263,3 +263,10 @@ export default createStore({ Model });
 
 - [Uni App 官网](https://uniapp.dcloud.io/)
 - [HBuilderX 下载](https://www.dcloud.io/hbuilderx.html)
+- [uni-app跨平台框架官方教程](https://ke.qq.com/course/343370)
+- [uni-app 中使用微信小程序第三方 SDK 及资源汇总](https://ask.dcloud.net.cn/article/35070)
+- [uni-app中如何使用5+的原生界面控件（包括map、video、livepusher、barcode、nview）
+](https://ask.dcloud.net.cn/article/35036)
+- [uni-app 入坑指南](https://www.jianshu.com/p/7b33ade6d10b)
+- [为什么有些组件名不可以使用](http://mpvue.com/qa/#_3)；
+- [unionId 和 openId 的区别](https://mp.weixin.qq.com/s?__biz=NzA3OTQ2OTgw&mid=204189507&idx=1&sn=58fd3df3a8323f6b7bfb2680f222c293)
