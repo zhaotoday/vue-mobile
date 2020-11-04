@@ -91,7 +91,7 @@ $ npm run lint
 可定义 CDN 地址/版本、本地图片地址、色值、组件相关 Sass 变量、自定义 Sass 变量等。
 
 ```scss
-// CDN
+// CDN 地址
 $cdn: "http://localhost:88";
 
 // CDN 版本号
@@ -100,7 +100,7 @@ $cdn-version: 0.1;
 // 图片地址
 $image-url: "~@/assets/images/components";
 
-// 颜色
+// 色值
 $colors: (
   c11: white,
   c12: black,
