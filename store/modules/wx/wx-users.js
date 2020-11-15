@@ -4,7 +4,7 @@ import Model from "../../../models/wx/wx-users";
 export default createStore({
   Model,
   state: {
-    user: {
+    wxUser: {
       extra: {}
     }
   },

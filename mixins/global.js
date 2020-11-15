@@ -1,11 +1,8 @@
 import { Component, Vue } from "vue-property-decorator";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 import helpers from "jt-helpers";
 
 @Component({
-  computed: mapState({
-    user: state => state["wx/wxUsers"].user
-  }),
   methods: mapActions({
     resetState: "resetState"
   })
