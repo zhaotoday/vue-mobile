@@ -5,6 +5,12 @@ export default createStore({
   Model,
   state: {
     wxUser: {
+      id: 0,
+      name: "",
+      nickName: "",
+      avatarUrl: "",
+      avatarId: null,
+      phoneNumber: "",
       extra: {}
     }
   },
