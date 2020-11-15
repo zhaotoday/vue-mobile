@@ -17,12 +17,14 @@ export default {
   login({ user, token, code, version = "" }) {
     wxb.setStorageSync(USER, user);
     wxb.setStorageSync(TOKEN, `Bearer ${token}`);
-    wxb.setStorageSync(CODE, code);
-    wxb.setStorageSync(VERSION, version);
+
+    code && wxb.setStorageSync(CODE, code);
+    version && wxb.setStorageSync(VERSION, version);
   },
   logout() {
     wxb.removeStorageSync(USER);
     wxb.removeStorageSync(TOKEN);
+
     wxb.removeStorageSync(CODE);
     wxb.removeStorageSync(VERSION);
   },
