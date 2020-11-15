@@ -1,5 +1,9 @@
 import wxb from "wx-bridge";
 
+const OpenId = "openId";
+const User = "user";
+const Token = "token";
+
 // #ifdef H5
 const { openId, user, token } = require("@/mock-user.json");
 // #endif
@@ -10,16 +14,14 @@ const user = {};
 const token = "";
 // #endif
 
-const OPEN_ID = "openId";
-const USER = "user";
-const TOKEN = "token";
-
 export default {
   login() {
-    wxb.setStorageSync(USER, user);
-    wxb.setStorageSync(TOKEN, `Bearer ${token}`);
+    wxb.setStorageSync(User, user);
+    wxb.setStorageSync(Token, `Bearer ${token}`);
+
+    return { user, token };
   },
   setOpenId() {
-    wxb.setStorageSync(OPEN_ID, openId);
+    wxb.setStorageSync(OpenId, openId);
   }
 };
