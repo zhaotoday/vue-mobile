@@ -16,7 +16,6 @@ const token = "";
 
 export default {
   login() {
-    wxb.setStorageSync(User, user);
     wxb.setStorageSync(Token, `Bearer ${token}`);
 
     return { user, token };
