@@ -13,14 +13,14 @@ export default class MpMixin extends Vue {
         withCredentials: true
       });
       const {
-        data: { wxUser, token }
+        data: { wxUser, token, extra = {} }
       } = await this.$store.dispatch("public/wxUsers/postAction", {
         showLoading: true,
         action: "login",
         body: { type: "Mp", code, iv, encryptedData }
       });
 
-      cb({ wxUser, token });
+      cb({ wxUser, token, extra });
     }
   }
 }
