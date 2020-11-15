@@ -3,7 +3,9 @@ import { mapActions, mapState } from "vuex";
 import helpers from "jt-helpers";
 
 @Component({
-  computed: mapState(["wx/wxUsers/user"]),
+  computed: mapState({
+    user: state => state["wx/wxUsers"].user
+  }),
   methods: mapActions({
     resetState: "resetState"
   })
@@ -70,41 +72,34 @@ export default class GlobalMixin extends Vue {
   loggedIn() {
     return new Promise(async (resolve, reject) => {
       if (!this.$auth.loggedIn()) {
-        await this.$wx.navigateTo({
-          url: this.$consts.LoginPage
-        });
+        await this.$wx.navigateTo({ url: this.$consts.LoginPage });
         reject();
       } else {
-        const user = this.$auth.get()["user"];
-        resolve({ user });
+        resolve({ user: this.user });
       }
     });
   }
 
   infoModified(from = "") {
     return new Promise(async (resolve, reject) => {
-      if (!this.$auth.infoModified()) {
+      if (!this.user.name) {
         await this.$wx.navigateTo({
           url: `${this.$consts.InfoPage}?from=${from}`
         });
         reject();
       } else {
-        const user = this.$auth.get()["user"];
-        resolve({ user });
+        resolve({ user: this.user });
       }
     });
   }
 
   phoneNumberBound() {
     return new Promise(async (resolve, reject) => {
-      if (!this.$auth.phoneNumberBound()) {
-        await this.$wx.navigateTo({
-          url: this.$consts.PhoneNumberPage
-        });
+      if (!this.user.phoneNumber) {
+        await this.$wx.navigateTo({ url: this.$consts.PhoneNumberPage });
         reject();
       } else {
-        const user = this.$auth.get()["user"];
-        resolve({ user });
+        resolve({ user: this.user });
       }
     });
   }
