@@ -3,7 +3,7 @@ import { mapActions, mapState } from "vuex";
 import helpers from "jt-helpers";
 
 @Component({
-  computed: mapState(["user"]),
+  computed: mapState(["wx/wxUsers/user"]),
   methods: mapActions({
     resetState: "resetState"
   })

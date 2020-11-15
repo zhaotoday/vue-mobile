@@ -1,70 +1,47 @@
 import wxb from "wx-bridge";
 
-const OPEN_ID = "openId";
-const USER = "user";
-const TOKEN = "token";
-const CODE = "code";
-const VERSION = "version";
+const OpenId = "openId";
+const Token = "token";
+const Code = "code";
+const Version = "version";
 
 export default {
   get() {
     return {
-      [OPEN_ID]: wxb.getStorageSync(OPEN_ID),
-      [USER]: wxb.getStorageSync(USER),
-      [TOKEN]: wxb.getStorageSync(TOKEN)
+      [OpenId]: wxb.getStorageSync(OpenId),
+      [Token]: wxb.getStorageSync(Token)
     };
   },
-  login({ user, token, code, version = "" }) {
-    wxb.setStorageSync(USER, user);
-    wxb.setStorageSync(TOKEN, `Bearer ${token}`);
+  login({ token, code, version = "" }) {
+    wxb.setStorageSync(Token, `Bearer ${token}`);
 
-    code && wxb.setStorageSync(CODE, code);
-    version && wxb.setStorageSync(VERSION, version);
+    if (code) {
+      wxb.setStorageSync(Code, code);
+    }
+
+    if (version) {
+      wxb.setStorageSync(Version, version);
+    }
   },
   logout() {
-    wxb.removeStorageSync(USER);
-    wxb.removeStorageSync(TOKEN);
-
-    wxb.removeStorageSync(CODE);
-    wxb.removeStorageSync(VERSION);
-  },
-  set(data) {
-    const user = this.get()[USER];
-    wxb.setStorageSync(USER, { ...user, ...data });
+    wxb.removeStorageSync(Token);
+    wxb.removeStorageSync(Code);
+    wxb.removeStorageSync(Version);
   },
   setOpenId(value) {
-    wxb.setStorageSync(OPEN_ID, value);
+    wxb.setStorageSync(OpenId, value);
   },
   getOpenId() {
-    return wxb.getStorageSync(OPEN_ID);
-  },
-  setName({ name }) {
-    const user = this.get()[USER];
-    wxb.setStorageSync(USER, { ...user, name });
-  },
-  setPhoneNumber({ phoneNumber }) {
-    const user = this.get()[USER];
-    wxb.setStorageSync(USER, { ...user, phoneNumber });
+    return wxb.getStorageSync(OpenId);
   },
   loggedIn({ code, version = "" } = {}) {
     return (
-      (!code || wxb.getStorageSync(CODE) === code) &&
-      (!version || wxb.getStorageSync(VERSION) === version) &&
-      !!wxb.getStorageSync(USER) &&
-      !!wxb.getStorageSync(TOKEN)
+      !!wxb.getStorageSync(Token) &&
+      (!code || wxb.getStorageSync(Code) === code) &&
+      (!version || wxb.getStorageSync(Version) === version)
     );
-  },
-  infoModified() {
-    return (
-      this.loggedIn() &&
-      !!this.get()["user"].name &&
-      !!this.get()["user"].phoneNumber
-    );
-  },
-  phoneNumberBound() {
-    return this.loggedIn() && !!this.get()["user"].phoneNumber;
   },
   getHeaders() {
-    return { Authorization: this.get()["token"] };
+    return { Authorization: this.get()[Token] };
   }
 };
