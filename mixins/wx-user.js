@@ -21,6 +21,7 @@ export default class WxUserMixin extends Vue {
   async getWxUserInfo() {
     const {
       data: {
+        id,
         nickName,
         avatarUrl,
         avatarId,
@@ -34,6 +35,7 @@ export default class WxUserMixin extends Vue {
     });
 
     return {
+      id,
       nickName,
       avatarUrl,
       avatarId,
