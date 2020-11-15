@@ -23,6 +23,8 @@ export default {
   logout() {
     wxb.removeStorageSync(USER);
     wxb.removeStorageSync(TOKEN);
+    wxb.removeStorageSync(CODE);
+    wxb.removeStorageSync(VERSION);
   },
   set(data) {
     const user = this.get()[USER];
