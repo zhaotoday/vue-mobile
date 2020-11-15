@@ -4,11 +4,9 @@ import helpers from "jt-helpers";
 
 @Component({
   computed: mapState(["user"]),
-  methods: {
-    ...mapActions({
-      resetState: "resetState"
-    })
-  }
+  methods: mapActions({
+    resetState: "resetState"
+  })
 })
 export default class GlobalMixin extends Vue {
   data() {
@@ -17,14 +15,6 @@ export default class GlobalMixin extends Vue {
       loaded: false,
       query: {}
     };
-  }
-
-  onShow() {
-    if (this.$auth.loggedIn()) {
-      this.$store.dispatch("setUser", {
-        user: this.$auth.get()["user"]
-      });
-    }
   }
 
   async _getUrl(options) {
