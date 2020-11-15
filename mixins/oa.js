@@ -10,13 +10,13 @@ const page = window.location.hash.substr(1);
 export default class OaMixin extends Vue {
   async oaLogin(query = {}) {
     const {
-      data: { wxUser, token }
+      data: { wxUser, token, extra = {} }
     } = await this.$store.dispatch("public/wxUsers/postAction", {
       action: "login",
       body: { type: "Oa", _, code, page, query }
     });
 
-    return { wxUser, token };
+    return { wxUser, token, extra };
   }
 
   async configWxJsSdk(apiList = []) {
