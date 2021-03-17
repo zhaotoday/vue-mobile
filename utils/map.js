@@ -2,7 +2,7 @@ import wx from "./wxb";
 
 const url = "https://restapi.amap.com/v3";
 
-export default {
+export const map = {
   key: "",
   initialize({ key = "" } = {}) {
     this.key = key;
