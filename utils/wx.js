@@ -1,13 +1,13 @@
-import wxb from "wx-bridge";
+import wx from "wx-bridge";
 import helpers from "jt-helpers";
 
-wxb.showToast = helpers.intercept(wxb.showToast, {
+wx.showToast = helpers.intercept(wx.showToast, {
   req(options) {
     return !options.icon ? { ...options, icon: "none" } : options;
   }
 });
 
-wxb.navigateTo = helpers.intercept(wxb.navigateTo, {
+wx.navigateTo = helpers.intercept(wx.navigateTo, {
   req(options) {
     return {
       animationType: "slide-in-right",
@@ -17,4 +17,4 @@ wxb.navigateTo = helpers.intercept(wxb.navigateTo, {
   }
 });
 
-export default wxb;
+export { wx };
