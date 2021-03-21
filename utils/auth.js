@@ -1,4 +1,4 @@
-import wxb from "wx-bridge";
+import wx from "wx-bridge";
 
 const OpenId = "openId";
 const Token = "token";
@@ -8,37 +8,37 @@ const Version = "version";
 export default {
   get() {
     return {
-      [OpenId]: wxb.getStorageSync(OpenId),
-      [Token]: wxb.getStorageSync(Token)
+      [OpenId]: wx.getStorageSync(OpenId),
+      [Token]: wx.getStorageSync(Token)
     };
   },
   login({ token, code, version = "" }) {
-    wxb.setStorageSync(Token, `Bearer ${token}`);
+    wx.setStorageSync(Token, `Bearer ${token}`);
 
     if (code) {
-      wxb.setStorageSync(Code, code);
+      wx.setStorageSync(Code, code);
     }
 
     if (version) {
-      wxb.setStorageSync(Version, version);
+      wx.setStorageSync(Version, version);
     }
   },
   logout() {
-    wxb.removeStorageSync(Token);
-    wxb.removeStorageSync(Code);
-    wxb.removeStorageSync(Version);
+    wx.removeStorageSync(Token);
+    wx.removeStorageSync(Code);
+    wx.removeStorageSync(Version);
   },
   setOpenId(value) {
-    wxb.setStorageSync(OpenId, value);
+    wx.setStorageSync(OpenId, value);
   },
   getOpenId() {
-    return wxb.getStorageSync(OpenId);
+    return wx.getStorageSync(OpenId);
   },
   loggedIn({ code, version = "" } = {}) {
     return (
-      !!wxb.getStorageSync(Token) &&
-      (!code || wxb.getStorageSync(Code) === code) &&
-      (!version || wxb.getStorageSync(Version) === version)
+      !!wx.getStorageSync(Token) &&
+      (!code || wx.getStorageSync(Code) === code) &&
+      (!version || wx.getStorageSync(Version) === version)
     );
   },
   getHeaders() {

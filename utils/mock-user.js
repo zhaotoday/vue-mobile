@@ -1,4 +1,4 @@
-import wxb from "wx-bridge";
+import wx from "wx-bridge";
 
 const OpenId = "openId";
 const User = "user";
@@ -16,11 +16,11 @@ const token = "";
 
 export default {
   login() {
-    wxb.setStorageSync(Token, `Bearer ${token}`);
+    wx.setStorageSync(Token, `Bearer ${token}`);
 
     return { user, token };
   },
   setOpenId() {
-    wxb.setStorageSync(OpenId, openId);
+    wx.setStorageSync(OpenId, openId);
   }
 };

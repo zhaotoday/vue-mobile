@@ -1,5 +1,5 @@
 import REST from "jt-rest";
-import wxb from "./wxb";
+import wx from "wx-bridge";
 import consts from "@/utils/consts";
 
 export default class extends REST {
@@ -49,28 +49,28 @@ export default class extends REST {
       query._ = new Date().getTime();
     }
 
-    showLoading && wxb.showLoading();
+    showLoading && wx.showLoading();
 
     return new Promise(resolve => {
       super
         .request(method, { id, query, body })
         .then(res => {
-          showLoading && wxb.hideLoading();
+          showLoading && wx.hideLoading();
           resolve(res.data);
         })
         .catch(res => {
-          showLoading && wxb.hideLoading();
+          showLoading && wx.hideLoading();
 
           if (res.statusCode === 500) {
-            showError && wxb.showToast({ title: "服务器出错" });
+            showError && wx.showToast({ title: "服务器出错" });
           } else if (res.statusCode === 401) {
-            wxb.navigateTo({ url: consts.LoginPage });
+            wx.navigateTo({ url: consts.LoginPage });
           } else {
             if (showError) {
               if (res.data && res.data.error) {
-                wxb.showToast({ title: res.data.error.message });
+                wx.showToast({ title: res.data.error.message });
               } else {
-                wxb.showToast({ title: "服务器出错" });
+                wx.showToast({ title: "服务器出错" });
               }
             }
           }
