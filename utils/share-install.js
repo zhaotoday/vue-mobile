@@ -3,7 +3,7 @@ import { wx } from "./wx";
 const openInstall = uni.requireNativePlugin("openinstall-plugin");
 
 export const shareInstall = {
-  init() {
+  initialize() {
     openInstall.init();
   },
   getInstall() {
