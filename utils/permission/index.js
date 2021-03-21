@@ -1,4 +1,4 @@
-import { wx } from "../wx";
+import wx from "wx-bridge";
 import $permission from "./utils/permission";
 
 export const permission = {

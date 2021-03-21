@@ -1,4 +1,4 @@
-import { wx } from "./wx";
+import wx from "wx-bridge";
 
 const openInstall = uni.requireNativePlugin("openinstall-plugin");
 

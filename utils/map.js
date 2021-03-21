@@ -1,4 +1,4 @@
-import { wx } from "./wx";
+import wx from "wx-bridge";
 
 const url = "https://restapi.amap.com/v3";
 
