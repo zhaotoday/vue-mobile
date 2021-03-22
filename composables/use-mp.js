@@ -1,7 +1,7 @@
 import wx from "wx-bridge";
 
 export const useMp = () => {
-  const login = async () => {
+  const getUserInfo = async () => {
     return new Promise(async (resolve, reject) => {
       const { authSetting } = await wx.getSetting();
 
@@ -18,6 +18,6 @@ export const useMp = () => {
   };
 
   return {
-    login
+    getUserInfo
   };
 };
