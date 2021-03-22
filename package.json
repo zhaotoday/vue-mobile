@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -25,13 +25,10 @@
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
     "axios": "^0.19.2",
-    "jt-helpers": "0.0.8",
     "jt-rest": "0.0.11",
-    "jweixin-module": "^1.6.0",
     "query-string": "^6.14.1",
     "vue-property-decorator": "^8.5.1",
-    "vuex": "^3.6.2",
-    "wx-bridge": "0.0.33"
+    "wx-bridge": "0.0.34"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
