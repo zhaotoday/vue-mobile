@@ -1,5 +1,5 @@
 <template>
-  <picker :range="range" :value.sync="value" @change="handleChange">
+  <picker :range="range" :value.sync="value" @change="onChange">
     <div class="c-filter bgc11 fs28 u-tac">
       <span v-if="value === -1" class="c37">
         {{ placeholder }}

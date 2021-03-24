@@ -1,21 +1,27 @@
-import { Component, Vue } from "vue-property-decorator";
 import cities from "./cities";
+import { onMounted, reactive, ref } from "@vue/composition-api";
 
-@Component
-export default class Index extends Vue {
-  cities = cities;
+export default {
+  setup() {
+    const letters = ref([]);
 
-  letters = [];
+    const cScroll = reactive({
+      intoView: ""
+    });
 
-  cScroll = {
-    intoView: ""
-  };
+    onMounted(() => {
+      letters.value = cities.cityGroups.map(item => item.initial);
+    });
 
-  created() {
-    this.letters = this.cities.cityGroups.map(item => item.initial);
+    const scrollIntoView = item => {
+      cScroll.intoView = item;
+    };
+
+    return {
+      cities,
+      letters,
+      cScroll,
+      scrollIntoView
+    };
   }
-
-  scrollIntoView(item) {
-    this.cScroll.intoView = item;
-  }
-}
+};

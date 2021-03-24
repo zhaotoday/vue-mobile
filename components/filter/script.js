@@ -1,26 +1,26 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
+export default {
+  name: "CFilter",
+  props: {
+    placeholder: {
+      type: String,
+      default: "请选择"
+    },
+    range: {
+      type: Array,
+      default: () => []
+    },
+    value: {
+      type: Number,
+      default: -1
+    }
+  },
+  setup(props, context) {
+    const onChange = e => {
+      context.emit("change", e);
+    };
 
-@Component
-export default class Filter extends Vue {
-  @Prop({
-    type: String,
-    default: "请选择"
-  })
-  placeholder;
-
-  @Prop({
-    type: Array,
-    default: () => []
-  })
-  range;
-
-  @Prop({
-    type: Number,
-    default: -1
-  })
-  value;
-
-  handleChange(e) {
-    this.$emit("change", e);
+    return {
+      onChange
+    };
   }
-}
+};

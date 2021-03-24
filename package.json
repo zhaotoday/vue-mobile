@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
+    "@vue/composition-api": "^1.0.0-rc.5",
     "axios": "^0.19.2",
     "jt-rest": "0.0.11",
     "query-string": "^6.14.1",

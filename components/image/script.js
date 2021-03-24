@@ -1,11 +1,15 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { computed } from "@vue/composition-api";
 
-@Component
-export default class CImage extends Vue {
-  @Prop(String)
-  src;
+export default {
+  name: "CImage",
+  props: {
+    src: String
+  },
+  setup(props) {
+    const html = computed(() => `<img src="${props.src}" />`);
 
-  get html() {
-    return `<img src="${this.src}" />`;
+    return {
+      html
+    };
   }
-}
+};

@@ -1,22 +1,17 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
-
-@Component
-export default class Checkbox extends Vue {
-  @Prop({
-    type: Boolean,
-    default: false
-  })
-  checked;
-
-  @Prop({
-    type: String,
-    default: "c37"
-  })
-  normalClass;
-
-  @Prop({
-    type: String,
-    default: "c22"
-  })
-  activeClass;
-}
+export default {
+  name: "CCheckbox",
+  props: {
+    checked: {
+      type: Boolean,
+      default: false
+    },
+    normalClass: {
+      type: String,
+      default: "c37"
+    },
+    activeClass: {
+      type: String,
+      default: "c22"
+    }
+  }
+};
