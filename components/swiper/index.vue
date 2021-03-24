@@ -5,7 +5,7 @@
       :circular="true"
       :autoplay="autoplay"
       :interval="interval"
-      @change="handleChange"
+      @change="onChange"
       :style="{ width: `${width}rpx`, height: `${height}rpx` }"
     >
       <swiper-item
@@ -18,7 +18,7 @@
           mode="aspectFill"
           :src="item.image"
           :style="{ width: `${width}rpx`, height: `${height}rpx` }"
-          @click="handleClick(item)"
+          @click="onClick(item)"
         />
       </swiper-item>
     </swiper>

@@ -1,51 +1,55 @@
-import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import { ref, watch } from "@vue/composition-api";
+import wx from "wx-bridge";
 
-@Component
-export default class Search extends Vue {
-  @Prop({
-    type: Boolean,
-    default: false
-  })
-  autoFocus;
-
-  @Prop({
-    type: Boolean,
-    default: false
-  })
-  showSubmit;
-
-  @Prop({
-    type: String,
-    default: ""
-  })
-  link;
-
-  @Prop({
-    type: String,
-    default: ""
-  })
-  defaultValue;
-
-  @Prop({
-    type: String,
-    default: ""
-  })
-  placeholder;
-
-  value = "";
-
-  @Watch("defaultValue")
-  onDefaultValueChange(newVal) {
-    this.value = newVal;
-  }
-
-  navigateToLink() {
-    if (this.link) {
-      this.$wx.navigateTo({ url: this.link });
+export default {
+  name: "CSearch",
+  props: {
+    autoFocus: {
+      type: Boolean,
+      default: false
+    },
+    showSubmit: {
+      type: Boolean,
+      default: false
+    },
+    link: {
+      type: String,
+      default: ""
+    },
+    defaultValue: {
+      type: String,
+      default: ""
+    },
+    placeholder: {
+      type: String,
+      default: ""
     }
-  }
+  },
+  emits: ["confirm"],
+  setup(props, context) {
+    const value = ref("");
 
-  confirm() {
-    this.$emit("confirm", this.value);
+    watch(
+      () => props.defaultValue,
+      newVal => {
+        value.value = newVal;
+      }
+    );
+
+    const navigateToLink = () => {
+      if (props.link) {
+        wx.navigateTo({ url: props.link });
+      }
+    };
+
+    const confirm = () => {
+      context.emit("confirm", value.value);
+    };
+
+    return {
+      value,
+      navigateToLink,
+      confirm
+    };
   }
-}
+};
