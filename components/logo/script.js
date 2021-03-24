@@ -1,30 +1,33 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { computed } from "@vue/composition-api";
 
-@Component
-export default class Logo extends Vue {
-  @Prop({
-    type: String,
-    default: ""
-  })
-  name;
+export default {
+  name: "CLogo",
+  props: {
+    name: {
+      type: String,
+      default: ""
+    },
+    width: {
+      type: Number,
+      default: 0
+    },
+    height: {
+      type: Number,
+      default: 0
+    }
+  },
+  setup(props) {
+    const widthModifier = computed(() =>
+      props.width ? `w${props.width}` : ""
+    );
 
-  @Prop({
-    type: Number,
-    default: 0
-  })
-  width;
+    const heightModifier = computed(() =>
+      props.height ? `h${props.height}` : ""
+    );
 
-  @Prop({
-    type: Number,
-    default: 0
-  })
-  height;
-
-  get widthModifier() {
-    return this.width ? `w${this.width}` : "";
+    return {
+      widthModifier,
+      heightModifier
+    };
   }
-
-  get heightModifier() {
-    return this.height ? `h${this.height}` : "";
-  }
-}
+};
