@@ -1,0 +1,13 @@
+{
+  "openId": "",
+  "user": {
+    "id": null,
+    "name": "",
+    "nickName": "",
+    "avatarUrl": "",
+    "avatarId": null,
+    "phoneNumber": "",
+    "extra": {}
+  },
+  "token": ""
+}
