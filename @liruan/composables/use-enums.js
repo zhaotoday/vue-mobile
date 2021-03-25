@@ -1,5 +1,5 @@
-import { store } from "@/store";
 import { computed } from "vue";
+import { store } from "@/store";
 import { PublicEnumsModel } from "../models/public/enums";
 
 export const useEnums = () => {
