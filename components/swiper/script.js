@@ -2,6 +2,7 @@ import { ref } from "@vue/composition-api";
 import wx from "wx-bridge";
 
 export default {
+  name: "CSwiper",
   props: {
     items: {
       type: Array,

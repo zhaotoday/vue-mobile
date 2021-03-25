@@ -1,6 +1,7 @@
 import { ref } from "@vue/composition-api";
 
 export default {
+  name: "CTagCheckbox",
   props: {
     checkable: {
       type: Boolean,
