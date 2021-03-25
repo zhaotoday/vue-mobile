@@ -1,4 +1,5 @@
 import { useMp as $useMp } from "../../composables/use-mp";
+import { WxWxUsersModel } from "../models/wx/wx-users";
 
 export const useMp = () => {
   const { $getUserInfo } = $useMp();
@@ -8,17 +9,17 @@ export const useMp = () => {
 
     return new Promise(async (resolve, reject) => {
       try {
-  const {
+        const {
           data: { wxUser, token, extra = {} }
-        } =await this.$store.dispatch("public/wxUsers/postAction", {
+        } = await this.$store.dispatch("public/wxUsers/postAction", {
           showLoading: true,
           action: "login",
           body: { type: "Mp", code, iv, encryptedData }
         });
         resolve({ wxUser, token, extra });
-  } catch (e) {
+      } catch (e) {
         reject(e);
-   }
+      }
     });
   };
 

@@ -1,54 +1,39 @@
-import helpers from 'jt-helpers'
-import { WxWxUserModel } from "@/models/user";
+import helpers from "jt-helpers";
+import { WxUsersModel } from "../../../models/wx/wx-users";
 
 const state = {
-  token: "",
-  data: {}
+  data: {
+    extra: {}
+  },
+  token: ""
 };
 
 const types = helpers.keyMirror({
-  SetInitData: null,
-  SetToken: null,
-  SetUser: null
+  SetData: null,
+  SetToken: null
 });
 
 const mutations = {
-  [types.SetInitData](state, initData) {
-    state.initData = initData;
+  [types.SetData](state, data) {
+    state.data = data;
   },
   [types.SetToken](state, token) {
     state.token = token;
-  },
-  [types.SetUser](state, user) {
-    state.user = user;
   }
 };
 
 const actions = {
-  async getInitData({ commit }) {
-    const initData = await new CntUcModel().addPath("client/init").GET({});
-    commit(types.SetInitData, initData);
-    return initData;
-  },
-  async register({ commit }, body) {
-    const { token } = await new CntUcModel().addPath("regedit").POST({ body });
+  async login({ commit }, { code, iv, encryptedData }) {
+    const {
+      data: { wxUser, token, extra = {} }
+    } = await new WxUsersModel().POST({
+      showLoading: true,
+      action: "login",
+      body: { type: "Mp", code, iv, encryptedData }
+    });
+    commit(types.SetData, { ...wxUser, extra });
     commit(types.SetToken, token);
-    return token;
-  },
-  async login({ commit }, body) {
-    const { token } = await new CntUcModel().addPath("login").POST({ body });
-    commit(types.SetToken, token);
-    return token;
-  },
-  logout({ commit }) {
-    commit(types.SetToken, state.token);
-    commit(types.SetUser, state.user);
-    return null;
-  },
-  async getUser({ commit }) {
-    const user = await new UserModel().addPath("userDetail").GET({});
-    commit(types.SetUser, user);
-    return user;
+    return { wxUser, extra, token };
   }
 };
 
