@@ -1,5 +1,5 @@
 import helpers from "jt-helpers";
-import { PublicEnumsModel } from "../../models/public/enums";
+import { PublicEnumsModel } from "../../../models/public/enums";
 
 const state = {
   data: {}
