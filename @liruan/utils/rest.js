@@ -1,6 +1,5 @@
 import $Rest from "jt-rest";
 import wx from "wx-bridge";
-import { consts } from "@/utils/consts";
 
 export class Rest extends $Rest {
   toString(obj) {
@@ -57,7 +56,7 @@ export class Rest extends $Rest {
           if (res.statusCode === 500) {
             showError && wx.showToast({ title: "服务器出错" });
           } else if (res.statusCode === 401) {
-            wx.navigateTo({ url: consts.LoginPage });
+            wx.navigateTo({ url: "/pages/login/index" });
           } else {
             if (showError) {
               if (res.data && res.data.error) {
