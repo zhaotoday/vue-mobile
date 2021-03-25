@@ -1,12 +1,21 @@
 import { store } from "@/store";
-import { onMounted, computed } from "vue";
+import { computed } from "vue";
+import { PublicEnumsModel } from "../models/public/enums";
 
 export const useEnums = () => {
   const enums = computed(() => store.state.enums.data);
 
-  onMounted(async () => {
-    await store.dispatch("enums/get");
-  });
+  const getEnums = async () => {
+    const {
+      data: { version }
+    } = await new PublicEnumsModel().POST({
+      action: "getVersion"
+    });
 
-  return { enums };
+    if (version !== enums.config.version) {
+      await store.dispatch("enums/get");
+    }
+  };
+
+  return { enums, getEnums };
 };
