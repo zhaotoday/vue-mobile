@@ -1,44 +1,50 @@
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { ref } from "@vue/composition-api";
 
-@Component
-export default class TagCheckbox extends Vue {
-  @Prop({
-    type: Boolean,
-    default: false
-  })
-  checkable;
-
-  @Prop({
-    type: Array,
-    default: () => []
-  })
-  items;
-
-  @Prop({
-    type: Number,
-    default: 0
-  })
-  maxCount;
-
-  checkedValues = [];
-
-  check(item) {
-    if (!this.checkable) return;
-
-    if (!this.checkedValues.includes(item.value)) {
-      if (this.maxCount === 1) {
-        this.checkedValues = [item.value];
-      } else {
-        if (this.maxCount > 0 && this.checkedValues.length >= this.maxCount) {
-          this.$emit("exceeded-count");
-        } else {
-          this.checkedValues.push(item.value);
-        }
-      }
-    } else {
-      const index = this.checkedValues.indexOf(item.value);
-      this.checkedValues.splice(index, 1);
+export default {
+  props: {
+    checkable: {
+      type: Boolean,
+      default: false
+    },
+    items: {
+      type: Array,
+      default: () => []
+    },
+    maxCount: {
+      type: Number,
+      default: 0
     }
-    this.$emit("change", this.checkedValues);
+  },
+  emits: ["exceeded-count", "change"],
+  setup(props, context) {
+    const checkedValues = ref([]);
+
+    const check = item => {
+      if (!props.checkable) return;
+
+      if (!checkedValues.value.includes(item.value)) {
+        if (props.maxCount === 1) {
+          checkedValues.value = [item.value];
+        } else {
+          if (
+            props.maxCount > 0 &&
+            checkedValues.value.length >= props.maxCount
+          ) {
+            context.emit("exceeded-count");
+          } else {
+            checkedValues.value.push(item.value);
+          }
+        }
+      } else {
+        const index = checkedValues.value.indexOf(item.value);
+        checkedValues.value.splice(index, 1);
+      }
+      context.emit("change", checkedValues.value);
+    };
+
+    return {
+      checkedValues,
+      check
+    };
   }
-}
+};

@@ -5,7 +5,7 @@
       :key="itemIndex"
       class="c-tabs__item"
       :class="{ 'is-active': index === itemIndex }"
-      @click="change(itemIndex)"
+      @click="$emit('change', itemIndex)"
     >
       {{ item }}
     </li>

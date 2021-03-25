@@ -13,14 +13,5 @@ export default {
       type: Number,
       default: -1
     }
-  },
-  setup(props, context) {
-    const onChange = e => {
-      context.emit("change", e);
-    };
-
-    return {
-      onChange
-    };
   }
 };
