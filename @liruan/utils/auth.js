@@ -1,11 +1,8 @@
 import { store } from "@/store";
 
 export const auth = {
-  getUser() {
-    return store.state.uc.user || {};
-  },
   getToken() {
-    return store.state.uc.token || "";
+    return store.state.wxUsers.token || "";
   },
   getHeaders() {
     return { Authorization: this.getToken() };

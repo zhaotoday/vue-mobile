@@ -3,21 +3,26 @@ import { PublicWxUsersModel } from "../../../models/public/wx-users";
 import { WxUsersModel } from "../../../models/wx/wx-users";
 
 const state = {
-  data: {},
-  token: ""
+  wxUser: {},
+  token: "",
+  openId: ""
 };
 
 const types = helpers.keyMirror({
-  SetData: null,
-  SetToken: null
+  SetWxUser: null,
+  SetToken: null,
+  SetOpenId: null
 });
 
 const mutations = {
-  [types.SetData](state, data) {
-    state.data = data;
+  [types.SetWxUser](state, wxUser) {
+    state.wxUser = wxUser;
   },
   [types.SetToken](state, token) {
     state.token = token;
+  },
+  [types.SetOpenId](state, openId) {
+    state.openId = openId;
   }
 };
 
@@ -28,16 +33,25 @@ const actions = {
       action: "login",
       body: { type: "Mp", code, iv, encryptedData }
     });
-    commit(types.SetData, wxUser);
+    commit(types.SetWxUser, wxUser);
     commit(types.SetToken, token);
     return { wxUser, token };
   },
-  async get({ commit }) {
+  async getWxUser({ commit }) {
     const res = await new WxUsersModel().POST({
       action: "getUserInfo"
     });
-    commit(types.SetData, res);
+    commit(types.SetWxUser, res);
     return res;
+  },
+  async getOpenId({ commit }, { code }) {
+    const { openId } = await new PublicWxUsersModel().POST({
+      showError: false,
+      action: "getOpenId",
+      body: { code }
+    });
+    commit(types.SetOpenId, openId);
+    return openId;
   }
 };
 
