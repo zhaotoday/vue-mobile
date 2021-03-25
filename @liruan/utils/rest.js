@@ -1,23 +1,24 @@
-import REST from "jt-rest";
-import wxb from "./wxb";
-import consts from "@/utils/consts";
+import $Rest from "jt-rest";
+import wx from "wx-bridge";
+import { consts } from "@/utils/consts";
 
-export default class extends REST {
-  _toString(obj) {
-    let ret = {};
-    let types = [];
+export class Rest extends $Rest {
+  toString(obj) {
+    const ret = {};
 
-    Object.keys(obj).forEach(v => {
-      ret[v] = {};
-      types = Object.keys(obj[v]);
+    Object.keys(obj).forEach(attribute => {
+      ret[attribute] = {};
 
-      types.forEach(type => {
-        if (obj[v][type] === undefined || obj[v][type] === "") {
-          delete ret[v];
-        } else if (type === "$like") {
-          ret[v][type] = `%${obj[v][type]}%`;
+      Object.keys(obj[attribute]).forEach(operator => {
+        if (
+          obj[attribute][operator] === undefined ||
+          obj[attribute][operator] === ""
+        ) {
+          delete ret[attribute];
+        } else if (operator === "$like") {
+          ret[attribute][operator] = `%${obj[attribute][operator]}%`;
         } else {
-          ret[v] = obj[v];
+          ret[attribute] = obj[attribute];
         }
       });
     });
@@ -30,47 +31,39 @@ export default class extends REST {
     { id, query = {}, body = {}, showLoading = false, showError = true }
   ) {
     if (query.where) {
-      query.where = this._toString(query.where);
+      query.where = this.toString(query.where);
     }
 
-    if (query.include) {
-      query.include = JSON.stringify(query.include);
-    }
-
-    if (query.order) {
-      query.order = JSON.stringify(query.order);
-    }
-
-    if (query.attributes) {
-      query.attributes = JSON.stringify(query.attributes);
-    }
+    ["include", "order", "attributes"].forEach(key => {
+      query[key] = JSON.stringify(query[key]);
+    });
 
     if (method === "GET") {
       query._ = new Date().getTime();
     }
 
-    showLoading && wxb.showLoading();
+    showLoading && wx.showLoading();
 
     return new Promise(resolve => {
       super
         .request(method, { id, query, body })
         .then(res => {
-          showLoading && wxb.hideLoading();
+          showLoading && wx.hideLoading();
           resolve(res.data);
         })
         .catch(res => {
-          showLoading && wxb.hideLoading();
+          showLoading && wx.hideLoading();
 
           if (res.statusCode === 500) {
-            showError && wxb.showToast({ title: "服务器出错" });
+            showError && wx.showToast({ title: "服务器出错" });
           } else if (res.statusCode === 401) {
-            wxb.navigateTo({ url: consts.LoginPage });
+            wx.navigateTo({ url: consts.LoginPage });
           } else {
             if (showError) {
               if (res.data && res.data.error) {
-                wxb.showToast({ title: res.data.error.message });
+                wx.showToast({ title: res.data.error.message });
               } else {
-                wxb.showToast({ title: "服务器出错" });
+                wx.showToast({ title: "服务器出错" });
               }
             }
           }
