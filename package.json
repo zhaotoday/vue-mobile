@@ -28,7 +28,6 @@
     "jt-rest": "0.0.11",
     "query-string": "^6.14.1",
     "sass-utils": "^1.0.34",
-    "vue-property-decorator": "^8.5.1",
     "wx-bridge": "0.0.34"
   },
   "devDependencies": {
