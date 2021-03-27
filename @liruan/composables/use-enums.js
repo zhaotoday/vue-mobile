@@ -1,4 +1,4 @@
-import { computed } from "vue";
+import { computed } from "@vue/composition-api";
 import { store } from "@/store";
 import { PublicEnumsModel } from "../models/public/enums";
 
