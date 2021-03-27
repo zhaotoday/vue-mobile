@@ -1,30 +1,15 @@
+@import "~sass-utils/mobile/utils/variables";
+
 // 图片地址
 $image-url: "~vue-mobile/assets/images";
-
-// 颜色
-$colors: (
-  c11: white,
-  c12: black,
-  c21: #1da677,
-  c31: #f5f7fa,
-  c32: #f2f6fc,
-  c33: #ebeef5,
-  c34: #e4e7ed,
-  c35: #dcdfe6,
-  c36: #c0c4cc,
-  c37: #909399,
-  c38: #606266,
-  c39: #303133
-);
 
 // z-index
 $z-indexes: (
   c-filter: 2,
-  c-tabs: 4,
-  c-fixed-cart: 4,
-  c-overlay: 5,
-  c-dialog: 6,
-  c-popup: 6
+  c-tabs: 3,
+  c-overlay: 1001,
+  c-dialog: 1002,
+  c-popup: 1002
 );
 
 // avatar
@@ -39,7 +24,7 @@ $button-border-radii: 0px;
 $checkbox-width: 48px;
 
 // icon
-$icon-items: (
+$icons: (
   (
     icon: logo,
     width: 160px,
@@ -93,9 +78,3 @@ $table-th-widths: 0px;
 // tag
 $tag-heights: 0px;
 $tag-border-radii: 0px;
-
-// margin
-$margin-items: 16px, 18px, 20px, 22px, 24px;
-
-// padding
-$padding-items: 16px, 18px, 20px, 22px, 24px;

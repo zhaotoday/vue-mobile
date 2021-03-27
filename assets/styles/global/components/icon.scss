@@ -6,7 +6,7 @@
     position: center center;
   }
 
-  @each $item in $icon-items {
+  @each $item in $icons {
     $width: map-get($item, width);
     $height: map-get($item, height);
     $icon: map-get($item, icon);
