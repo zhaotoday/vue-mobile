@@ -27,8 +27,19 @@ export class Rest extends $Rest {
 
   request(
     method = "GET",
-    { id, query = {}, body = {}, showLoading = false, showError = true }
+    {
+      id,
+      query = {},
+      body = {},
+      action = "",
+      showLoading = false,
+      showError = true
+    }
   ) {
+    if (action) {
+      this.addPath(`actions/${action}`);
+    }
+
     if (query.where) {
       query.where = this.toString(query.where);
     }
