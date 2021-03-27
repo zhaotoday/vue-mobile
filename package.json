@@ -26,6 +26,7 @@
   "dependencies": {
     "@vue/composition-api": "^1.0.0-rc.5",
     "jt-rest": "0.0.11",
+    "jweixin-module": "^1.6.0",
     "query-string": "^6.14.1",
     "sass-utils": "^1.0.34",
     "wx-bridge": "0.0.34"
