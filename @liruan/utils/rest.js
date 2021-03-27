@@ -34,7 +34,9 @@ export class Rest extends $Rest {
     }
 
     ["include", "order", "attributes"].forEach(key => {
-      query[key] = JSON.stringify(query[key]);
+      if (query[key]) {
+        query[key] = JSON.stringify(query[key]);
+      }
     });
 
     if (method === "GET") {
