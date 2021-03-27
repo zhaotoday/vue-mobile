@@ -17,10 +17,10 @@ export const useOa = () => {
   };
 
   const configWxJsSdk = async (apiList = []) => {
-    const { data } = await new ApisModel().addPath("jsSdkConfig").POST({
+    const res = await new ApisModel().addPath("jsSdkConfig").POST({
       body: { url: location.href.split("#")[0] }
     });
-    jweixin.config({ ...data, jsApiList: apiList });
+    jweixin.config({ ...res, jsApiList: apiList });
   };
 
   return {
