@@ -2,7 +2,11 @@ import helpers from "jt-helpers";
 import { PublicEnumsModel } from "../../../models/public/enums";
 
 const state = {
-  data: {},
+  data: {
+    config: {
+      version: "",
+    },
+  },
 };
 
 const types = helpers.keyMirror({
