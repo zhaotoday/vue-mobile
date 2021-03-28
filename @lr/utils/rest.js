@@ -61,7 +61,7 @@ export class Rest extends $Rest {
         .request(method, { id, query, body })
         .then((res) => {
           showLoading && wx.hideLoading();
-          resolve(res.data);
+          resolve(res.data.data);
         })
         .catch((res) => {
           showLoading && wx.hideLoading();
