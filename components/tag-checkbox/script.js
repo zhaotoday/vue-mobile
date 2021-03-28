@@ -5,22 +5,22 @@ export default {
   props: {
     checkable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     maxCount: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   emits: ["exceeded-count", "change"],
   setup(props, context) {
     const checkedValues = ref([]);
 
-    const check = item => {
+    const check = (item) => {
       if (!props.checkable) return;
 
       if (!checkedValues.value.includes(item.value)) {
@@ -45,7 +45,7 @@ export default {
 
     return {
       checkedValues,
-      check
+      check,
     };
-  }
+  },
 };

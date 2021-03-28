@@ -1,4 +1,4 @@
-export const h5Copy = content => {
+export const h5Copy = (content) => {
   if (!document.queryCommandSupported("copy")) {
     return false;
   }

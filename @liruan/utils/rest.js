@@ -5,10 +5,10 @@ export class Rest extends $Rest {
   toString(obj) {
     const ret = {};
 
-    Object.keys(obj).forEach(attribute => {
+    Object.keys(obj).forEach((attribute) => {
       ret[attribute] = {};
 
-      Object.keys(obj[attribute]).forEach(operator => {
+      Object.keys(obj[attribute]).forEach((operator) => {
         if (
           obj[attribute][operator] === undefined ||
           obj[attribute][operator] === ""
@@ -33,7 +33,7 @@ export class Rest extends $Rest {
       body = {},
       action = "",
       showLoading = false,
-      showError = true
+      showError = true,
     }
   ) {
     if (action) {
@@ -44,7 +44,7 @@ export class Rest extends $Rest {
       query.where = this.toString(query.where);
     }
 
-    ["include", "order", "attributes"].forEach(key => {
+    ["include", "order", "attributes"].forEach((key) => {
       if (query[key]) {
         query[key] = JSON.stringify(query[key]);
       }
@@ -56,14 +56,14 @@ export class Rest extends $Rest {
 
     showLoading && wx.showLoading();
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       super
         .request(method, { id, query, body })
-        .then(res => {
+        .then((res) => {
           showLoading && wx.hideLoading();
           resolve(res.data);
         })
-        .catch(res => {
+        .catch((res) => {
           showLoading && wx.hideLoading();
 
           if (res.statusCode === 500) {

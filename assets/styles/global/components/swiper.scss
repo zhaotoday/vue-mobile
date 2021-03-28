@@ -18,7 +18,7 @@
 
       display: inline-block;
       background-color: map-get($colors, c11);
-      opacity: .6;
+      opacity: 0.6;
 
       &.is-active {
         background-color: map-get($colors, c11);

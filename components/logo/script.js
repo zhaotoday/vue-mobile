@@ -5,16 +5,16 @@ export default {
   props: {
     name: {
       type: String,
-      default: ""
+      default: "",
     },
     width: {
       type: Number,
-      default: 0
+      default: 0,
     },
     height: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   setup(props) {
     const widthModifier = computed(() =>
@@ -27,7 +27,7 @@ export default {
 
     return {
       widthModifier,
-      heightModifier
+      heightModifier,
     };
-  }
+  },
 };

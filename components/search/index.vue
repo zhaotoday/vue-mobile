@@ -25,9 +25,7 @@
         @confirm="confirm"
       />
     </div>
-    <div class="c-search__submit fs28" @click="confirm">
-      搜索
-    </div>
+    <div class="c-search__submit fs28" @click="confirm">搜索</div>
   </div>
 </template>
 

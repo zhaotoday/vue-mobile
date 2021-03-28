@@ -11,7 +11,7 @@
     transform: translateX(-50%);
     border-radius: px2rpx(4px);
     display: block;
-    content: '';
+    content: "";
     background-color: map-get($colors, c21);
   }
 }

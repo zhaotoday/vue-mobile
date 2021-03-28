@@ -9,7 +9,7 @@ export default {
   get() {
     return {
       [OpenId]: wx.getStorageSync(OpenId),
-      [Token]: wx.getStorageSync(Token)
+      [Token]: wx.getStorageSync(Token),
     };
   },
   login({ token, code, version = "" }) {
@@ -43,5 +43,5 @@ export default {
   },
   getHeaders() {
     return { Authorization: this.get()[Token] };
-  }
+  },
 };

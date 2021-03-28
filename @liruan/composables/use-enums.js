@@ -7,7 +7,7 @@ export const useEnums = () => {
 
   const getEnums = async () => {
     const { version } = await new PublicEnumsModel().POST({
-      action: "getVersion"
+      action: "getVersion",
     });
 
     if (version !== enums.config.version) {

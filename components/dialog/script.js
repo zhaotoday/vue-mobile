@@ -3,48 +3,48 @@ export default {
   props: {
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     title: {
       type: String,
-      default: ""
+      default: "",
     },
     content: {
       type: String,
-      default: ""
+      default: "",
     },
     showCancel: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showConfirm: {
       type: Boolean,
-      default: true
+      default: true,
     },
     cancelText: {
       type: String,
-      default: "取消"
+      default: "取消",
     },
     confirmText: {
       type: String,
-      default: "确认"
+      default: "确认",
     },
     cancelStyle: {
       type: String,
-      default: ""
+      default: "",
     },
     confirmStyle: {
       type: String,
-      default: "c21"
+      default: "c21",
     },
     confirmDisabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     width: {
       type: String,
-      default: "560"
-    }
+      default: "560",
+    },
   },
   emits: ["confirm"],
   setup(props, context) {
@@ -53,7 +53,7 @@ export default {
     };
 
     return {
-      onConfirm
+      onConfirm,
     };
-  }
+  },
 };

@@ -16,7 +16,7 @@ $colors: (
   c36: #c0c4cc,
   c37: #909399,
   c38: #606266,
-  c39: #303133
+  c39: #303133,
 );
 
 // z-index
@@ -25,7 +25,7 @@ $z-indexes: (
   c-tabs: 3,
   c-overlay: 1001,
   c-dialog: 1002,
-  c-popup: 1002
+  c-popup: 1002,
 );
 
 // avatar
@@ -44,42 +44,42 @@ $icons: (
   (
     icon: logo,
     width: 160px,
-    height: 160px
+    height: 160px,
   ),
   (
     icon: empty,
     width: 220px,
-    height: 144px
+    height: 144px,
   ),
   (
     icon: drop,
     width: 20px,
-    height: 20px
+    height: 20px,
   ),
   (
     icon: more,
     width: 20px,
-    height: 20px
+    height: 20px,
   ),
   (
     icon: image,
     width: 160px,
-    height: 160px
+    height: 160px,
   ),
   (
     icon: wechat,
     width: 160px,
-    height: 160px
+    height: 160px,
   ),
   (
     icon: close,
     width: 40px,
-    height: 40px
+    height: 40px,
   ),
   (
     icon: attachment,
     width: 180px,
-    height: 180px
+    height: 180px,
   )
 );
 

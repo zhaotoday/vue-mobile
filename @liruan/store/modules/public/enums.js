@@ -2,17 +2,17 @@ import helpers from "jt-helpers";
 import { PublicEnumsModel } from "../../../models/public/enums";
 
 const state = {
-  data: {}
+  data: {},
 };
 
 const types = helpers.keyMirror({
-  SetData: null
+  SetData: null,
 });
 
 const mutations = {
   [types.SetData](state, data) {
     state.data = data;
-  }
+  },
 };
 
 const actions = {
@@ -20,12 +20,12 @@ const actions = {
     const res = await new PublicEnumsModel().GET({});
     commit(types.SetData, res);
     return res;
-  }
+  },
 };
 
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
 };

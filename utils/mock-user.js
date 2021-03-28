@@ -22,5 +22,5 @@ export default {
   },
   setOpenId() {
     wx.setStorageSync(OpenId, openId);
-  }
+  },
 };

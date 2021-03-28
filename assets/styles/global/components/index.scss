@@ -25,7 +25,7 @@
     @include position--fixed(50%, 0);
 
     transform: translateY(-50%);
-    box-shadow: 0 px2rpx(4px) px2rpx(20px) 0 rgba(map-get($colors, c12), .04);
+    box-shadow: 0 px2rpx(4px) px2rpx(20px) 0 rgba(map-get($colors, c12), 0.04);
 
     @include e(item) {
       @include text--middle(px2rpx(44px));

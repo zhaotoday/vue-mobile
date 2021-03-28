@@ -35,7 +35,7 @@
 
       transform: translateX(-50%) translateY(-50%);
       display: block;
-      content: '';
+      content: "";
       background-color: map-get($colors, c34);
     }
 
@@ -68,6 +68,6 @@
     display: block;
     border-radius: px2rpx(10px);
     overflow: hidden;
-    background-color: #F5F7FA;
+    background-color: #f5f7fa;
   }
 }

@@ -3,7 +3,7 @@ export default {
   props: {
     tip: {
       type: String,
-      default: "空空如也..."
-    }
-  }
+      default: "空空如也...",
+    },
+  },
 };

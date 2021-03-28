@@ -3,15 +3,15 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: "请选择"
+      default: "请选择",
     },
     range: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     value: {
       type: Number,
-      default: -1
-    }
-  }
+      default: -1,
+    },
+  },
 };

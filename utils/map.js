@@ -16,8 +16,8 @@ export const map = {
         output: "json",
         location: `${lng},${lat}`,
         radius: 1000,
-        extensions: "addressComponent"
-      }
+        extensions: "addressComponent",
+      },
     });
-  }
+  },
 };

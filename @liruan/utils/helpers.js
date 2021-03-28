@@ -24,5 +24,5 @@ export const helpers = {
     })();
 
     return `${consts.CdnUrl}/${id}${params}`;
-  }
+  },
 };

@@ -7,14 +7,14 @@ export default {
     const letters = ref([]);
 
     const cScroll = reactive({
-      intoView: ""
+      intoView: "",
     });
 
     onMounted(() => {
-      letters.value = cities.cityGroups.map(item => item.initial);
+      letters.value = cities.cityGroups.map((item) => item.initial);
     });
 
-    const scrollIntoView = item => {
+    const scrollIntoView = (item) => {
       cScroll.intoView = item;
     };
 
@@ -22,7 +22,7 @@ export default {
       cities,
       letters,
       cScroll,
-      scrollIntoView
+      scrollIntoView,
     };
-  }
+  },
 };

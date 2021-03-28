@@ -21,7 +21,7 @@ export const shareInstall = {
   getData() {
     return {
       channelCode: wx.getStorageSync("channelCode"),
-      bindData: JSON.parse(wx.getStorageSync("bindData") || "{}")
+      bindData: JSON.parse(wx.getStorageSync("bindData") || "{}"),
     };
-  }
+  },
 };

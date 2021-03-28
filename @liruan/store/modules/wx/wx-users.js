@@ -5,13 +5,13 @@ import { WxUsersModel } from "../../../models/wx/wx-users";
 const state = {
   wxUser: {},
   token: "",
-  openId: ""
+  openId: "",
 };
 
 const types = helpers.keyMirror({
   SetWxUser: null,
   SetToken: null,
-  SetOpenId: null
+  SetOpenId: null,
 });
 
 const mutations = {
@@ -23,7 +23,7 @@ const mutations = {
   },
   [types.SetOpenId](state, openId) {
     state.openId = openId;
-  }
+  },
 };
 
 const actions = {
@@ -31,7 +31,7 @@ const actions = {
     const { wxUser, token } = await new PublicWxUsersModel().POST({
       showLoading: true,
       action: "login",
-      body: { type: "Mp", code, iv, encryptedData }
+      body: { type: "Mp", code, iv, encryptedData },
     });
     commit(types.SetWxUser, wxUser);
     commit(types.SetToken, token);
@@ -39,7 +39,7 @@ const actions = {
   },
   async getWxUser({ commit }) {
     const res = await new WxUsersModel().POST({
-      action: "getUserInfo"
+      action: "getUserInfo",
     });
     commit(types.SetWxUser, res);
     return res;
@@ -48,16 +48,16 @@ const actions = {
     const { openId } = await new PublicWxUsersModel().POST({
       showError: false,
       action: "getOpenId",
-      body: { code }
+      body: { code },
     });
     commit(types.SetOpenId, openId);
     return openId;
-  }
+  },
 };
 
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
 };

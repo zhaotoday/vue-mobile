@@ -6,44 +6,44 @@ export default {
   props: {
     items: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     autoplay: {
       type: Boolean,
-      default: true
+      default: true,
     },
     previewable: {
       type: Boolean,
-      default: false
+      default: false,
     },
     interval: {
       type: Number,
-      default: 3000
+      default: 3000,
     },
     width: {
       type: Number,
-      default: 750
+      default: 750,
     },
     height: {
       type: Number,
-      default: 300
-    }
+      default: 300,
+    },
   },
   setup(props) {
     const current = ref(0);
 
-    const onChange = e => {
+    const onChange = (e) => {
       // TODO
       this.current = e.mp.detail.current;
     };
 
-    const onClick = item => {
+    const onClick = (item) => {
       if (props.previewable) {
         wx.previewImage({
-          urls: props.items.map(item => item.image),
+          urls: props.items.map((item) => item.image),
           current: item.image,
           loop: true,
-          indicator: "number"
+          indicator: "number",
         });
       } else {
         wx.navigateTo({ url: item.url });
@@ -53,7 +53,7 @@ export default {
     return {
       current,
       onChange,
-      onClick
+      onClick,
     };
-  }
+  },
 };

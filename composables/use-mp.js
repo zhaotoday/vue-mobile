@@ -10,7 +10,7 @@ export const useMp = () => {
       } else {
         const { code } = await wx.login();
         const { iv, encryptedData } = await wx.getUserInfo({
-          withCredentials: true
+          withCredentials: true,
         });
         resolve({ code, iv, encryptedData });
       }
@@ -18,6 +18,6 @@ export const useMp = () => {
   };
 
   return {
-    getUserInfo
+    getUserInfo,
   };
 };

@@ -9,5 +9,5 @@ export const auth = {
   },
   loggedIn() {
     return !!this.getToken();
-  }
+  },
 };

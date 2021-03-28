@@ -3,11 +3,11 @@ export default {
   props: {
     tabs: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     index: {
       type: Number,
-      default: 0
-    }
-  }
+      default: 0,
+    },
+  },
 };

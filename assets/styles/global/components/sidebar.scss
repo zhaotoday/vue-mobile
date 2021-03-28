@@ -34,7 +34,7 @@
         transform: translateY(-50%);
         background-color: map-get($colors, c21);
         display: block;
-        content: '';
+        content: "";
         z-index: 0;
         border-radius: px2rpx(54px);
       }

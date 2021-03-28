@@ -14,7 +14,7 @@ export const permission = {
       } else if (res === -1) {
         const { confirm } = await wx.showModal({
           title: "提示",
-          content: tip
+          content: tip,
         });
 
         if (confirm) {
@@ -27,5 +27,5 @@ export const permission = {
   },
   gotoAppSetting() {
     $permission.gotoAppPermissionSetting();
-  }
+  },
 };

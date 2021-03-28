@@ -6,24 +6,24 @@ export default {
   props: {
     autoFocus: {
       type: Boolean,
-      default: false
+      default: false,
     },
     showSubmit: {
       type: Boolean,
-      default: false
+      default: false,
     },
     link: {
       type: String,
-      default: ""
+      default: "",
     },
     defaultValue: {
       type: String,
-      default: ""
+      default: "",
     },
     placeholder: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   emits: ["confirm"],
   setup(props, context) {
@@ -31,7 +31,7 @@ export default {
 
     watch(
       () => props.defaultValue,
-      newVal => {
+      (newVal) => {
         value.value = newVal;
       }
     );
@@ -49,7 +49,7 @@ export default {
     return {
       value,
       navigateToLink,
-      confirm
+      confirm,
     };
-  }
+  },
 };

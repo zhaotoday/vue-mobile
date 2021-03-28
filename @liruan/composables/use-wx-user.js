@@ -24,6 +24,6 @@ export const useWxUser = () => {
     login,
     getWxUser,
     getToken,
-    getOpenId
+    getOpenId,
   };
 };
