@@ -28,6 +28,10 @@ export default {
       type: Number,
       default: 300,
     },
+    indicatorBottom: {
+      type: Number,
+      default: 20,
+    },
   },
   setup(props) {
     const current = ref(0);

@@ -22,7 +22,7 @@
         />
       </swiper-item>
     </swiper>
-    <div class="cc-indicator">
+    <div class="cc-indicator" :style="{ bottom: `${indicatorBottom}rpx` }">
       <span
         v-for="(item, index) in items.length"
         :key="index"
