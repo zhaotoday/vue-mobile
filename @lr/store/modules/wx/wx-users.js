@@ -34,7 +34,7 @@ const actions = {
       body: { type: "Mp", code, iv, encryptedData },
     });
     commit(types.SetWxUser, wxUser);
-    commit(types.SetToken, token);
+    commit(types.SetToken, `Bearer ${token}`);
     return { wxUser, token };
   },
   async getWxUser({ commit }) {
