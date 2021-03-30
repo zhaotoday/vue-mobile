@@ -13,6 +13,9 @@ export const useWxUser = () => {
     const { code, iv, encryptedData } = await getUserInfo();
     return store.dispatch("wxUsers/login", { code, iv, encryptedData });
   };
+  const loggedIn = () => {
+    return !!store.state.wxUsers.token;
+  };
   const getWxUser = () => store.dispatch("wxUsers/getWxUser");
   const getToken = () => store.dispatch("wxUsers/getToken");
   const getOpenId = () => store.dispatch("wxUsers/getOpenId");
@@ -22,6 +25,7 @@ export const useWxUser = () => {
     token,
     openId,
     login,
+    loggedIn,
     getWxUser,
     getToken,
     getOpenId,
