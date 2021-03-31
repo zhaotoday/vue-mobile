@@ -37,8 +37,7 @@ export default {
     const current = ref(0);
 
     const onChange = (e) => {
-      // TODO
-      this.current = e.mp.detail.current;
+      current.value = e.detail.current;
     };
 
     const onClick = (item) => {
