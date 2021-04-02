@@ -1,3 +1,5 @@
+@import "~@/assets/styles/utils/index";
+
 @include c(filter) {
   @include text--middle(px2rpx(66px));
 
