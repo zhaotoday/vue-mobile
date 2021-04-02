@@ -1,3 +1,5 @@
+@import "~@/assets/styles/utils/index";
+
 @include c(tabs) {
   $border-bottom_color: map-get($colors, c34);
   $__item_height: 72px;
