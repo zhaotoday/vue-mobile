@@ -1,3 +1,5 @@
+@import "~@/assets/styles/utils/index";
+
 @include c(search) {
   @include padding(px2rpx(15px), null, px2rpx(15px));
 
