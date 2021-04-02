@@ -15,11 +15,11 @@
           {{ cityGroup.initial }}
         </div>
         <div
-          v-for="city in cityGroup.items"
+          v-for="apis in cityGroup.items"
           :key="city.label"
           class="cc-list__item bgc11 fs26"
         >
-          {{ city.name }}
+          {{ apis.name }}
         </div>
       </div>
     </scroll-view>
