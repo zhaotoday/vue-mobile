@@ -1,3 +1,5 @@
+@import "~@/assets/styles/utils/index";
+
 @include c(dialog) {
   $background-color: map-get($colors, c11);
   $border-color: map-get($colors, c34);
