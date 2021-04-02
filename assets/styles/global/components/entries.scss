@@ -1,0 +1,26 @@
+$c-entries-widths: 50px, 60px, 70px;
+
+@include c(entries) {
+  display: flex;
+
+  @include e(item) {
+    flex: 1;
+  }
+
+  @include e(icon) {
+    @include block--center;
+
+    display: block;
+
+    @each $value in $c-entries-widths {
+      @include m(w#{$value}) {
+        @include size(px2rpx($value), px2rpx($value));
+      }
+    }
+  }
+
+  @include e(title) {
+    line-height: 100%;
+    text-align: center;
+  }
+}
