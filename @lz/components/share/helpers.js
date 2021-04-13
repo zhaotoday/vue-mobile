@@ -1,4 +1,6 @@
-import jweixin from 'jweixin-module'
+// #ifedf H5
+import jweixin from "jweixin-module";
+// #endif
 
 export const helpers = {
   share({ provider, scene, url, imageUrl, title, summary }) {
@@ -14,7 +16,7 @@ export const helpers = {
         href: url,
         ...params,
         success: resolve,
-        fail: reject
+        fail: reject,
       });
       // #endif
 
@@ -23,12 +25,12 @@ export const helpers = {
         title,
         desc: summary,
         link: url,
-        imgUrl: imageUrl
+        imgUrl: imageUrl,
       };
 
       jweixin.onMenuShareAppMessage(shareOptions);
       jweixin.onMenuShareTimeline(shareOptions);
-      // #end
+      // #endif
     });
-  }
+  },
 };
