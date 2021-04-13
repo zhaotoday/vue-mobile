@@ -1,4 +1,4 @@
-// #ifedf H5
+// #ifdef H5
 import jweixin from "jweixin-module";
 // #endif
 
@@ -20,7 +20,7 @@ export const helpers = {
       });
       // #endif
 
-      // #ifedf H5
+      // #ifdef H5
       const shareOptions = {
         title,
         desc: summary,
