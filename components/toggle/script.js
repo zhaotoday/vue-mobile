@@ -4,12 +4,12 @@ export default {
   props: {
     showText: {
       type: String,
-      default: "展开"
+      default: "展开",
     },
     hideText: {
       type: String,
-      default: "收起"
-    }
+      default: "收起",
+    },
   },
   emits: ["toggle"],
   setup(props, context) {
@@ -22,7 +22,7 @@ export default {
 
     return {
       show,
-      toggle
+      toggle,
     };
-  }
+  },
 };
