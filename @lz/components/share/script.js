@@ -1,31 +1,31 @@
-import wx from 'wx-bridge'
-import { ref } from '@vue/composition-api'
-import { copy } from 'vue-mobile/utils/copy'
-import { helpers as $helpers } from './helpers'
+import wx from "wx-bridge";
+import { ref } from "@vue/composition-api";
+import { copy } from "vue-mobile/utils/copy";
+import { helpers as $helpers } from "./helpers";
 
 export default {
   props: {
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     url: String,
     title: String,
     summary: String,
-    imageUrl: String
+    imageUrl: String,
   },
   emits: ["hide"],
   setup(props, context) {
     const qrCodeFilePath = ref("");
 
-    const onMakeQrCode = filePath => {
+    const onMakeQrCode = (filePath) => {
       qrCodeFilePath.value = filePath;
     };
 
     const saveImage = async () => {
       context.emit("hide");
       await wx.saveImageToPhotosAlbum({
-        filePath: qrCodeFilePath.value
+        filePath: qrCodeFilePath.value,
       });
       wx.showToast({ title: "已保存到相册" });
     };
@@ -46,7 +46,7 @@ export default {
           url: props.url,
           title: props.title,
           summary: props.summary,
-          imageUrl: props.imageUrl
+          imageUrl: props.imageUrl,
         });
         wx.showToast({ title: "分享成功" });
       } catch (e) {
@@ -59,7 +59,7 @@ export default {
       onMakeQrCode,
       saveImage,
       copyLink,
-      share
+      share,
     };
-  }
+  },
 };
