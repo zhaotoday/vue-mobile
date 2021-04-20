@@ -1,7 +1,7 @@
 import wx from "wx-bridge";
-import { permission } from "vue-mobile/utils/permission";
-import { apis } from "vue-mobile/utils/apis";
-import { map } from "vue-mobile/utils/map";
+import { permission } from "../../utils/permission";
+import { apis } from "../../utils/apis";
+import { map } from "../../utils/map";
 import { consts } from "@/utils/consts";
 
 export const getPosition = async () => {
@@ -10,24 +10,24 @@ export const getPosition = async () => {
   const { ip } = await apis.getCity();
   const { latitude, longitude } = await wx.getLocation({
     type: "gcj02",
-    geocode: true
+    geocode: true,
   });
   const {
     data: {
       regeocode: {
         addressComponent: { province, city },
-        formatted_address: address
-      }
-    }
+        formatted_address: address,
+      },
+    },
   } = await map.initialize({ key: consts.MapKey }).getAddressByLatLng({
     lat: latitude,
-    lng: longitude
+    lng: longitude,
   });
 
   return {
     ip,
     address,
     province,
-    city
+    city,
   };
 };
