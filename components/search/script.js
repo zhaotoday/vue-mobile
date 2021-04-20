@@ -43,7 +43,7 @@ export default {
     };
 
     const confirm = () => {
-      context.emit("confirm", value.value);
+      context.emit("confirm", value.value.trim());
     };
 
     return {
