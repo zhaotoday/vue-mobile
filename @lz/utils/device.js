@@ -1,9 +1,5 @@
 export const device = {
-  getInfo() {
-    return {
-      code: plus.device.uuid,
-      systemType: `${plus.os.name}_${plus.os.version}`,
-      phoneType: `${plus.device.vendor}_${plus.device.model}`,
-    };
-  },
+  code: plus.device.uuid,
+  systemType: `${plus.os.name}_${plus.os.version}`,
+  phoneType: `${plus.device.vendor}_${plus.device.model}`,
 };
