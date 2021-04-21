@@ -1,6 +1,6 @@
 <template>
   <picker
-    class="c-list__value"
+    :class="{ 'c-list__value': !isWrap }"
     mode="multiSelector"
     :range="range"
     :value="values"
@@ -8,8 +8,13 @@
     @change="onChange"
     @columnchange="onColumnChange"
   >
-    <div v-if="!names" class="c37">{{ placeholder }}</div>
-    <div v-else>{{ names }}</div>
+    <template v-if="isWrap">
+      <slot name="body" />
+    </template>
+    <template v-else>
+      <div v-if="!names" class="c37">{{ placeholder }}</div>
+      <div v-else>{{ names }}</div>
+    </template>
   </picker>
 </template>
 

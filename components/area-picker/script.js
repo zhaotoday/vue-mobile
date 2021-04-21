@@ -7,6 +7,10 @@ export default {
       type: String,
       default: "请选择",
     },
+    isWrap: {
+      type: Boolean,
+      default: false,
+    },
     code: {
       type: String,
       default: "",
