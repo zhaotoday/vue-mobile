@@ -6,9 +6,11 @@ export const apis = {
       url: "http://pv.sohu.com/cityjson?ie=utf-8",
       method: "GET",
     });
-    const { cid: code, cname: name, cip: ip } = JSON.parse(
-      data.replace("var returnCitySN = ", "").replace(";", "")
-    );
+    const {
+      cid: code,
+      cname: name,
+      cip: ip,
+    } = JSON.parse(data.replace("var returnCitySN = ", "").replace(";", ""));
     return { code, name, ip };
   },
 };
