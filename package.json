@@ -4,8 +4,8 @@
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"components/**/*.js\" \"mixins/**/*.js\" \"models/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\"",
-    "lint": "eslint \"components/**/*.js\" \"mixins/**/*.js\" \"models/**/*.js\" \"store/**/*.js\" \"utils/**/*.js\" --fix"
+    "format": "prettier --write \"components/**/*.js\" \"composables/**/*.js\" \"utils/**/*.js\"",
+    "lint": "eslint \"components/**/*.js\" \"composables/**/*.js\" \"utils/**/*.js\" --fix"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
-    "@vue/composition-api": "^1.0.0-rc.5",
-    "jt-helpers": "0.0.12",
+    "@vue/composition-api": "^1.0.0-rc.9",
+    "jt-helpers": "0.0.13",
     "jt-rest": "0.0.16",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.0",
@@ -35,11 +35,9 @@
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.23.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.8.0",
-    "node-sass": "^5.0.0",
-    "prettier": "^2.2.1",
-    "sass-loader": "^11.0.1"
+    "eslint": "^7.27.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "prettier": "^2.3.0"
   }
 }
