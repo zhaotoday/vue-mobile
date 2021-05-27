@@ -15,38 +15,38 @@ export default {
   props: {
     cid: {
       type: String,
-      required: true
+      required: true,
     },
     text: {
       type: String,
-      required: true
+      required: true,
     },
     size: {
       type: Number,
-      default: uni.upx2px(590)
+      default: uni.upx2px(590),
     },
     margin: {
       type: Number,
-      default: 0
+      default: 0,
     },
     backgroundColor: {
       type: String,
-      default: "#ffffff"
+      default: "#ffffff",
     },
     foregroundColor: {
       type: String,
-      default: "#000000"
+      default: "#000000",
     },
     backgroundImage: {
-      type: String
+      type: String,
     },
     logo: {
-      type: String
+      type: String,
     },
     makeOnLoad: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {};
@@ -67,7 +67,7 @@ export default {
         backgroundColor: this.backgroundImage
           ? "rgba(255,255,255,0)"
           : this.backgroundColor,
-        foregroundColor: this.foregroundColor
+        foregroundColor: this.foregroundColor,
       };
       var filePath = await this.makeSync(options);
 
@@ -95,12 +95,12 @@ export default {
         uni.canvasToTempFilePath(
           {
             canvasId: this.cid,
-            success: res => {
+            success: (res) => {
               options.success && options.success(res.tempFilePath);
             },
-            fail: error => {
+            fail: (error) => {
               options.fail && options.fail(error);
-            }
+            },
           },
           this
         );
@@ -110,12 +110,12 @@ export default {
       return new Promise((resolve, reject) => {
         this.drawBackgroundImage({
           filePath: filePath,
-          success: res => {
+          success: (res) => {
             resolve(res);
           },
-          fail: error => {
+          fail: (error) => {
             reject(error);
-          }
+          },
         });
       });
     },
@@ -165,12 +165,12 @@ export default {
         uni.canvasToTempFilePath(
           {
             canvasId: this.cid,
-            success: res => {
+            success: (res) => {
               options.success && options.success(res.tempFilePath);
             },
-            fail: error => {
+            fail: (error) => {
               options.fail && options.fail(error);
-            }
+            },
           },
           this
         );
@@ -180,12 +180,12 @@ export default {
       return new Promise((resolve, reject) => {
         this.drawLogo({
           filePath: filePath,
-          success: res => {
+          success: (res) => {
             resolve(res);
           },
-          fail: error => {
+          fail: (error) => {
             reject(error);
-          }
+          },
         });
       });
     },
@@ -199,15 +199,15 @@ export default {
           margin: options.margin,
           backgroundColor: options.backgroundColor,
           foregroundColor: options.foregroundColor,
-          success: res => {
+          success: (res) => {
             resolve(res);
           },
-          fail: error => {
+          fail: (error) => {
             reject(error);
-          }
+          },
         });
       });
-    }
-  }
+    },
+  },
 };
 </script>

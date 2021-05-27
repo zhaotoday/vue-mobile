@@ -4,7 +4,7 @@
 
 let uQRCode = {};
 
-(function() {
+(function () {
   //---------------------------------------------------------------------
   // QRCode for JavaScript
   //
@@ -31,16 +31,16 @@ let uQRCode = {};
   }
 
   QR8bitByte.prototype = {
-    getLength: function(buffer) {
+    getLength: function (buffer) {
       return this.data.length;
     },
 
-    write: function(buffer) {
+    write: function (buffer) {
       for (var i = 0; i < this.data.length; i++) {
         // not JIS ...
         buffer.put(this.data.charCodeAt(i), 8);
       }
-    }
+    },
   };
 
   //---------------------------------------------------------------------
@@ -57,13 +57,13 @@ let uQRCode = {};
   }
 
   QRCode.prototype = {
-    addData: function(data) {
+    addData: function (data) {
       var newData = new QR8bitByte(data);
       this.dataList.push(newData);
       this.dataCache = null;
     },
 
-    isDark: function(row, col) {
+    isDark: function (row, col) {
       if (
         row < 0 ||
         this.moduleCount <= row ||
@@ -75,11 +75,11 @@ let uQRCode = {};
       return this.modules[row][col];
     },
 
-    getModuleCount: function() {
+    getModuleCount: function () {
       return this.moduleCount;
     },
 
-    make: function() {
+    make: function () {
       // Calculate automatically typeNumber if provided is < 1
       if (this.typeNumber < 1) {
         var typeNumber = 1;
@@ -111,7 +111,7 @@ let uQRCode = {};
       this.makeImpl(false, this.getBestMaskPattern());
     },
 
-    makeImpl: function(test, maskPattern) {
+    makeImpl: function (test, maskPattern) {
       this.moduleCount = this.typeNumber * 4 + 17;
       this.modules = new Array(this.moduleCount);
 
@@ -145,7 +145,7 @@ let uQRCode = {};
       this.mapData(this.dataCache, maskPattern);
     },
 
-    setupPositionProbePattern: function(row, col) {
+    setupPositionProbePattern: function (row, col) {
       for (var r = -1; r <= 7; r++) {
         if (row + r <= -1 || this.moduleCount <= row + r) continue;
 
@@ -165,7 +165,7 @@ let uQRCode = {};
       }
     },
 
-    getBestMaskPattern: function() {
+    getBestMaskPattern: function () {
       var minLostPoint = 0;
       var pattern = 0;
 
@@ -183,7 +183,7 @@ let uQRCode = {};
       return pattern;
     },
 
-    createMovieClip: function(target_mc, instance_name, depth) {
+    createMovieClip: function (target_mc, instance_name, depth) {
       var qr_mc = target_mc.createEmptyMovieClip(instance_name, depth);
       var cs = 1;
 
@@ -210,7 +210,7 @@ let uQRCode = {};
       return qr_mc;
     },
 
-    setupTimingPattern: function() {
+    setupTimingPattern: function () {
       for (var r = 8; r < this.moduleCount - 8; r++) {
         if (this.modules[r][6] != null) {
           continue;
@@ -226,7 +226,7 @@ let uQRCode = {};
       }
     },
 
-    setupPositionAdjustPattern: function() {
+    setupPositionAdjustPattern: function () {
       var pos = QRUtil.getPatternPosition(this.typeNumber);
 
       for (var i = 0; i < pos.length; i++) {
@@ -257,25 +257,23 @@ let uQRCode = {};
       }
     },
 
-    setupTypeNumber: function(test) {
+    setupTypeNumber: function (test) {
       var bits = QRUtil.getBCHTypeNumber(this.typeNumber);
 
       for (var i = 0; i < 18; i++) {
         var mod = !test && ((bits >> i) & 1) == 1;
-        this.modules[Math.floor(i / 3)][
-          (i % 3) + this.moduleCount - 8 - 3
-        ] = mod;
+        this.modules[Math.floor(i / 3)][(i % 3) + this.moduleCount - 8 - 3] =
+          mod;
       }
 
       for (var i = 0; i < 18; i++) {
         var mod = !test && ((bits >> i) & 1) == 1;
-        this.modules[(i % 3) + this.moduleCount - 8 - 3][
-          Math.floor(i / 3)
-        ] = mod;
+        this.modules[(i % 3) + this.moduleCount - 8 - 3][Math.floor(i / 3)] =
+          mod;
       }
     },
 
-    setupTypeInfo: function(test, maskPattern) {
+    setupTypeInfo: function (test, maskPattern) {
       var data = (this.errorCorrectLevel << 3) | maskPattern;
       var bits = QRUtil.getBCHTypeInfo(data);
 
@@ -309,7 +307,7 @@ let uQRCode = {};
       this.modules[this.moduleCount - 8][8] = !test;
     },
 
-    mapData: function(data, maskPattern) {
+    mapData: function (data, maskPattern) {
       var inc = -1;
       var row = this.moduleCount - 1;
       var bitIndex = 7;
@@ -352,13 +350,13 @@ let uQRCode = {};
           }
         }
       }
-    }
+    },
   };
 
   QRCode.PAD0 = 0xec;
   QRCode.PAD1 = 0x11;
 
-  QRCode.createData = function(typeNumber, errorCorrectLevel, dataList) {
+  QRCode.createData = function (typeNumber, errorCorrectLevel, dataList) {
     var rsBlocks = QRRSBlock.getRSBlocks(typeNumber, errorCorrectLevel);
 
     var buffer = new QRBitBuffer();
@@ -415,7 +413,7 @@ let uQRCode = {};
     return QRCode.createBytes(buffer, rsBlocks);
   };
 
-  QRCode.createBytes = function(buffer, rsBlocks) {
+  QRCode.createBytes = function (buffer, rsBlocks) {
     var offset = 0;
 
     var maxDcCount = 0;
@@ -484,7 +482,7 @@ let uQRCode = {};
     MODE_NUMBER: 1 << 0,
     MODE_ALPHA_NUM: 1 << 1,
     MODE_8BIT_BYTE: 1 << 2,
-    MODE_KANJI: 1 << 3
+    MODE_KANJI: 1 << 3,
   };
 
   //---------------------------------------------------------------------
@@ -495,7 +493,7 @@ let uQRCode = {};
     L: 1,
     M: 0,
     Q: 3,
-    H: 2
+    H: 2,
   };
 
   //---------------------------------------------------------------------
@@ -510,7 +508,7 @@ let uQRCode = {};
     PATTERN100: 4,
     PATTERN101: 5,
     PATTERN110: 6,
-    PATTERN111: 7
+    PATTERN111: 7,
   };
 
   //---------------------------------------------------------------------
@@ -558,7 +556,7 @@ let uQRCode = {};
       [6, 28, 54, 80, 106, 132, 158],
       [6, 32, 58, 84, 110, 136, 162],
       [6, 26, 54, 82, 110, 138, 166],
-      [6, 30, 58, 86, 114, 142, 170]
+      [6, 30, 58, 86, 114, 142, 170],
     ],
 
     G15:
@@ -580,7 +578,7 @@ let uQRCode = {};
       (1 << 0),
     G15_MASK: (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1),
 
-    getBCHTypeInfo: function(data) {
+    getBCHTypeInfo: function (data) {
       var d = data << 10;
       while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
         d ^=
@@ -590,7 +588,7 @@ let uQRCode = {};
       return ((data << 10) | d) ^ QRUtil.G15_MASK;
     },
 
-    getBCHTypeNumber: function(data) {
+    getBCHTypeNumber: function (data) {
       var d = data << 12;
       while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
         d ^=
@@ -600,7 +598,7 @@ let uQRCode = {};
       return (data << 12) | d;
     },
 
-    getBCHDigit: function(data) {
+    getBCHDigit: function (data) {
       var digit = 0;
 
       while (data != 0) {
@@ -611,11 +609,11 @@ let uQRCode = {};
       return digit;
     },
 
-    getPatternPosition: function(typeNumber) {
+    getPatternPosition: function (typeNumber) {
       return QRUtil.PATTERN_POSITION_TABLE[typeNumber - 1];
     },
 
-    getMask: function(maskPattern, i, j) {
+    getMask: function (maskPattern, i, j) {
       switch (maskPattern) {
         case QRMaskPattern.PATTERN000:
           return (i + j) % 2 == 0;
@@ -639,7 +637,7 @@ let uQRCode = {};
       }
     },
 
-    getErrorCorrectPolynomial: function(errorCorrectLength) {
+    getErrorCorrectPolynomial: function (errorCorrectLength) {
       var a = new QRPolynomial([1], 0);
 
       for (var i = 0; i < errorCorrectLength; i++) {
@@ -649,7 +647,7 @@ let uQRCode = {};
       return a;
     },
 
-    getLengthInBits: function(mode, type) {
+    getLengthInBits: function (mode, type) {
       if (1 <= type && type < 10) {
         // 1 - 9
 
@@ -700,7 +698,7 @@ let uQRCode = {};
       }
     },
 
-    getLostPoint: function(qrCode) {
+    getLostPoint: function (qrCode) {
       var moduleCount = qrCode.getModuleCount();
 
       var lostPoint = 0;
@@ -804,7 +802,7 @@ let uQRCode = {};
       lostPoint += ratio * 10;
 
       return lostPoint;
-    }
+    },
   };
 
   //---------------------------------------------------------------------
@@ -812,7 +810,7 @@ let uQRCode = {};
   //---------------------------------------------------------------------
 
   var QRMath = {
-    glog: function(n) {
+    glog: function (n) {
       if (n < 1) {
         throw new Error("glog(" + n + ")");
       }
@@ -820,7 +818,7 @@ let uQRCode = {};
       return QRMath.LOG_TABLE[n];
     },
 
-    gexp: function(n) {
+    gexp: function (n) {
       while (n < 0) {
         n += 255;
       }
@@ -834,7 +832,7 @@ let uQRCode = {};
 
     EXP_TABLE: new Array(256),
 
-    LOG_TABLE: new Array(256)
+    LOG_TABLE: new Array(256),
   };
 
   for (var i = 0; i < 8; i++) {
@@ -873,15 +871,15 @@ let uQRCode = {};
   }
 
   QRPolynomial.prototype = {
-    get: function(index) {
+    get: function (index) {
       return this.num[index];
     },
 
-    getLength: function() {
+    getLength: function () {
       return this.num.length;
     },
 
-    multiply: function(e) {
+    multiply: function (e) {
       var num = new Array(this.getLength() + e.getLength() - 1);
 
       for (var i = 0; i < this.getLength(); i++) {
@@ -895,7 +893,7 @@ let uQRCode = {};
       return new QRPolynomial(num, 0);
     },
 
-    mod: function(e) {
+    mod: function (e) {
       if (this.getLength() - e.getLength() < 0) {
         return this;
       }
@@ -914,7 +912,7 @@ let uQRCode = {};
 
       // recursive call
       return new QRPolynomial(num, 0).mod(e);
-    }
+    },
   };
 
   //---------------------------------------------------------------------
@@ -1170,10 +1168,10 @@ let uQRCode = {};
     [19, 148, 118, 6, 149, 119],
     [18, 75, 47, 31, 76, 48],
     [34, 54, 24, 34, 55, 25],
-    [20, 45, 15, 61, 46, 16]
+    [20, 45, 15, 61, 46, 16],
   ];
 
-  QRRSBlock.getRSBlocks = function(typeNumber, errorCorrectLevel) {
+  QRRSBlock.getRSBlocks = function (typeNumber, errorCorrectLevel) {
     var rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
 
     if (rsBlock == undefined) {
@@ -1202,7 +1200,7 @@ let uQRCode = {};
     return list;
   };
 
-  QRRSBlock.getRsBlockTable = function(typeNumber, errorCorrectLevel) {
+  QRRSBlock.getRsBlockTable = function (typeNumber, errorCorrectLevel) {
     switch (errorCorrectLevel) {
       case QRErrorCorrectLevel.L:
         return QRRSBlock.RS_BLOCK_TABLE[(typeNumber - 1) * 4 + 0];
@@ -1227,22 +1225,22 @@ let uQRCode = {};
   }
 
   QRBitBuffer.prototype = {
-    get: function(index) {
+    get: function (index) {
       var bufIndex = Math.floor(index / 8);
       return ((this.buffer[bufIndex] >>> (7 - (index % 8))) & 1) == 1;
     },
 
-    put: function(num, length) {
+    put: function (num, length) {
       for (var i = 0; i < length; i++) {
         this.putBit(((num >>> (length - i - 1)) & 1) == 1);
       }
     },
 
-    getLengthInBits: function() {
+    getLengthInBits: function () {
       return this.length;
     },
 
-    putBit: function(bit) {
+    putBit: function (bit) {
       var bufIndex = Math.floor(this.length / 8);
       if (this.buffer.length <= bufIndex) {
         this.buffer.push(0);
@@ -1253,7 +1251,7 @@ let uQRCode = {};
       }
 
       this.length++;
-    }
+    },
   };
 
   //---------------------------------------------------------------------
@@ -1288,10 +1286,10 @@ let uQRCode = {};
       foregroundColor: "#000000",
       fileType: "png", // 'jpg', 'png'
       errorCorrectLevel: QRErrorCorrectLevel.H,
-      typeNumber: -1
+      typeNumber: -1,
     },
 
-    make: function(options) {
+    make: function (options) {
       var defaultOptions = {
         canvasId: options.canvasId,
         componentInstance: options.componentInstance,
@@ -1302,7 +1300,7 @@ let uQRCode = {};
         foregroundColor: this.defaults.foregroundColor,
         fileType: this.defaults.fileType,
         errorCorrectLevel: this.defaults.errorCorrectLevel,
-        typeNumber: this.defaults.typeNumber
+        typeNumber: this.defaults.typeNumber,
       };
       if (options) {
         for (var i in options) {
@@ -1345,11 +1343,11 @@ let uQRCode = {};
           }
         }
 
-        setTimeout(function() {
+        setTimeout(function () {
           ctx.draw(
             false,
-            (function() {
-              setTimeout(function() {
+            (function () {
+              setTimeout(function () {
                 uni.canvasToTempFilePath(
                   {
                     canvasId: options.canvasId,
@@ -1358,15 +1356,15 @@ let uQRCode = {};
                     height: options.size,
                     destWidth: options.size,
                     destHeight: options.size,
-                    success: function(res) {
+                    success: function (res) {
                       options.success && options.success(res.tempFilePath);
                     },
-                    fail: function(error) {
+                    fail: function (error) {
                       options.fail && options.fail(error);
                     },
-                    complete: function(res) {
+                    complete: function (res) {
                       options.complete && options.complete(res);
-                    }
+                    },
                   },
                   options.componentInstance
                 );
@@ -1377,7 +1375,7 @@ let uQRCode = {};
       }
 
       createCanvas();
-    }
+    },
   };
 })();
 
