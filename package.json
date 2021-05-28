@@ -4,8 +4,8 @@
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
-    "format": "prettier --write \"components/**/*.js\" \"composables/**/*.js\" \"utils/**/*.js\"",
-    "lint": "eslint \"components/**/*.js\" \"composables/**/*.js\" \"utils/**/*.js\" --fix"
+    "format": "prettier --write \"components/**/*.{vue,js}\" \"composables/**/*.js\" \"utils/**/*.js\"",
+    "lint": "eslint \"components/**/*.{vue,js}\" \"composables/**/*.js\" \"utils/**/*.js\" --fix"
   },
   "repository": {
     "type": "git",

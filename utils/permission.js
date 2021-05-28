@@ -1,5 +1,5 @@
 import wx from "wx-bridge";
-import $permission from "./utils/permission";
+import $permission from "../scripts/permission";
 
 export const permission = {
   request(code) {

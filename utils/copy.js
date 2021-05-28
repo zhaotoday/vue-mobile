@@ -1,4 +1,4 @@
-import { h5Copy } from "./utils/h5-copy.js";
+import { h5Copy } from "../scripts/h5-copy.js";
 
 export const copy = (content) => {
   return new Promise((resolve, reject) => {
