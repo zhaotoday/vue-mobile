@@ -1,6 +1,6 @@
 import { Rest } from "../../utils/rest";
-import { consts } from "@/utils/consts";
 import { auth } from "../../utils/auth";
+import { consts } from "@/utils/consts";
 
 export class PaymentsApi extends Rest {
   constructor() {
