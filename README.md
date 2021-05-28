@@ -151,20 +151,20 @@ Vue.component("c-checkbox", Checkbox);
 
 #### 数据模型
 
-apis/wx/example.js
+apis/wx/wx-users.js
 
 ```js
 import { Rest } from "vue-mobile/@lr/utils/rest";
 import { auth } from "vue-mobile/@lr/utils/auth";
 import { consts } from "@/utils/consts";
 
-export class ExampleApi extends Rest {
+export class WxUsersApi extends Rest {
   constructor() {
     super();
 
     this.baseUrl = consts.ApiUrl;
     this.headers = auth.getHeaders();
-    this.path = "wx/example";
+    this.path = "wx/wxUsers";
   }
 }
 ```
@@ -251,7 +251,7 @@ export default {
 
 #### 安装必要插件
 
-请 HBuilderX 上安装`scss/sass编译`插件。
+请在 HBuilderX 上安装`scss/sass编译`插件。
 
 #### 忽略目录
 
