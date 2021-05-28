@@ -233,7 +233,7 @@ store/modules/wx/products.js
 
 ```js
 import createStore from "vue-mobile/utils/create-store";
-import Model from "@/models/wx/products";
+import Model from "@/apis/wx/products";
 
 export default createStore({ Model });
 ```

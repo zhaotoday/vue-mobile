@@ -1,14 +1,14 @@
 import jweixin from "jweixin-module";
 import qs from "query-string";
-import { PublicWxUsersModel } from "../models/public/wx-users";
-import { ApisModel } from "../models/wx/apis";
+import { PublicWxUsersApi } from "../apis/public/wx-users";
+import { ApisModel } from "../apis/wx/apis";
 
 const { _, code } = qs.parse(window.location.search);
 const page = window.location.hash.substr(1);
 
 export const useOa = () => {
   const login = async (query) => {
-    const { wxUser, token } = await new PublicWxUsersModel().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().POST({
       action: "login",
       body: { type: "Oa", _, code, page, query },
     });

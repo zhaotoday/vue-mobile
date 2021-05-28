@@ -1,11 +1,11 @@
 import { Rest } from "../../utils/rest";
 import { consts } from "@/utils/consts";
 
-export class ApisModel extends Rest {
+export class PublicWxUsersApi extends Rest {
   constructor() {
     super();
 
     this.baseUrl = consts.ApiUrl;
-    this.path = "wx/apis";
+    this.path = "public/wxUsers";
   }
 }

@@ -1,7 +1,7 @@
 import { Rest } from "../../utils/rest";
 import { consts } from "@/utils/consts";
 
-export class PublicEnumsModel extends Rest {
+export class PublicEnumsApi extends Rest {
   constructor() {
     super();
 

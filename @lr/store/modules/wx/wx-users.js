@@ -1,6 +1,6 @@
 import helpers from "jt-helpers";
-import { PublicWxUsersModel } from "../../../models/public/wx-users";
-import { WxUsersModel } from "../../../models/wx/wx-users";
+import { PublicWxUsersApi } from "../../../apis/public/wx-users";
+import { WxUsersApi } from "../../../apis/wx/wx-users";
 
 const state = {
   wxUser: {},
@@ -28,7 +28,7 @@ const mutations = {
 
 const actions = {
   async login({ commit }, { code, iv, encryptedData }) {
-    const { wxUser, token } = await new PublicWxUsersModel().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().POST({
       showLoading: true,
       action: "login",
       body: { type: "Mp", code, iv, encryptedData },
@@ -38,14 +38,14 @@ const actions = {
     return { wxUser, token };
   },
   async getWxUser({ commit }) {
-    const res = await new WxUsersModel().POST({
+    const res = await new WxUsersApi().POST({
       action: "getUserInfo",
     });
     commit(types.SetWxUser, res);
     return res;
   },
   async getOpenId({ commit }, { code }) {
-    const { openId } = await new PublicWxUsersModel().POST({
+    const { openId } = await new PublicWxUsersApi().POST({
       showError: false,
       action: "getOpenId",
       body: { code },
