@@ -151,20 +151,20 @@ Vue.component("c-checkbox", Checkbox);
 
 #### 数据模型
 
-models/wx/products.js
+apis/wx/example.js
 
 ```js
-import REST from "vue-mobile/utils/rest";
-import auth from "vue-mobile/utils/auth";
-import consts from "@/utils/consts";
+import { Rest } from "vue-mobile/@lr/utils/rest";
+import { auth } from "vue-mobile/@lr/utils/auth";
+import { consts } from "@/utils/consts";
 
-export default class extends REST {
+export class ExampleApi extends Rest {
   constructor() {
     super();
 
-    this.baseURL = consts.ApiUrl;
+    this.baseUrl = consts.ApiUrl;
     this.headers = auth.getHeaders();
-    this.path = "wx/products";
+    this.path = "wx/example";
   }
 }
 ```
@@ -188,10 +188,7 @@ pages/home/index.vue
 pages/home/script.js
 
 ```js
-import { Component, Vue } from "vue-property-decorator";
-
-@Component
-export default class Home extends Vue {}
+export default {};
 ```
 
 pages/home/style.scss
@@ -210,16 +207,51 @@ pages/home/style.scss
 
 #### Vuex 状态管理
 
-store/modules/wx/products.js
+store/modules/public/enums.js
 
 ```js
-import createStore from "vue-mobile/utils/create-store";
-import Model from "@/apis/wx/products";
+import helpers from "jt-helpers";
+import { PublicEnumsApi } from "@/apis/public/enums";
 
-export default createStore({ Model });
+const state = {
+  data: {
+    config: {
+      version: "",
+    },
+  },
+};
+
+const types = helpers.keyMirror({
+  SetData: null,
+});
+
+const mutations = {
+  [types.SetData](state, data) {
+    state.data = data;
+  },
+};
+
+const actions = {
+  async get({ commit }) {
+    const res = await new PublicEnumsApi().GET({});
+    commit(types.SetData, res);
+    return res;
+  },
+};
+
+export default {
+  namespaced: true,
+  state,
+  mutations,
+  actions,
+};
 ```
 
 ## 贴士
+
+#### 安装必要插件
+
+请 HBuilderX 上安装`scss/sass编译`插件。
 
 #### 忽略目录
 
@@ -227,8 +259,7 @@ export default createStore({ Model });
 
 #### 代码格式化
 
-- 当前文件格式化。快捷键：Ctrl + Alt + Shift + P；
-- 目录下所有文件格式化。选中目录 -> 右键 -> Optimize Imports；选中目录 -> 右键 -> Reformat with Prettier；
+执行命令 `npm run format`。
 
 #### 识别项目别名
 
