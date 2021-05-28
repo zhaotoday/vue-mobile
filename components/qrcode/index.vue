@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import uQRCode from "./uqrcode.js";
+import uQRCode from "../../scripts/uqrcode.js";
 
 export default {
   props: {
