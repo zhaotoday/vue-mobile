@@ -2,7 +2,7 @@
 
 #### 简介
 
-Vue Mobile 是一个基于 Vue 的移动端 UI 框架，为多端开发而生，支持发布到 iOS、Android、H5、以及各种小程序。
+Vue Mobile 是一个基于 Vue 的移动端 UI 框架，为多端开发而生，支持发布到 Android、iOS、H5、以及各种小程序。
 
 #### 依赖框架
 
@@ -18,7 +18,7 @@ HBuilderX IDE。
 
 ## 示例项目
 
-https://github.com/zhaotoday/uni-app
+https://github.com/zhaotoday/vue-mobile-template
 
 ## 使用
 
@@ -42,6 +42,13 @@ $ npm run lint
 #### 目录规范
 
 ```
+
+|- apis                 API
+|  |- public            前端 API
+|     |- wx-users.js    微信用户 API
+|  |- wx                微信端 API
+|     |- wx-users.js    微信用户 API
+|
 |- assets               待编译的静态资源
 |  |- images            图片（必须小于 40K）
 |     |- components     组件图片
@@ -59,12 +66,6 @@ $ npm run lint
 |
 |- mixins               混合
 |
-|- models               数据模型
-|  |- public            前端数据模型
-|     |- wx-users       微信用户数据模型
-|  |- wx                微信端数据模型
-|     |- wx-users       微信用户数据模型
-|
 |- pages                页面
 |  |- home              主页
 |     |- index.vue      主页模板
@@ -79,9 +80,9 @@ $ npm run lint
 |- store                Vuex 状态管理
 |  |- modules           Vuex 状态管理模块拆分
 |     |- public         前端状态管理
-|        |- wx-users    微信用户状态管理
+|        |- wx-users.js 微信用户状态管理
 |     |- wx             微信端状态管理
-|        |- wx-users    微信用户状态管理
+|        |- wx-users.js 微信用户状态管理
 |
 |- utils                工具
 ```
@@ -98,7 +99,7 @@ $cdn: "http://localhost:88";
 $cdn-version: 0.1;
 
 // 图片地址
-$image-url: "~@/assets/images/components";
+$image-url: "~@/assets/images";
 
 // 色值
 $colors: (
@@ -115,56 +116,36 @@ $button-widths: 680px, 84px;
 
 请参考 Vue Mobile 图片目录结构，将图片放置在 assets/images/components/ 目录下。
 
-> 注：需要修改 Sass 变量 $image-url，指向对应目录：$image-url: "~@/assets/images/components";
+> 注：需要修改 Sass 变量 $image-url，指向对应目录：$image-url: "~@/assets/images";
 
 #### 按需引用内置组件样式
 
-assets/styles/global/index.scss
+assets/styles/global/components/index.scss
 
 ```scss
-@import "../utils/index";
-@import "~vue-mobile/assets/styles/global/classes/colors";
-@import "~vue-mobile/assets/styles/global/classes/font-sizes";
-@import "~vue-mobile/assets/styles/global/classes/iconfont";
 @import "~vue-mobile/assets/styles/global/components/avatar";
-
-// 引用其他内置组件样式
-
-@import "~vue-mobile/assets/styles/global/objects/grid";
-@import "~vue-mobile/assets/styles/global/objects/media";
-@import "~vue-mobile/assets/styles/global/reset/index";
-@import "~vue-mobile/assets/styles/global/utils/base";
-@import "~vue-mobile/assets/styles/global/utils/margin";
-@import "~vue-mobile/assets/styles/global/utils/padding";
+@import "~vue-mobile/assets/styles/global/components/button";
+@import "~vue-mobile/assets/styles/global/components/close";
+// ...
 ```
+
+#### 定义全局样式
+
+在 assets/styles/global 目录下的 classes、 components、objects、reset 目录下新建样式文件并编写样式，在对应的 index.scss 引入样式文件。
 
 #### 按需引用并注册内置组件
 
 main.js
 
 ```js
-import Vue from "vue";
-import App from "@/App";
-import globalPlugin from "@/plugins/global";
+// ...
 import Checkbox from "vue-mobile/components/checkbox";
-
-// 引用其他内置组件
-
-Vue.config.productionTip = false;
-
-Vue.use(globalPlugin);
-
+// ...
 Vue.component("c-checkbox", Checkbox);
-
-// 注册其他内置组件
-
-const app = new Vue({
-  mpType: "app",
-  ...App
-});
-
-app.$mount();
+// ...
 ```
+
+> 注：全局组件名称以 c- 开头。
 
 ## 代码示例
 
