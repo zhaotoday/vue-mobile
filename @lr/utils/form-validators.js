@@ -3,12 +3,12 @@ export const formValidators = {
     return {
       validator(rule, value) {
         return (
-          !value || /^[1-9]\d{5}$/.test(value) || new Error("请填写6位数字ID")
+          !value || /^[1-9]\d{7}$/.test(value) || new Error("请填写8位数字ID")
         );
       },
     };
   },
-  userName() {
+  account() {
     return {
       pattern: /[a-zA-Z0-9_-]{8,20}/,
       message: "账号格式错误",
