@@ -1,6 +1,6 @@
 import { store } from "@/store";
 
-const { wxUser, token } = require("@/mock-wx-user.json");
+const { wxUser, token } = require("@/mock/wx-user.json");
 
 export const useMockWxUser = () => {
   const login = () => {
