@@ -6,7 +6,7 @@
   display: flex;
 
   @include e(content, submit) {
-    @include text--middle(px2rpx($submit-bar-height));
+    @include text--middle(px2rpx(map-get($c-submit-bar, height)));
   }
 
   @include e(content) {
@@ -15,6 +15,6 @@
 
   @include e(submit) {
     flex: 0 1 auto;
-    width: px2rpx($submit-bar-submit-width);
+    width: px2rpx(map-get($c-submit-bar, __submit-width));
   }
 }

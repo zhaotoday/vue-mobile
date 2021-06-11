@@ -39,50 +39,55 @@ $c-button: (
   heights: 0px,
   --at-bottom: 30px,
 );
-$button-widths: 0px;
-$button-heights: 0px;
-$button-border-radii: 0px;
-
-// checkbox
-$checkbox-width: 48px;
 
 // icon
 $icons: (
-  (
-    icon: logo,
-    width: 160px,
-    height: 160px,
+  items: (
+    (
+      icon: logo,
+      width: 160px,
+      height: 160px,
+    ),
+    (
+      icon: empty,
+      width: 220px,
+      height: 144px,
+    ),
+    (
+      icon: drop,
+      width: 20px,
+      height: 20px,
+    ),
+    (
+      icon: more,
+      width: 20px,
+      height: 20px,
+    ),
+    (
+      icon: close,
+      width: 40px,
+      height: 40px,
+    ),
   ),
-  (
-    icon: empty,
-    width: 220px,
-    height: 144px,
-  ),
-  (
-    icon: drop,
-    width: 20px,
-    height: 20px,
-  ),
-  (
-    icon: more,
-    width: 20px,
-    height: 20px,
-  ),
-  (
-    icon: close,
-    width: 40px,
-    height: 40px,
-  )
 );
 
 // submit-bar
+$c-submit: (
+  height: 96px,
+  __submit-width: 290px,
+);
+
 $submit-bar-height: 96px;
 $submit-bar-submit-width: 290px;
 
 // table
-$table-border-color: map-get($colors, c32);
-$table-th-widths: 0px;
+$c-table: (
+  border-color: map-get($colors, c32),
+  th-widths: 0px,
+);
 
 // tag
-$tag-heights: 0px;
-$tag-border-radii: 0px;
+$c-tag: (
+  heights: 0px,
+  border-radii: 0px,
+);
