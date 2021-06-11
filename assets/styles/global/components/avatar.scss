@@ -1,5 +1,5 @@
 @include c(avatar) {
-  @include circle(px2rpx($avatar-width));
+  @include circle(px2rpx(map-get($c-avatar, width)));
 
   background-color: map-get($colors, c11);
   display: block;
