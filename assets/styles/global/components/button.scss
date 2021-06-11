@@ -21,32 +21,27 @@
     display: block;
   }
 
-  @include s(is-bottom) {
-    @include position--fixed(null, null, px2rpx(30px), 50%);
+  @include s(at-bottom) {
+    @include position--fixed(
+      null,
+      null,
+      px2rpx(map-get($c-button, --at-bottom)),
+      50%
+    );
 
     transform: translateX(-50%);
   }
 
-  &.w1 {
-    width: 100%;
-  }
-
-  @each $item in $button-widths {
+  @each $item in map-get($c-button, widths) {
     &.w#{$item / 1px} {
       width: px2rpx($item);
     }
   }
 
-  @each $item in $button-heights {
+  @each $item in map-get($c-button, heights) {
     &.h#{$item / 1px} {
       @include text--middle(px2rpx($item));
 
-      border-radius: px2rpx($item);
-    }
-  }
-
-  @each $item in $button-border-radii {
-    &.br#{$item / 1px} {
       border-radius: px2rpx($item);
     }
   }

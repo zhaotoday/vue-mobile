@@ -29,7 +29,7 @@
     "jt-rest": "^0.0.16",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.0",
-    "sass-utils": "^1.0.40",
+    "sass-utils": "^1.0.41",
     "wx-bridge": "^0.0.35"
   },
   "devDependencies": {

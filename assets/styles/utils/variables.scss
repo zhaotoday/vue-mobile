@@ -37,7 +37,7 @@ $c-avatar: (
 $c-button: (
   widths: 0px,
   heights: 0px,
-  border-radii: 0,
+  --at-bottom: 30px,
 );
 $button-widths: 0px;
 $button-heights: 0px;
