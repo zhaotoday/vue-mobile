@@ -30,7 +30,7 @@ $z-indexes: (
 
 // avatar
 $c-avatar: (
-  width: 168px,
+  widths: 168px,
 );
 
 // button
@@ -41,7 +41,7 @@ $c-button: (
 );
 
 // icon
-$icons: (
+$c-icon: (
   items: (
     (
       icon: logo,
@@ -72,13 +72,10 @@ $icons: (
 );
 
 // submit-bar
-$c-submit: (
+$c-submit-bar: (
   height: 96px,
   __submit-width: 290px,
 );
-
-$submit-bar-height: 96px;
-$submit-bar-submit-width: 290px;
 
 // table
 $c-table: (
