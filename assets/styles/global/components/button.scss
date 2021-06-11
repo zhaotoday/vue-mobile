@@ -41,8 +41,6 @@
   @each $item in map-get($c-button, heights) {
     &.h#{$item / 1px} {
       @include text--middle(px2rpx($item));
-
-      border-radius: px2rpx($item);
     }
   }
 }

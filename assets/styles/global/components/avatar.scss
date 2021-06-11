@@ -4,7 +4,7 @@
       @include size(px2rpx($item), px2rpx($item));
     }
 
-    &.is-circle#{$item / 1px} {
+    &.r#{$item / 1px} {
       @include circle(px2rpx($item));
     }
   }
