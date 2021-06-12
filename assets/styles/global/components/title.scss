@@ -1,7 +1,6 @@
 @include c(title) {
-  @include text--middle(px2rpx(map-get($c-definition, __head-height)));
+  @include text--middle(px2rpx(map-get($c-title, __head-height)));
 
-  border-left: px2rpx(map-get($c-definition, __head-border-left-width)) solid
-    map-get($colors, c21);
-  text-indent: px2rpx(map-get($c-definition, __head-text-indent));
+  border-left: px2rpx(8px) solid map-get($colors, c21);
+  text-indent: px2rpx(20px);
 }
