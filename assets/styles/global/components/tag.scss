@@ -10,12 +10,6 @@
     }
   }
 
-  @each $item in map-get($c-tag, border-radii) {
-    &.br#{$item / 1px} {
-      border-radius: px2rpx($item);
-    }
-  }
-
   @include s(is-deletable) {
     position: relative;
     padding-right: px2rpx(48px);
