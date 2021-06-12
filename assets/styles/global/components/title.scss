@@ -1,17 +1,7 @@
 @include c(title) {
-  @include padding(px2rpx(32px), null, px2rpx(38px));
+  @include text--middle(px2rpx(map-get($c-definition, __head-height)));
 
-  position: relative;
-  line-height: 100%;
-
-  &::after {
-    @include position--absolute(null, null, px2rpx(16px), 50%);
-    @include size(px2rpx(60px), px2rpx(4px));
-
-    transform: translateX(-50%);
-    border-radius: px2rpx(4px);
-    display: block;
-    content: "";
-    background-color: map-get($colors, c21);
-  }
+  border-left: px2rpx(map-get($c-definition, __head-border-left-width)) solid
+    map-get($colors, c21);
+  text-indent: px2rpx(map-get($c-definition, __head-text-indent));
 }
