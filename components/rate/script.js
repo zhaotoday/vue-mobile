@@ -11,7 +11,7 @@ export default {
     },
     normalClass: {
       type: String,
-      default: "gray7",
+      default: "t-gray7",
     },
     activeClass: {
       type: String,

@@ -12,7 +12,7 @@
       <slot name="body" />
     </template>
     <template v-else>
-      <div v-if="!names" class="gray7">{{ placeholder }}</div>
+      <div v-if="!names" class="t-placeholder">{{ placeholder }}</div>
       <div v-else>{{ names }}</div>
     </template>
   </picker>
