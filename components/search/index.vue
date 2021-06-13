@@ -1,10 +1,10 @@
 <template>
   <div
-    class="c-search bg--white"
+    class="c-search bg-white"
     :class="{ 'has-submit': showSubmit }"
     @click="navigateToLink"
   >
-    <div class="c-search__input-wrap bg--gray2">
+    <div class="c-search__input-wrap bg-gray2">
       <div v-if="link" class="c-search__input fs28">
         <span v-if="value">
           {{ value }}

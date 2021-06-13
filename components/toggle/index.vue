@@ -1,5 +1,5 @@
 <template>
-  <div class="c-toggle c--primary fs24 u-tac" @click="toggle">
+  <div class="c-toggle t-primary fs24 u-tac" @click="toggle">
     <template v-if="!show">
       {{ showText }}
       <i class="c-iconfont c-iconfont--show fs24"></i>

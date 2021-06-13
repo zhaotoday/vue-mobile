@@ -1,5 +1,5 @@
 <template>
-  <div class="c-more c--primary fs24 u-tac" @click="$emit('more')">
+  <div class="c-more t-primary fs24 u-tac" @click="$emit('more')">
     {{ text }}
     <i class="c-iconfont c-iconfont--more fs24"></i>
   </div>

@@ -35,7 +35,7 @@ export default {
     },
     confirmStyle: {
       type: String,
-      default: "c--primary",
+      default: "t-primary",
     },
     confirmDisabled: {
       type: Boolean,

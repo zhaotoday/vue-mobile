@@ -1,6 +1,6 @@
 <template>
   <picker :range="range" :value.sync="value" @change="$emit('change', $event)">
-    <div class="c-filter bg--white fs28 u-tac">
+    <div class="c-filter bg-white fs28 u-tac">
       <span v-if="value === -1" class="gray7">
         {{ placeholder }}
       </span>

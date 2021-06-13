@@ -1,5 +1,5 @@
 <template>
-  <ul class="c-tabs bg--white fs28 u-tac">
+  <ul class="c-tabs bg-white fs28 u-tac">
     <li
       v-for="(item, itemIndex) in tabs"
       :key="itemIndex"

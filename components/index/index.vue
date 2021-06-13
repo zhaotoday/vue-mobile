@@ -17,13 +17,13 @@
         <div
           v-for="city in cityGroup.items"
           :key="city.label"
-          class="cc-list__item bg--white fs26"
+          class="cc-list__item bg-white fs26"
         >
           {{ city.name }}
         </div>
       </div>
     </scroll-view>
-    <ul class="cc-letters bg--white c--primary fs24">
+    <ul class="cc-letters bg-white t-primary fs24">
       <li
         v-for="item in letters"
         :key="item"
