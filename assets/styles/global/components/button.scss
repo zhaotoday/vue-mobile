@@ -22,12 +22,22 @@
   }
 
   @include s(at-bottom) {
+    /* #ifdef H5 */
+    @include position--fixed(
+      null,
+      null,
+      px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height),
+      50%
+    );
+    /* #endif */
+    /* #ifndef H5 */
     @include position--fixed(
       null,
       null,
       px2rpx(map-get($c-button, --at-bottom)),
       50%
     );
+    /* #endif */
 
     transform: translateX(-50%);
   }
