@@ -38,7 +38,7 @@ $c-avatar: (
 
 // button
 $c-button: (
-  widths: 0px,
+  widths: $pxes,
   heights: 0px,
   --at-bottom: 30px,
 );
