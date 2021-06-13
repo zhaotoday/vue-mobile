@@ -14,7 +14,7 @@
       border-radius: px2rpx(6px);
       display: block;
       content: "";
-      background-color: map-get($colors, c21);
+      background-color: map-get($colors, primary);
     }
   }
 
@@ -32,7 +32,7 @@
       border-radius: px2rpx(6px);
       display: block;
       content: "";
-      background-color: map-get($colors, c21);
+      background-color: map-get($colors, primary);
     }
   }
 }

@@ -5,7 +5,7 @@
 
   @include c(icon) {
     @include m(logo) {
-      background-color: map-get($colors, c11);
+      background-color: map-get($colors, white);
       border-radius: px2rpx(22px);
       margin-bottom: px2rpx(24px);
     }

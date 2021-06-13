@@ -25,14 +25,14 @@
     }
 
     @include s(is-active) {
-      color: map-get($colors, c11);
+      color: map-get($colors, white);
 
       &::after {
         @include position--absolute(50%, null, null, 0);
         @include size(100%, px2rpx(54px));
 
         transform: translateY(-50%);
-        background-color: map-get($colors, c21);
+        background-color: map-get($colors, primary);
         display: block;
         content: "";
         z-index: 0;

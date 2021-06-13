@@ -19,11 +19,11 @@
       @include margin(0, px2rpx(5px), null, px2rpx(5px));
 
       display: inline-block;
-      background-color: map-get($colors, c11);
+      background-color: map-get($colors, white);
       opacity: 0.6;
 
       &.is-active {
-        background-color: map-get($colors, c11);
+        background-color: map-get($colors, white);
         opacity: 1;
       }
     }

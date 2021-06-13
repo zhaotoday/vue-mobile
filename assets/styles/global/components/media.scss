@@ -3,7 +3,7 @@
     @include padding(px2rpx(32px), null, px2rpx(32px));
 
     display: flex;
-    border-bottom: 1px solid map-get($colors, c34);
+    border-bottom: 1px solid map-get($colors, gray4);
 
     @include c(media) {
       @include e(image) {

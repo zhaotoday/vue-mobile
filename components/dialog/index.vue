@@ -21,7 +21,7 @@
         <li
           v-if="showConfirm"
           class="o-grid__cell"
-          :class="confirmDisabled ? 'c37' : confirmStyle"
+          :class="confirmDisabled ? 'gray7' : confirmStyle"
           @click="onConfirm"
         >
           {{ confirmText }}

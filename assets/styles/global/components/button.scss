@@ -10,7 +10,7 @@
     width: 100%;
     line-height: 0;
     text-align: center;
-    border-top: 1px solid map-get($colors, c32);
+    border-top: 1px solid map-get($colors, gray2);
   }
 
   &::after {

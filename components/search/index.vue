@@ -1,22 +1,22 @@
 <template>
   <div
-    class="c-search bgc11"
+    class="c-search bg--white"
     :class="{ 'has-submit': showSubmit }"
     @click="navigateToLink"
   >
-    <div class="c-search__input-wrap bgc32">
+    <div class="c-search__input-wrap bg--gray2">
       <div v-if="link" class="c-search__input fs28">
         <span v-if="value">
           {{ value }}
         </span>
-        <span v-else class="c37">
+        <span v-else class="gray7">
           {{ placeholder }}
         </span>
       </div>
       <input
         v-else
         class="c-search__input fs28"
-        placeholder-class="c37"
+        placeholder-class="gray7"
         :placeholder="placeholder"
         confirm-type="search"
         :auto-focus="autoFocus"

@@ -6,8 +6,8 @@
       class="c-tag h40 br8 fs24"
       :class="
         !checkable || checkedValues.includes(item.value)
-          ? 'bgc21 bdc21 bgc21 c11'
-          : 'bdc37 c37'
+          ? 'bg--primary bd--primary bg--primary c--white'
+          : 'bd--gray7 c--gray7'
       "
       @click="check(item)"
     >

@@ -8,7 +8,7 @@
 
     position: relative;
     margin-left: px2rpx(30px);
-    border-bottom: 1px solid map-get($colors, c32);
+    border-bottom: 1px solid map-get($colors, gray2);
 
     span {
       line-height: 100%;
@@ -42,7 +42,7 @@
     @include padding(px2rpx(16px), px2rpx(30px), px2rpx(16px));
 
     line-height: 100%;
-    border-top: 1px solid map-get($colors, c32);
+    border-top: 1px solid map-get($colors, gray2);
 
     @include c(tag) {
       margin-left: px2rpx(20px);

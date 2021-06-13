@@ -103,8 +103,8 @@ $image-url: "~@/assets/images";
 
 // 色值
 $colors: (
-  c11: white,
-  c12: black,
+  white: white,
+  black: black,
   ...
 );
 

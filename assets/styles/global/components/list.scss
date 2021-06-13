@@ -3,7 +3,7 @@
     @include text--middle(px2rpx(100px));
 
     position: relative;
-    border-bottom: 1px solid map-get($colors, c32);
+    border-bottom: 1px solid map-get($colors, gray2);
     margin-left: px2rpx(30px);
 
     &:last-child {
@@ -137,6 +137,6 @@
     transform: translateY(-50%);
     width: px2rpx(200px);
     text-align: center;
-    border-left: 1px solid map-get($colors, c32);
+    border-left: 1px solid map-get($colors, gray2);
   }
 }

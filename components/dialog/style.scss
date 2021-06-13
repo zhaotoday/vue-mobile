@@ -1,8 +1,8 @@
 @import "~@/assets/styles/utils/index";
 
 @include c(dialog) {
-  $background-color: map-get($colors, c11);
-  $border-color: map-get($colors, c34);
+  $background-color: map-get($colors, white);
+  $border-color: map-get($colors, gray4);
   $border-radius: 8px;
 
   @include position--fixed(50%, null, null, 50%);
