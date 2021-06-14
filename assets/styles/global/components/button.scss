@@ -11,6 +11,7 @@
       px2rpx(map-get($c-button, __bottom-wrap-padding))
     );
 
+    z-index: 2;
     width: 100%;
     line-height: 0;
     text-align: center;
