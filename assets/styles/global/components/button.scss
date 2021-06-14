@@ -5,12 +5,15 @@
 
   @include e(bottom-wrap) {
     @include position--fixed(null, null, 0, 0);
-    @include padding(px2rpx(30px), null, px2rpx(30px));
+    @include padding(
+      px2rpx(map-get($c-button, __bottom-wrap-padding)),
+      null,
+      px2rpx(map-get($c-button, __bottom-wrap-padding))
+    );
 
     width: 100%;
     line-height: 0;
     text-align: center;
-    border-top: 1px solid map-get($colors, gray2);
   }
 
   &::after {
@@ -22,25 +25,32 @@
   }
 
   @include s(at-bottom) {
-    /* #ifdef H5 */
-    @include position--fixed(
-      null,
-      null,
-      px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height),
-      50%
-    );
-    /* #endif */
-    /* #ifndef H5 */
     @include position--fixed(
       null,
       null,
       px2rpx(map-get($c-button, --at-bottom)),
       50%
     );
-    /* #endif */
 
     transform: translateX(-50%);
   }
+
+  /* #ifdef H5 */
+  @at-root {
+    .has-nav-bar {
+      @include c(button) {
+        @include s(at-bottom) {
+          @include position--fixed(
+            null,
+            null,
+            px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height),
+            50%
+          );
+        }
+      }
+    }
+  }
+  /* #endif */
 
   @each $item in map-get($c-button, widths) {
     &.w#{$item / 1px} {

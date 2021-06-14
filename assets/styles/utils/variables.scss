@@ -46,6 +46,7 @@ $c-avatar: (
 $c-button: (
   widths: 690px,
   heights: $pxes,
+  __bottom-wrap-padding: 30px,
   --at-bottom: 30px,
 );
 
