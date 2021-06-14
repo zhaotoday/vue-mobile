@@ -14,6 +14,16 @@
     width: 100%;
     line-height: 0;
     text-align: center;
+
+    /* #ifdef H5 */
+    @at-root {
+      @include c(button) {
+        @include e(bottom-wrap) {
+          bottom: px2rpx($tab-bar-height);
+        }
+      }
+    }
+    /* #endif */
   }
 
   &::after {
@@ -33,24 +43,19 @@
     );
 
     transform: translateX(-50%);
-  }
 
-  /* #ifdef H5 */
-  @at-root {
-    .has-nav-bar {
-      @include c(button) {
-        @include s(at-bottom) {
-          @include position--fixed(
-            null,
-            null,
-            px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height),
-            50%
-          );
+    /* #ifdef H5 */
+    @at-root {
+      .has-nav-bar {
+        @include c(button) {
+          @include s(at-bottom) {
+            bottom: px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height);
+          }
         }
       }
     }
+    /* #endif */
   }
-  /* #endif */
 
   @each $item in map-get($c-button, widths) {
     &.w#{$item / 1px} {
