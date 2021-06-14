@@ -16,15 +16,15 @@
     line-height: 0;
     text-align: center;
 
-    /* #ifdef H5 */
     @at-root {
+      /* #ifdef H5 */
       @include c(button) {
         @include e(bottom-wrap) {
           bottom: px2rpx($tab-bar-height);
         }
       }
+      /* #endif */
     }
-    /* #endif */
   }
 
   &::after {
@@ -45,8 +45,8 @@
 
     transform: translateX(-50%);
 
-    /* #ifdef H5 */
     @at-root {
+      /* #ifdef H5 */
       .has-nav-bar {
         @include c(button) {
           @include s(at-bottom) {
@@ -54,8 +54,8 @@
           }
         }
       }
+      /* #endif */
     }
-    /* #endif */
   }
 
   @each $item in map-get($c-button, widths) {
