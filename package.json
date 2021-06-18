@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.118",
+  "version": "1.0.119",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "jt-rest": "^0.0.16",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.0",
-    "sass-utils": "^1.0.46",
+    "sass-utils": "^1.0.47",
     "wx-bridge": "^0.0.35"
   },
   "devDependencies": {
