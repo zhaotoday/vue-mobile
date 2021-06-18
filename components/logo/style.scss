@@ -3,12 +3,9 @@
 @include c(logo) {
   line-height: 0;
 
-  @include c(icon) {
-    @include m(logo) {
-      background-color: map-get($colors, white);
-      border-radius: px2rpx(22px);
-      margin-bottom: px2rpx(24px);
-    }
+  @include e(icon) {
+    background-color: map-get($colors, white);
+    margin-bottom: px2rpx(24px);
   }
 
   @include e(title) {

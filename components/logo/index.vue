@@ -1,8 +1,8 @@
 <template>
   <div class="c-logo">
     <div
-      class="c-icon c-icon--logo"
-      :class="[widthModifier, heightModifier]"
+      class="c-logo__icon c-icon c-icon--logo"
+      :class="cssClasses.__icon"
     ></div>
     <div class="c-logo__title fs32">{{ name }}</div>
   </div>
