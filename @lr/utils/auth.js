@@ -1,8 +1,12 @@
+import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { store } from "@/store";
 
 export const auth = {
   getToken() {
-    return store.state.wxUsers.token || "";
+    const { useState } = createNamespacedHelpers(store, "wxUsers");
+    const { token } = useState(["token"]);
+
+    return token.value || "";
   },
   getHeaders() {
     return { Authorization: this.getToken() };
