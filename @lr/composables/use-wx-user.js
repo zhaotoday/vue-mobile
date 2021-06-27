@@ -1,24 +1,25 @@
-import { computed } from "@vue/composition-api";
+import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { store } from "@/store";
 import { useMp } from "../../composables/use-mp";
 
 export const useWxUser = () => {
+  const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
   const { getUserInfo } = useMp();
 
-  const wxUser = computed(() => store.state.wxUsers.wxUser);
-  const token = computed(() => store.state.wxUsers.token);
-  const openId = computed(() => store.state.wxUsers.openId);
+  const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
+
+  const actions = useActions(["login", "getWxUser", "getToken", "getOpenId"]);
 
   const login = async () => {
     const { code, iv, encryptedData } = await getUserInfo();
-    return store.dispatch("wxUsers/login", { code, iv, encryptedData });
+    return actions.login({ code, iv, encryptedData });
   };
   const loggedIn = () => {
-    return !!store.state.wxUsers.token;
+    return !!token.value;
   };
-  const getWxUser = () => store.dispatch("wxUsers/getWxUser");
-  const getToken = () => store.dispatch("wxUsers/getToken");
-  const getOpenId = () => store.dispatch("wxUsers/getOpenId");
+  const getWxUser = () => actions.getWxUser();
+  const getToken = () => actions.getToken();
+  const getOpenId = () => actions.getOpenId();
 
   return {
     wxUser,
