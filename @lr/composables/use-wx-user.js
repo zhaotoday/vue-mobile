@@ -1,3 +1,4 @@
+import wx from "wx-bridge";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { store } from "@/store";
 import { useMp } from "../../composables/use-mp";
@@ -18,6 +19,15 @@ export const useWxUser = () => {
   const getWxUser = () => actions.getWxUser();
   const getToken = () => actions.getToken();
   const getOpenId = () => actions.getOpenId();
+  const navigateTo = ({
+    requiresLogin = false,
+    loginUrl = "/pages/login/index",
+    url,
+  }) => {
+    wx.navigateTo({
+      url: requiresLogin && !loggedIn() ? loginUrl : url,
+    });
+  };
 
   return {
     wxUser,
@@ -28,5 +38,6 @@ export const useWxUser = () => {
     getWxUser,
     getToken,
     getOpenId,
+    navigateTo,
   };
 };
