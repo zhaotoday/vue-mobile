@@ -5,9 +5,7 @@ import { useMp } from "../../composables/use-mp";
 export const useWxUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
   const { getUserInfo } = useMp();
-
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
-
   const actions = useActions(["login", "getWxUser", "getToken", "getOpenId"]);
 
   const login = async () => {
