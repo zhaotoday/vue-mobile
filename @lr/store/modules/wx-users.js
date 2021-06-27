@@ -1,6 +1,6 @@
 import helpers from "jt-helpers";
-import { PublicWxUsersApi } from "../../../apis/public/wx-users";
-import { WxUsersApi } from "../../../apis/wx/wx-users";
+import { PublicWxUsersApi } from "../../apis/public/wx-users";
+import { WxUsersApi } from "../../apis/wx/wx-users";
 
 const state = {
   wxUser: {},
