@@ -1,16 +1,17 @@
 import wx from "wx-bridge";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { store } from "@/store";
-import { useMp } from "../../composables/use-mp";
 
 export const useWxUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
-  const { getUserInfo } = useMp();
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
   const actions = useActions(["login", "getWxUser", "getToken", "getOpenId"]);
 
   const login = async () => {
-    const { code, iv, encryptedData } = await getUserInfo();
+    const { code } = await wx.login();
+    const { iv, encryptedData } = await wx.getUserProfile({
+      desc: "完善用户资料",
+    });
     return actions.login({ code, iv, encryptedData });
   };
   const loggedIn = () => {
