@@ -9,7 +9,7 @@ export const useMp = () => {
     } else {
       const { code } = await wx.login();
       const { iv, encryptedData } = await wx.getUserInfo({
-        withCredentials: true,
+        desc: "用于完善会员资料"
       });
       return { code, iv, encryptedData };
     }
