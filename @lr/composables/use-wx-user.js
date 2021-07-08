@@ -7,13 +7,6 @@ export const useWxUser = () => {
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
   const actions = useActions(["login", "getWxUser", "getToken", "getOpenId"]);
 
-  const login = async () => {
-    const { code } = await wx.login();
-    const { iv, encryptedData } = await wx.getUserProfile({
-      desc: "完善用户资料",
-    });
-    return actions.login({ code, iv, encryptedData });
-  };
   const loggedIn = () => {
     return !!token.value;
   };
@@ -34,7 +27,6 @@ export const useWxUser = () => {
     wxUser,
     token,
     openId,
-    login,
     loggedIn,
     getWxUser,
     getToken,
