@@ -1,5 +1,3 @@
-@use "sass:math";
-
 @include c(button) {
   box-sizing: border-box;
   text-align: center;
@@ -61,13 +59,13 @@
   }
 
   @each $item in map-get($c-button, widths) {
-    &.w#{math.div($item, 1px)} {
+    &.w#{$item / 1px} {
       width: px2rpx($item);
     }
   }
 
   @each $item in map-get($c-button, heights) {
-    &.h#{math.div($item, 1px)} {
+    &.h#{$item / 1px} {
       @include text--middle(px2rpx($item));
     }
   }
