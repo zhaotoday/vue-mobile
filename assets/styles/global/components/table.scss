@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include c(table) {
   width: 100%;
   position: relative;
@@ -20,7 +22,7 @@
     }
 
     @each $item in map-get($c-table, th-widths) {
-      &.w#{$item / 1px} {
+      &.w#{math.div($item, 1px)} {
         flex: 0 1 auto;
         width: px2rpx($item);
       }

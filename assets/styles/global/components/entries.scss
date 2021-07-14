@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $c-entries-widths: 50px, 60px, 70px, 80px, 90px, 100px, 110px, 120px;
 
 @include c(entries) {
@@ -13,7 +15,7 @@ $c-entries-widths: 50px, 60px, 70px, 80px, 90px, 100px, 110px, 120px;
     display: block;
 
     @each $item in $c-entries-widths {
-      &.w#{$item / 1px} {
+      &.w#{math.div($item, 1px)} {
         @include size(px2rpx($item), px2rpx($item));
       }
     }

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @include o(grid) {
   display: flex;
 
@@ -19,7 +21,7 @@
     width: 100%;
 
     @each $item in map-get($o-grid, paddings) {
-      > .p#{$item / 1px} {
+      > .p#{math.div($item, 1px)} {
         @include padding(null, px2rpx($item), null, px2rpx($item));
 
         &:first-child {
