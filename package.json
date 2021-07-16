@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.140",
+  "version": "1.0.141",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -24,21 +24,21 @@
   },
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
-    "@vue/composition-api": "^1.0.0-rc.10",
+    "@vue/composition-api": "^1.0.1",
     "jt-helpers": "^1.0.6",
     "jt-rest": "^0.0.16",
     "jweixin-module": "^1.6.0",
-    "query-string": "^7.0.0",
-    "sass-utils": "^1.0.53",
+    "query-string": "^7.0.1",
+    "sass-utils": "^1.0.54",
     "vuex-composition-helpers": "^1.0.23",
     "wx-bridge": "^0.0.38"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.27.0",
+    "eslint": "^7.30.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.9.0",
-    "prettier": "^2.3.0"
+    "eslint-plugin-vue": "^7.13.0",
+    "prettier": "^2.3.2"
   }
 }
