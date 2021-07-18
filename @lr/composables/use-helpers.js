@@ -2,10 +2,12 @@ import helpers from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
 
 export const useHelpers = () => {
+  const { ApiUrl, CdnUrl } = useConsts();
+
   return {
     ...helpers,
     getFileUrl({ id }) {
-      return `${useConsts().ApiUrl}/public/files/${id}`;
+      return `${ApiUrl}/public/files/${id}`;
     },
     getImageUrl({ id, width, height }) {
       const params = (() => {
@@ -24,7 +26,7 @@ export const useHelpers = () => {
         }
       })();
 
-      return `${useConsts().CdnUrl}/${id}${params}`;
+      return `${CdnUrl}/${id}${params}`;
     },
   };
 };
