@@ -1,5 +1,5 @@
 import { Rest } from "../../utils/rest";
-import { auth } from "../../utils/auth";
+import { useAuth } from "../../composables/use-auth";
 import { useConsts } from "@/composables/use-consts";
 
 export class PaymentsApi extends Rest {
@@ -7,7 +7,7 @@ export class PaymentsApi extends Rest {
     super();
 
     this.baseUrl = useConsts().ApiUrl;
-    this.headers = auth.getHeaders();
+    this.headers = useAuth().getHeaders();
     this.path = "wx/payments";
   }
 }
