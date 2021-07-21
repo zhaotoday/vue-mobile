@@ -1,6 +1,6 @@
 <template>
   <div
-    class="c-search bg-white"
+    class="c-search"
     :class="{ 'has-submit': showSubmit }"
     @click="navigateToLink"
   >
