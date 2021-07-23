@@ -12,7 +12,7 @@ export const useHelpers = () => {
     getImageUrl({ id, width, height }) {
       const params = (() => {
         switch (true) {
-          case width && height:
+          case !!width && !!height:
             return `?imageView2/1/w/${width}/h/${height}/q/100`;
 
           case !!width:
