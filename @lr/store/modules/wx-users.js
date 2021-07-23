@@ -37,6 +37,36 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { wxUser, token };
   },
+  async mpLogin({ commit }, { code, iv, encryptedData }) {
+    const { wxUser, token } = await new PublicWxUsersApi().POST({
+      showLoading: true,
+      action: "mpLogin",
+      body: { code, iv, encryptedData },
+    });
+    commit(types.SetWxUser, wxUser);
+    commit(types.SetToken, `Bearer ${token}`);
+    return { wxUser, token };
+  },
+  async oaLogin({ commit }, { code }) {
+    const { wxUser, token } = await new PublicWxUsersApi().POST({
+      showLoading: true,
+      action: "oaLogin",
+      body: { code },
+    });
+    commit(types.SetWxUser, wxUser);
+    commit(types.SetToken, `Bearer ${token}`);
+    return { wxUser, token };
+  },
+  async appLogin({ commit }, { accessToken, openId }) {
+    const { wxUser, token } = await new PublicWxUsersApi().POST({
+      showLoading: true,
+      action: "appLogin",
+      body: { accessToken, openId },
+    });
+    commit(types.SetWxUser, wxUser);
+    commit(types.SetToken, `Bearer ${token}`);
+    return { wxUser, token };
+  },
   async getWxUser({ commit }) {
     const res = await new WxUsersApi().POST({
       action: "getUserInfo",
