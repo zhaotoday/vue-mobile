@@ -5,21 +5,27 @@ import { store } from "@/store";
 export const useWxUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
-  const actions = useActions(["login", "getWxUser", "getToken", "getOpenId"]);
+  const { login, mpLogin, oaLogin, appLogin, getWxUser, getToken, getOpenId } =
+    useActions([
+      "login",
+      "mpLogin",
+      "oaLogin",
+      "appLogin",
+      "getWxUser",
+      "getToken",
+      "getOpenId",
+    ]);
 
-  const login = async () => {
+  const getUserProfileAndLogin = async () => {
     const { iv, encryptedData } = await wx.getUserProfile({
       desc: "完善用户资料",
     });
     const { code } = await wx.login();
-    return actions.login({ code, iv, encryptedData });
+    return login({ code, iv, encryptedData });
   };
-  const loggedIn = () => {
-    return !!token.value;
-  };
-  const getWxUser = () => actions.getWxUser();
-  const getToken = () => actions.getToken();
-  const getOpenId = () => actions.getOpenId();
+
+  const loggedIn = () => !!token.value;
+
   const navigateTo = ({
     requiresLogin = false,
     loginUrl = "/pages/login/index",
@@ -35,10 +41,14 @@ export const useWxUser = () => {
     token,
     openId,
     login,
-    loggedIn,
+    mpLogin,
+    oaLogin,
+    appLogin,
     getWxUser,
     getToken,
     getOpenId,
+    getUserProfileAndLogin,
+    loggedIn,
     navigateTo,
   };
 };
