@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.148",
+  "version": "1.0.149",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "query-string": "^7.0.1",
     "sass-utils": "^1.0.54",
     "vuex-composition-helpers": "^1.0.23",
-    "wx-bridge": "^0.0.38"
+    "wx-bridge": "0.0.39"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
