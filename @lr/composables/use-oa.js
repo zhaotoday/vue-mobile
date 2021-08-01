@@ -8,7 +8,7 @@ const page = window.location.hash.substr(1);
 
 export const useOa = () => {
   const login = async (query) => {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().post({
       action: "login",
       body: { type: "Oa", _, code, page, query },
     });
@@ -17,7 +17,7 @@ export const useOa = () => {
   };
 
   const configWxJsSdk = async (apiList = []) => {
-    const res = await new ApisModel().addPath("jsSdkConfig").POST({
+    const res = await new ApisModel().addPath("jsSdkConfig").post({
       body: { url: location.href.split("#")[0] },
     });
     jweixin.config({ ...res, jsApiList: apiList });

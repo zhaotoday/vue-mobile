@@ -28,7 +28,7 @@ const mutations = {
 
 const actions = {
   async login({ commit }, { code, iv, encryptedData }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().post({
       showLoading: true,
       action: "login",
       body: { type: "Mp", code, iv, encryptedData },
@@ -38,7 +38,7 @@ const actions = {
     return { wxUser, token };
   },
   async mpLogin({ commit }, { code, iv, encryptedData }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().post({
       showLoading: true,
       action: "mpLogin",
       body: { code, iv, encryptedData },
@@ -48,7 +48,7 @@ const actions = {
     return { wxUser, token };
   },
   async oaLogin({ commit }, { code }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().post({
       showLoading: true,
       action: "oaLogin",
       body: { code },
@@ -58,7 +58,7 @@ const actions = {
     return { wxUser, token };
   },
   async appLogin({ commit }, { accessToken, openId }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { wxUser, token } = await new PublicWxUsersApi().post({
       showLoading: true,
       action: "appLogin",
       body: { accessToken, openId },
@@ -68,14 +68,14 @@ const actions = {
     return { wxUser, token };
   },
   async getWxUser({ commit }) {
-    const res = await new WxUsersApi().POST({
+    const res = await new WxUsersApi().post({
       action: "getUserInfo",
     });
     commit(types.SetWxUser, res);
     return res;
   },
   async getOpenId({ commit }, { code }) {
-    const { openId } = await new PublicWxUsersApi().POST({
+    const { openId } = await new PublicWxUsersApi().post({
       showError: false,
       action: "getOpenId",
       body: { code },
