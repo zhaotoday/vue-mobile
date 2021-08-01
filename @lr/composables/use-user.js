@@ -15,10 +15,24 @@ export const useUser = () => {
     return wxMpLogin({ code, iv, encryptedData });
   };
 
+  const loggedIn = () => !!token.value;
+
+  const navigateTo = ({
+    requiresLogin = false,
+    loginUrl = "/pages/user/mp-login/index",
+    url,
+  }) => {
+    wx.navigateTo({
+      url: requiresLogin && !loggedIn() ? loginUrl : url,
+    });
+  };
+
   return {
     getWxMpUserProfileAndLogin,
     user,
     token,
     getUser,
+    loggedIn,
+    navigateTo,
   };
 };
