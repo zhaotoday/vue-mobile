@@ -5,13 +5,11 @@ import { UsersApi } from "../../apis/client/users";
 const state = {
   user: {},
   token: "",
-  openId: "",
 };
 
 const types = helpers.keyMirror({
   SetUser: null,
   SetToken: null,
-  SetOpenId: null,
 });
 
 const mutations = {
@@ -20,9 +18,6 @@ const mutations = {
   },
   [types.SetToken](state, token) {
     state.token = token;
-  },
-  [types.SetOpenId](state, openId) {
-    state.openId = openId;
   },
 };
 
@@ -37,41 +32,15 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { user, token };
   },
-  async oaLogin({ commit }, { code }) {
+  async wxAppLogin({ commit }, { accessToken, openId }) {
     const { user, token } = await new PublicUsersApi().post({
       showLoading: true,
-      action: "oaLogin",
-      body: { code },
-    });
-    commit(types.SetUser, user);
-    commit(types.SetToken, `Bearer ${token}`);
-    return { user, token };
-  },
-  async appLogin({ commit }, { accessToken, openId }) {
-    const { user, token } = await new PublicUsersApi().post({
-      showLoading: true,
-      action: "appLogin",
+      action: "wxAppLogin",
       body: { accessToken, openId },
     });
     commit(types.SetUser, user);
     commit(types.SetToken, `Bearer ${token}`);
     return { user, token };
-  },
-  async getWxUser({ commit }) {
-    const res = await new UsersApi().post({
-      action: "getUserInfo",
-    });
-    commit(types.SetUser, res);
-    return res;
-  },
-  async getOpenId({ commit }, { code }) {
-    const { openId } = await new PublicUsersApi().post({
-      showError: false,
-      action: "getOpenId",
-      body: { code },
-    });
-    commit(types.SetOpenId, openId);
-    return openId;
   },
 };
 
