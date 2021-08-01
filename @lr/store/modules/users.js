@@ -1,6 +1,6 @@
 import helpers from "jt-helpers";
-import { PublicWxUsersApi } from "../../apis/public/wx-users";
-import { WxUsersApi } from "../../apis/wx/wx-users";
+import { PublicUsersApi } from "../../apis/public/users";
+import { UsersApi } from "../../apis/client/users";
 
 const state = {
   user: {},
@@ -15,8 +15,8 @@ const types = helpers.keyMirror({
 });
 
 const mutations = {
-  [types.SetWxUser](state, wxUser) {
-    state.wxUser = wxUser;
+  [types.SetWxUser](state, user) {
+    state.user = user;
   },
   [types.SetToken](state, token) {
     state.token = token;
@@ -28,54 +28,54 @@ const mutations = {
 
 const actions = {
   async login({ commit }, { code, iv, encryptedData }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { user, token } = await new PublicUsersApi().POST({
       showLoading: true,
       action: "login",
       body: { type: "Mp", code, iv, encryptedData },
     });
-    commit(types.SetWxUser, wxUser);
+    commit(types.SetWxUser, user);
     commit(types.SetToken, `Bearer ${token}`);
-    return { wxUser, token };
+    return { user, token };
   },
   async mpLogin({ commit }, { code, iv, encryptedData }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { user, token } = await new PublicUsersApi().POST({
       showLoading: true,
       action: "mpLogin",
       body: { code, iv, encryptedData },
     });
-    commit(types.SetWxUser, wxUser);
+    commit(types.SetWxUser, user);
     commit(types.SetToken, `Bearer ${token}`);
-    return { wxUser, token };
+    return { user, token };
   },
   async oaLogin({ commit }, { code }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { user, token } = await new PublicUsersApi().POST({
       showLoading: true,
       action: "oaLogin",
       body: { code },
     });
-    commit(types.SetWxUser, wxUser);
+    commit(types.SetWxUser, user);
     commit(types.SetToken, `Bearer ${token}`);
-    return { wxUser, token };
+    return { user, token };
   },
   async appLogin({ commit }, { accessToken, openId }) {
-    const { wxUser, token } = await new PublicWxUsersApi().POST({
+    const { user, token } = await new PublicUsersApi().POST({
       showLoading: true,
       action: "appLogin",
       body: { accessToken, openId },
     });
-    commit(types.SetWxUser, wxUser);
+    commit(types.SetWxUser, user);
     commit(types.SetToken, `Bearer ${token}`);
-    return { wxUser, token };
+    return { user, token };
   },
   async getWxUser({ commit }) {
-    const res = await new WxUsersApi().POST({
+    const res = await new UsersApi().POST({
       action: "getUserInfo",
     });
     commit(types.SetWxUser, res);
     return res;
   },
   async getOpenId({ commit }, { code }) {
-    const { openId } = await new PublicWxUsersApi().POST({
+    const { openId } = await new PublicUsersApi().POST({
       showError: false,
       action: "getOpenId",
       body: { code },
