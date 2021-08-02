@@ -1,12 +1,11 @@
 export const useFormValidators = () => {
   return {
-    userId() {
+    userId({ message = "" } = {}) {
       return {
         validator(rule, value) {
-          return (
-            !value || /^[1-9]\d{7}$/.test(value) || new Error("请填写8位数字ID")
-          );
+          return !value || /^[1-9]\d{7}$/.test(value);
         },
+        message: message || "请填写8位数字ID",
       };
     },
     account() {
@@ -31,6 +30,24 @@ export const useFormValidators = () => {
       return {
         pattern: /^1\d{2}\s?\d{4}\s?\d{4}$/,
         message: `${label}格式错误`,
+      };
+    },
+    email({ label = "邮箱" } = {}) {
+      return {
+        type: "email",
+        message: `${label}格式错误`,
+      };
+    },
+    phoneNumberOrEmail() {
+      const phoneNumberPattern = /^1\d{2}\s?\d{4}\s?\d{4}$/;
+      const emailPattern =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      return {
+        validator(rule, value) {
+          return phoneNumberPattern.test(value) || emailPattern.test(value);
+        },
+        message: postMessag,
       };
     },
     password({ label = "密码" } = {}) {
