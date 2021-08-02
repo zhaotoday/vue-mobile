@@ -1,6 +1,6 @@
 import { Rest } from "../../utils/rest";
 import { useConsts } from "@/composables/use-consts";
-import { useUser } from "@/@lr/composables/use-user";
+import { useUser } from "../../composables/use-user";
 
 export class UsersApi extends Rest {
   constructor() {
