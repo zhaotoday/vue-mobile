@@ -31,6 +31,26 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { user, token };
   },
+  async accountRegister({ commit }, { phoneNumber, captcha, password }) {
+    const { user, token } = await new PublicUsersApi().post({
+      showLoading: true,
+      action: "accountRegister",
+      body: { phoneNumber, captcha, password },
+    });
+    commit(types.SetUser, user);
+    commit(types.SetToken, `Bearer ${token}`);
+    return { user, token };
+  },
+  async accountLogin({ commit }, { account, password }) {
+    const { user, token } = await new PublicUsersApi().post({
+      showLoading: true,
+      action: "accountLogin",
+      body: { account, password },
+    });
+    commit(types.SetUser, user);
+    commit(types.SetToken, `Bearer ${token}`);
+    return { user, token };
+  },
 };
 
 export default {
