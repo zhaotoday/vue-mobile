@@ -4,7 +4,7 @@ import { store } from "@/store";
 
 export const useUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
-  const { user, token } = useState(["user", "token"]);
+  const { user, userInfo, token } = useState(["user", "userInfo", "token"]);
   const { wxMpLogin, accountRegister, accountLogin, getUserInfo } = useActions([
     "wxMpLogin",
     "accountRegister",
@@ -35,6 +35,7 @@ export const useUser = () => {
   return {
     getWxMpUserProfileAndLogin,
     user,
+    userInfo,
     token,
     accountLogin,
     accountRegister,
