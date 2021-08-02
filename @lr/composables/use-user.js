@@ -32,6 +32,10 @@ export const useUser = () => {
     });
   };
 
+  const getRequestHeaders = () => ({
+    Authorization: token.value,
+  });
+
   return {
     getWxMpUserProfileAndLogin,
     user,
@@ -42,5 +46,6 @@ export const useUser = () => {
     getUserInfo,
     loggedIn,
     navigateTo,
+    getRequestHeaders,
   };
 };

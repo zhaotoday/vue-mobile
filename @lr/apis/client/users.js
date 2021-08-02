@@ -1,13 +1,13 @@
 import { Rest } from "../../utils/rest";
-import { useAuth } from "../../composables/use-auth";
 import { useConsts } from "@/composables/use-consts";
+import { useUser } from "@/@lr/composables/use-user";
 
 export class UsersApi extends Rest {
   constructor() {
     super();
 
     this.baseUrl = useConsts().ApiUrl;
-    this.headers = useAuth().getHeaders();
+    this.headers = useUser().getRequestHeaders();
     this.path = "client/users";
   }
 }
