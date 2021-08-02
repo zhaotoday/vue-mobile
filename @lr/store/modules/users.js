@@ -37,11 +37,14 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { user, token };
   },
-  async accountRegister({ commit }, { phoneNumber, captcha, password }) {
+  async accountRegister(
+    { commit },
+    { nickName, phoneNumber, captcha, password }
+  ) {
     const { user, token } = await new PublicUsersApi().post({
       showLoading: true,
       action: "accountRegister",
-      body: { phoneNumber, captcha, password },
+      body: { nickName, phoneNumber, captcha, password },
     });
     commit(types.SetUser, user);
     commit(types.SetToken, `Bearer ${token}`);
