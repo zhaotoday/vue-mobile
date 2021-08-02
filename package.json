@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.156",
+  "version": "1.0.157",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -25,11 +25,13 @@
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
     "@vue/composition-api": "^1.0.1",
+    "async-validator": "^3.5.2",
     "jt-helpers": "^1.0.6",
     "jt-rest": "^2.0.2",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.1",
     "sass-utils": "^1.0.54",
+    "uni-composition-api": "^0.5.9",
     "vuex-composition-helpers": "^1.0.23",
     "wx-bridge": "0.0.39"
   },
