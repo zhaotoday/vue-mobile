@@ -1,8 +1,6 @@
 import wx from "wx-bridge";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { store } from "@/store";
-import { ref } from "@vue/composition-api";
-import { onShow } from "uni-composition-api";
 
 export const useUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
@@ -13,17 +11,12 @@ export const useUser = () => {
     "accountLogin",
     "getUserInfo",
   ]);
-  const code = ref("");
 
-  onShow(async () => {
-    code.value = (await wx.login())["code"];
-  });
-
-  const getWxMpUserProfileAndLogin = async () => {
+  const getWxMpUserProfileAndLogin = async (code) => {
     const { iv, encryptedData } = await wx.getUserProfile({
       desc: "完善用户资料",
     });
-    return wxMpLogin({ code: code.value, iv, encryptedData });
+    return wxMpLogin({ code, iv, encryptedData });
   };
 
   const loggedIn = () => !!token.value;
@@ -47,7 +40,6 @@ export const useUser = () => {
     user,
     userInfo,
     token,
-    code,
     accountLogin,
     accountRegister,
     getUserInfo,
