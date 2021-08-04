@@ -1,5 +1,7 @@
 import wx from "wx-bridge";
+import { computed } from "@vue/composition-api";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
+import { useHelpers } from "./use-helpers";
 import { store } from "@/store";
 
 export const useUser = () => {
@@ -11,6 +13,22 @@ export const useUser = () => {
     "accountLogin",
     "getUserInfo",
   ]);
+
+  const name = computed(() => {
+    const { name, nickName, wxNickName, qqNickName } = userInfo.value;
+
+    return name || nickName || wxNickName || qqNickName;
+  });
+
+  const avatarUrl = computed(() => {
+    const { wxAvatarUrl, qqAvatarUrl, avatarFileId } = userInfo.value;
+
+    if (avatarFileId) {
+      return useHelpers().getImageUrl({ id: avatarFileId });
+    } else {
+      return wxAvatarUrl || qqAvatarUrl || "";
+    }
+  });
 
   const getWxMpUserProfileAndLogin = async (code) => {
     const { iv, encryptedData } = await wx.getUserProfile({
@@ -40,6 +58,8 @@ export const useUser = () => {
     user,
     userInfo,
     token,
+    name,
+    avatarUrl,
     accountLogin,
     accountRegister,
     getUserInfo,
