@@ -1228,8 +1228,8 @@ export default {
   width: 100%;
 }
 .my-avatar {
-  width: 168upx;
-  height: 168upx;
+  width: 80upx;
+  height: 80upx;
   border-radius: 100%;
 }
 .oper-canvas {
