@@ -37,11 +37,7 @@ export const useUser = () => {
       desc: "完善用户资料",
     });
     const { code } = await wx.login();
-    return wxMpLogin({
-      code,
-      iv: encodeURIComponent(iv),
-      encryptedData: encodeURIComponent(encryptedData),
-    });
+    return wxMpLogin({ code, iv, encryptedData });
   };
 
   const loggedIn = () => !!token.value;
