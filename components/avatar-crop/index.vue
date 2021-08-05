@@ -233,8 +233,6 @@ export default {
       this.fHideImg();
     },
     async fSelect() {
-      await this.loggedIn();
-
       if (this.fSelecting) return;
       this.fSelecting = true;
       setTimeout(() => {
