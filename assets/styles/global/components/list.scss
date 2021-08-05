@@ -138,5 +138,6 @@
     width: px2rpx(200px);
     text-align: center;
     border-left: 1px solid map-get($colors, gray2);
+    z-index: 1;
   }
 }
