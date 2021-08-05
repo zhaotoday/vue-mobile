@@ -67,6 +67,12 @@ const actions = {
     commit(types.SetUserInfo, res);
     return res;
   },
+  logout({ commit }) {
+    commit(types.SetUser, {});
+    commit(types.SetToken, "");
+    commit(types.SetUserInfo, {});
+    return {};
+  },
 };
 
 export default {

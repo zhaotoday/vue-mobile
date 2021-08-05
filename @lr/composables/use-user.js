@@ -7,12 +7,14 @@ import { store } from "@/store";
 export const useUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
   const { user, userInfo, token } = useState(["user", "userInfo", "token"]);
-  const { wxMpLogin, accountRegister, accountLogin, getUserInfo } = useActions([
-    "wxMpLogin",
-    "accountRegister",
-    "accountLogin",
-    "getUserInfo",
-  ]);
+  const { wxMpLogin, accountRegister, accountLogin, getUserInfo, logout } =
+    useActions([
+      "wxMpLogin",
+      "accountRegister",
+      "accountLogin",
+      "getUserInfo",
+      "logout",
+    ]);
 
   const name = computed(() => {
     const { name, nickName, wxNickName, qqNickName } = userInfo.value;
@@ -63,6 +65,7 @@ export const useUser = () => {
     accountLogin,
     accountRegister,
     getUserInfo,
+    logout,
     loggedIn,
     navigateTo,
     getRequestHeaders,

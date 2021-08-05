@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.166",
+  "version": "1.0.167",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
