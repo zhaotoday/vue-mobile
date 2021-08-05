@@ -32,10 +32,11 @@ export const useUser = () => {
     }
   });
 
-  const getWxMpUserProfileAndLogin = async (code) => {
+  const getWxMpUserProfileAndLogin = async () => {
     const { iv, encryptedData } = await wx.getUserProfile({
       desc: "完善用户资料",
     });
+    const { code } = await wx.login();
     return wxMpLogin({ code, iv, encryptedData });
   };
 
