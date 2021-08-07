@@ -71,7 +71,12 @@ export const useFormValidators = () => {
           if (field) {
             if (errors) {
               const error = errors.find((error) => error.field === field);
-              cForm.errors[field] = error.message;
+
+              if (error) {
+                cForm.errors[field] = error.message;
+              } else {
+                cForm.errors[field] = "";
+              }
             } else {
               cForm.errors[field] = "";
             }
