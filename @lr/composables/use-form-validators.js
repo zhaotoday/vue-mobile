@@ -69,9 +69,8 @@ export const useFormValidators = () => {
         cForm.model,
         async (errors) => {
           if (field) {
-            const error = (errors || []).find((error) => error.field === field);
-
             if (errors) {
+              const error = errors.find((error) => error.field === field);
               cForm.errors[field] = error.message;
             } else {
               cForm.errors[field] = "";
