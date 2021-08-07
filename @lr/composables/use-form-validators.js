@@ -81,14 +81,13 @@ export const useFormValidators = () => {
               cForm.errors[field] = "";
             }
           } else {
-            Object.keys(cForm.errors)
-              .forEach((field) => {
-                cForm.errors[field] = "";
-              })
-              (errors || [])
-              .forEach((error) => {
-                cForm.errors[error.field] = error.message;
-              });
+            Object.keys(cForm.errors).forEach((field) => {
+              cForm.errors[field] = "";
+            });
+
+            (errors || []).forEach((error) => {
+              cForm.errors[error.field] = error.message;
+            });
           }
 
           callback && callback(errors, cForm.model, cForm.rules);
