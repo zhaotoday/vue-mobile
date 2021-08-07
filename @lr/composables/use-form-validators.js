@@ -84,7 +84,7 @@ export const useFormValidators = () => {
             });
           }
 
-          callback && callback(errors);
+          callback && callback(errors, cForm.model, cForm.rules);
         }
       );
     },
