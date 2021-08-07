@@ -64,11 +64,6 @@ export const useFormValidators = () => {
         message: message || `${label}格式错误`,
       };
     },
-    initialize(cForm) {
-      Object.keys(cForm.rules).forEach((field) => {
-        cForm.errors[field] = "";
-      });
-    },
     async validate(cForm, field, callback) {
       await new AsyncValidator(cForm.rules).validate(
         cForm.model,
