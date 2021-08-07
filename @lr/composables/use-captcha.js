@@ -3,7 +3,12 @@ import AsyncValidator from "async-validator";
 import { reactive } from "@vue/composition-api";
 import { onHide } from "uni-composition-api";
 
-export const useCaptcha = ({ model, rules, request }) => {
+export const useCaptcha = ({
+  sendCaptchaText = "获取验证码",
+  model,
+  rules,
+  request,
+}) => {
   const captcha = {
     timer: null,
     i: 0,
@@ -12,7 +17,7 @@ export const useCaptcha = ({ model, rules, request }) => {
 
   const cCaptcha = reactive({
     disabled: false,
-    message: "获取验证码",
+    message: sendCaptchaText,
   });
 
   onHide(() => {
@@ -20,7 +25,7 @@ export const useCaptcha = ({ model, rules, request }) => {
     captcha.leftSeconds = 120;
 
     cCaptcha.disabled = false;
-    cCaptcha.message = "获取验证码";
+    cCaptcha.message = sendCaptchaText;
 
     clearInterval(captcha.timer);
   });
@@ -51,7 +56,7 @@ export const useCaptcha = ({ model, rules, request }) => {
           clearInterval(captcha.timer);
 
           cCaptcha.disabled = false;
-          cCaptcha.message = "获取验证码";
+          cCaptcha.message = sendCaptchaText;
         }
       }, 1000);
     });
