@@ -64,15 +64,25 @@ export const useFormValidators = () => {
         message: message || `${label}格式错误`,
       };
     },
-    async validate(cForm, callback) {
+    async validate(cForm, field, callback) {
       await new AsyncValidator(cForm.rules).validate(
         cForm.model,
         async (errors) => {
-          cForm.errors = {};
+          if (field) {
+            const foundError = errors.find((error) => error.field === field);
 
-          errors.forEach((error) => {
-            cForm.errors[error.field] = error.message;
-          });
+            if (foundError) {
+              cForm.errors[field] = foundError.message;
+            } else {
+              cForm.errors[field] = "";
+            }
+          } else {
+            cForm.errors = {};
+
+            errors.forEach((error) => {
+              cForm.errors[error.field] = error.message;
+            });
+          }
 
           callback && callback(errors);
         }
