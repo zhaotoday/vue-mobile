@@ -64,7 +64,7 @@ export const useFormValidators = () => {
         message: message || `${label}格式错误`,
       };
     },
-    async validate(cForm) {
+    async validate(cForm, callback) {
       await new AsyncValidator(cForm.rules).validate(
         cForm.model,
         async (errors) => {
@@ -74,11 +74,7 @@ export const useFormValidators = () => {
             cForm.errors[error.field] = error.message;
           });
 
-          if (errors) {
-            return Promise.reject(errors);
-          } else {
-            return Promise.resolve();
-          }
+          callback && callback(errors);
         }
       );
     },
