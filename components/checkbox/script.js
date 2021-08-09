@@ -11,7 +11,7 @@ export default {
     },
     activeClass: {
       type: String,
-      default: "c22",
+      default: "t-primary",
     },
   },
 };
