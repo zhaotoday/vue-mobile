@@ -9,12 +9,24 @@
   @each $item in map-get($c-icon, items) {
     $width: map-get($item, width);
     $height: map-get($item, height);
+    $padding: map-get($item, padding);
     $icon: map-get($item, icon);
     $widths: map-get($item, widths);
     $heights: map-get($item, heights);
 
     @include m(#{$icon}) {
-      @include size(px2rpx($width), px2rpx($height));
+      @if ($padding) {
+        @include size(
+          px2rpx($width + $padding * 2),
+          px2rpx($height + $padding * 2)
+        );
+
+        background: {
+          size: px2rpx($width) px2rpx($height);
+        }
+      } @else {
+        @include size(px2rpx($width), px2rpx($height));
+      }
 
       background-image: url("#{$image-url}/components/icon/#{$icon}.png");
 
