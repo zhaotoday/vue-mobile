@@ -57,11 +57,11 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { wxUser, token };
   },
-  async appLogin({ commit }, { accessToken, openId }) {
+  async appLogin({ commit }, { accessToken, openId, extra }) {
     const { wxUser, token } = await new PublicWxUsersApi().post({
       showLoading: true,
       action: "appLogin",
-      body: { accessToken, openId },
+      body: { accessToken, openId, extra },
     });
     commit(types.SetWxUser, wxUser);
     commit(types.SetToken, `Bearer ${token}`);
