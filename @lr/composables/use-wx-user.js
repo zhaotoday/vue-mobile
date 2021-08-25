@@ -5,16 +5,25 @@ import { store } from "@/store";
 export const useWxUser = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
-  const { login, mpLogin, oaLogin, appLogin, getWxUser, getToken, getOpenId } =
-    useActions([
-      "login",
-      "mpLogin",
-      "oaLogin",
-      "appLogin",
-      "getWxUser",
-      "getToken",
-      "getOpenId",
-    ]);
+  const {
+    login,
+    mpLogin,
+    oaLogin,
+    appLogin,
+    getWxUser,
+    getToken,
+    getOpenId,
+    logout,
+  } = useActions([
+    "login",
+    "mpLogin",
+    "oaLogin",
+    "appLogin",
+    "getWxUser",
+    "getToken",
+    "getOpenId",
+    "logout",
+  ]);
 
   const getUserProfileAndLogin = async () => {
     const { iv, encryptedData } = await wx.getUserProfile({
@@ -47,6 +56,7 @@ export const useWxUser = () => {
     getWxUser,
     getToken,
     getOpenId,
+    logout,
     getUserProfileAndLogin,
     loggedIn,
     navigateTo,
