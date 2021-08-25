@@ -83,6 +83,11 @@ const actions = {
     commit(types.SetOpenId, openId);
     return openId;
   },
+  logout({ commit }) {
+    commit(types.SetWxUser, {});
+    commit(types.SetToken, "");
+    commit(types.SetOpenId, "");
+  },
 };
 
 export default {
