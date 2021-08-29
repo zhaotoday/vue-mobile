@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.0.192",
+  "version": "1.0.193",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "@vue/composition-api": "^1.0.1",
     "async-validator": "^3.5.2",
     "jt-helpers": "^1.0.6",
-    "jt-rest": "^2.0.2",
+    "jt-rest": "^2.0.3",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.1",
     "sass-utils": "^1.0.54",
