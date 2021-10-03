@@ -31,4 +31,18 @@
       }
     }
   }
+
+  @include e(content) {
+    @include size(100%, calc(100% - 76rpx));
+
+    /* #ifdef H5 */
+    top: px2rpx($tabs-height + 80px);
+    height: calc(100% - 76rpx - 80rpx);
+    /* #endif */
+
+    swiper-item,
+    scroll-view {
+      height: 100%;
+    }
+  }
 }
