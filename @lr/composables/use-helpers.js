@@ -36,7 +36,7 @@ export const useHelpers = () => {
 
       // #ifdef APP-PLUS
       wx.showLoading({
-        title: "文件下载中，请稍后...",
+        title: "文件下载中...",
         mask: true,
       });
 
