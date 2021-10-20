@@ -1,5 +1,6 @@
 import helpers from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
+import wx from "wx-bridge";
 
 export const useHelpers = () => {
   const { ApiUrl, CdnUrl } = useConsts();
@@ -27,6 +28,24 @@ export const useHelpers = () => {
       })();
 
       return `${CdnUrl}/${id}${params}`;
+    },
+    async openDocument({ url }) {
+      wx.showLoading({
+        title: "文件下载中，请稍后...",
+        mask: true,
+      });
+
+      const { tempFilePath } = await wx.downloadFile({ url });
+
+      wx.hideLoading();
+
+      // #ifdef H5
+      wx.showToast({ title: "微信浏览器暂不支持打开该文档" });
+      // #endif
+
+      // #ifdef APP-PLUS
+      wx.openDocument({ filePath: tempFilePath });
+      // #endif
     },
   };
 };
