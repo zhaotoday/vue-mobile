@@ -30,6 +30,11 @@ export const useHelpers = () => {
       return `${CdnUrl}/${id}${params}`;
     },
     async openDocument({ url }) {
+      // #ifdef H5
+      wx.showToast({ title: "微信浏览器暂不支持打开该文档" });
+      // #endif
+
+      // #ifdef APP-PLUS
       wx.showLoading({
         title: "文件下载中，请稍后...",
         mask: true,
@@ -39,11 +44,6 @@ export const useHelpers = () => {
 
       wx.hideLoading();
 
-      // #ifdef H5
-      wx.showToast({ title: "微信浏览器暂不支持打开该文档" });
-      // #endif
-
-      // #ifdef APP-PLUS
       wx.openDocument({ filePath: tempFilePath });
       // #endif
     },
