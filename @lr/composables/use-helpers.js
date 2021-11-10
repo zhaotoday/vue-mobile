@@ -29,9 +29,12 @@ export const useHelpers = () => {
 
       return `${CdnUrl}/${id}${params}`;
     },
-    async openDocument({ url }) {
+    async openDocument({
+      serviceUrl = "https://view.officeapps.live.com/op/view.aspx?src=",
+      url,
+    }) {
       // #ifdef H5
-      wx.showToast({ title: "微信浏览器暂不支持打开该文档" });
+      window.open(`${serviceUrl}${url}`);
       // #endif
 
       // #ifdef APP-PLUS
