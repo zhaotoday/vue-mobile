@@ -1,4 +1,4 @@
-import { onShow } from "uni-composition-api";
+import { onShow } from "@dcloudio/uni-app";
 import { reactive } from "vue";
 import { router } from "@/router";
 
