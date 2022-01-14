@@ -20,7 +20,7 @@
     }
 
     @each $item in map-get($c-table, th-widths) {
-      &.w#{$item / 1px} {
+      &.w#{calc($item / 1px)} {
         flex: 0 1 auto;
         width: px2rpx($item);
       }

@@ -19,7 +19,7 @@
     width: 100%;
 
     @each $item in map-get($o-grid, paddings) {
-      > .p#{$item / 1px} {
+      > .p#{calc($item / 1px)} {
         @include padding(null, px2rpx($item), null, px2rpx($item));
 
         &:first-child {

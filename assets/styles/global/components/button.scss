@@ -59,13 +59,13 @@
   }
 
   @each $item in map-get($c-button, widths) {
-    &.w#{$item / 1px} {
+    &.w#{calc($item / 1px)} {
       width: px2rpx($item);
     }
   }
 
   @each $item in map-get($c-button, heights) {
-    &.h#{$item / 1px} {
+    &.h#{calc($item / 1px)} {
       @include text--middle(px2rpx($item));
     }
   }

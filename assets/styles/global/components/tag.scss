@@ -2,12 +2,12 @@
   display: inline-block;
 
   @each $item in map-get($c-tag, heights) {
-    &.h#{$item / 1px} {
+    &.h#{calc($item / 1px)} {
       @include text--middle(px2rpx($item));
       @include padding(null, px2rpx($item / 2), null, px2rpx($item / 2));
     }
 
-    &.r#{$item / 1px} {
+    &.r#{calc($item / 1px)} {
       border-radius: px2rpx($item / 2);
     }
   }
