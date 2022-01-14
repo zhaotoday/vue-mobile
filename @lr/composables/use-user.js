@@ -1,5 +1,5 @@
 import wx from "wx-bridge";
-import { computed } from "@vue/composition-api";
+import { computed } from "vue";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { useHelpers } from "./use-helpers";
 import { store } from "@/store";

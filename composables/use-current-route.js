@@ -1,5 +1,5 @@
 import { onShow } from "uni-composition-api";
-import { reactive } from "@vue/composition-api";
+import { reactive } from "vue";
 import { router } from "@/router";
 
 export const useCurrentRoute = () => {

@@ -24,14 +24,14 @@
   },
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
-    "@vue/composition-api": "^1.0.1",
+    "@dcloudio/uni-app": "^3.0.0-alpha-3000020210521001",
     "async-validator": "^3.5.2",
     "jt-helpers": "^1.0.10",
     "jt-rest": "^2.0.3",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.0.1",
     "sass-utils": "^1.0.54",
-    "uni-composition-api": "^0.5.9",
+    "vue": "^3.2.26",
     "vuex-composition-helpers": "^1.0.23",
     "wx-bridge": "0.0.39"
   },

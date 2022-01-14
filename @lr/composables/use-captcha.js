@@ -1,6 +1,6 @@
 import wx from "wx-bridge";
 import AsyncValidator from "async-validator";
-import { reactive } from "@vue/composition-api";
+import { reactive } from "vue";
 import { onHide } from "uni-composition-api";
 
 export const useCaptcha = ({

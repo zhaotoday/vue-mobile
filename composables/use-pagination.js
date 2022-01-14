@@ -1,4 +1,4 @@
-import { reactive } from "@vue/composition-api";
+import { reactive } from "vue";
 
 export const usePagination = ({ pageSize = 10 } = {}) => {
   const cPagination = reactive({
