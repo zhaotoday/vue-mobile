@@ -32,7 +32,7 @@
     "query-string": "^7.0.1",
     "sass-utils": "^1.0.54",
     "vue": "^3.2.26",
-    "vuex-composition-helpers": "^1.0.23",
+    "vuex-composition-helpers": "^2.0.1",
     "wx-bridge": "0.0.39"
   },
   "devDependencies": {
