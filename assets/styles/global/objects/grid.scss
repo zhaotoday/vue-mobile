@@ -46,7 +46,7 @@
       @include e(col) {
         @for $i from 1 through 10 {
           @include m(#{$i}) {
-            width: 100% / 10 * $i;
+            width: calc(100% / 10 * $i);
           }
         }
       }
