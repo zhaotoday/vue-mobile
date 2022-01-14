@@ -32,7 +32,7 @@
 
       @if ($widths) {
         @each $width-item in $widths {
-          &.w#{$width-item / 1px} {
+          &.w#{calc($width-item / 1px)} {
             width: px2rpx($width-item);
           }
         }
@@ -40,7 +40,7 @@
 
       @if ($heights) {
         @each $height-item in $heights {
-          &.h#{$height-item / 1px} {
+          &.h#{calc($height-item / 1px)} {
             height: px2rpx($height-item);
           }
         }
