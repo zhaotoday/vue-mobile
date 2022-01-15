@@ -51,7 +51,7 @@ export const useUser = ({ store }) => {
     });
   };
 
-  const getRequestHeaders = () => ({
+  const getHeaders = () => ({
     Authorization: token.value,
   });
 
@@ -68,6 +68,6 @@ export const useUser = ({ store }) => {
     logout,
     loggedIn,
     navigateTo,
-    getRequestHeaders,
+    getHeaders,
   };
 };

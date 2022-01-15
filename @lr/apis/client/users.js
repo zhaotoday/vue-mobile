@@ -7,7 +7,7 @@ export class UsersApi extends Rest {
     super();
 
     this.baseUrl = useConsts().ApiUrl;
-    this.headers = useUser().getRequestHeaders();
+    this.headers = useUser().getHeaders();
     this.path = "client/users";
   }
 }
