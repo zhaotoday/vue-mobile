@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "c-iconfont"; /* Project id 2609217 */
+  src: url("//at.alicdn.com/t/font_2609217_nj1vzc6adus.woff2?t=1623625195286")
+      format("woff2"),
+    url("//at.alicdn.com/t/font_2609217_nj1vzc6adus.woff?t=1623625195286")
+      format("woff"),
+    url("//at.alicdn.com/t/font_2609217_nj1vzc6adus.ttf?t=1623625195286")
+      format("truetype");
+}
+
+.c-iconfont {
+  font-family: "c-iconfont" !important;
+  display: inline-block;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.c-iconfont--working:before {
+  content: "\e615";
+}
+
+.c-iconfont--auto:before {
+  content: "\e652";
+}
+
+.c-iconfont--bluetooth:before {
+  content: "\e6b2";
+}
+
+.c-iconfont--ok:before {
+  content: "\e653";
+}
+
+.c-iconfont--add:before {
+  content: "\e62a";
+}
+
+.c-iconfont--start:before {
+  content: "\e60b";
+}
+
+.c-iconfont--stop:before {
+  content: "\e60c";
+}
+
+.c-iconfont--reload:before {
+  content: "\e7d3";
+}
+
+.c-iconfont--bluetooth-off:before {
+  content: "\e840";
+}

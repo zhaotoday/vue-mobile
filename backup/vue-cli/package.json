@@ -1,0 +1,46 @@
+{
+  "name": "vue-mobile",
+  "version": "1.1.18",
+  "description": "a simple UI framework based on Vue.",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"components/**/*.{vue,js}\" \"composables/**/*.js\" \"utils/**/*.js\" \"@lr/**/*.{vue,js}\"",
+    "lint": "eslint \"components/**/*.{vue,js}\" \"composables/**/*.js\" \"utils/**/*.js\" \"@lr/**/*.{vue,js}\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaotoday/vue-mobile.git"
+  },
+  "keywords": [
+    "vue-mobile",
+    "uni-app",
+    "ui-components",
+    "mini-program"
+  ],
+  "author": "zhaojintian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaotoday/vue-mobile/issues"
+  },
+  "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
+  "dependencies": {
+    "@dcloudio/uni-app": "^3.0.0-alpha-3000020210521001",
+    "async-validator": "^3.5.2",
+    "jt-helpers": "^1.0.10",
+    "jt-rest": "^2.0.3",
+    "jweixin-module": "^1.6.0",
+    "query-string": "^7.0.1",
+    "sass-utils": "^1.1.1",
+    "vue": "^3.2.26",
+    "vuex-composition-helpers": "^2.0.1",
+    "wx-bridge": "0.0.39"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.30.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.13.0",
+    "prettier": "^2.3.2"
+  }
+}

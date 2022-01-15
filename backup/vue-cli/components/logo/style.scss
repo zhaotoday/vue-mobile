@@ -1,0 +1,14 @@
+@import "~@/assets/styles/utils/index.scss";
+
+@include c(logo) {
+  line-height: 0;
+
+  @include e(icon) {
+    background-color: map-get($colors, white);
+    margin-bottom: px2rpx(24px);
+  }
+
+  @include e(title) {
+    line-height: 100%;
+  }
+}

@@ -1,0 +1,72 @@
+@include c(button) {
+  box-sizing: border-box;
+  text-align: center;
+  display: inline-block;
+
+  @include e(bottom-wrap) {
+    @include position--fixed(null, null, 0, 0);
+    @include padding(
+      px2rpx(map-get($c-button, __bottom-wrap-padding)),
+      null,
+      px2rpx(map-get($c-button, __bottom-wrap-padding))
+    );
+
+    z-index: 2;
+    width: 100%;
+    line-height: 0;
+    text-align: center;
+
+    @at-root {
+      /* #ifdef H5 */
+      @include c(button) {
+        @include e(bottom-wrap) {
+          bottom: px2rpx($tab-bar-height);
+        }
+      }
+      /* #endif */
+    }
+  }
+
+  &::after {
+    border: none;
+  }
+
+  @include s(is-block) {
+    display: block;
+  }
+
+  @include s(at-bottom) {
+    @include position--fixed(
+      null,
+      null,
+      px2rpx(map-get($c-button, --at-bottom)),
+      50%
+    );
+
+    transform: translateX(-50%);
+
+    @at-root {
+      /* #ifdef H5 */
+      .has-nav-bar {
+        @include c(button) {
+          @include s(at-bottom) {
+            bottom: px2rpx(map-get($c-button, --at-bottom) + $tab-bar-height);
+          }
+        }
+      }
+      /* #endif */
+    }
+  }
+
+  @each $item in map-get($c-button, widths) {
+    &.w#{calc($item / 1px)} {
+      width: px2rpx($item);
+    }
+  }
+
+  @each $item in map-get($c-button, heights) {
+    &.h#{calc($item / 1px)} {
+      @include text--middle(px2rpx($item));
+    }
+  }
+}
