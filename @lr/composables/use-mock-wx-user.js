@@ -1,8 +1,6 @@
-import { store } from "@/store";
-
 const { wxUser, token } = require("@/mock/wx-user.json");
 
-export const useMockWxUser = () => {
+export const useMockWxUser = ({ store }) => {
   const login = () => {
     store.commit("wxUsers/SetWxUser", wxUser);
     store.commit("wxUsers/SetToken", `Bearer ${token}`);

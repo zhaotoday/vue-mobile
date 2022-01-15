@@ -1,8 +1,7 @@
 import wx from "wx-bridge";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
-import { store } from "@/store";
 
-export const useWxUser = () => {
+export const useWxUser = ({ store }) => {
   const { useState, useActions } = createNamespacedHelpers(store, "wxUsers");
   const { wxUser, token, openId } = useState(["wxUser", "token", "openId"]);
   const {

@@ -1,8 +1,7 @@
 import { createNamespacedHelpers } from "vuex-composition-helpers";
-import { store } from "@/store";
 import { PublicEnumsApi } from "../apis/public/enums";
 
-export const useEnums = () => {
+export const useEnums = ({ store }) => {
   const { useState, useActions } = createNamespacedHelpers(store, "enums");
   const { data: enums } = useState(["data"]);
   const { get } = useActions(["get"]);
