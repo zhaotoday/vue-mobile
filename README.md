@@ -194,7 +194,7 @@ export default {};
 pages/home/style.scss
 
 ```scss
-@import "~@/assets/styles/utils/index";
+@import "~@/assets/styles/utils/index.scss";
 
 @include p(home) {
   // ...
