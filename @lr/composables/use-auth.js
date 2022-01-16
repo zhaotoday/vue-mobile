@@ -1,6 +1,7 @@
+import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 
-export const useAuth = ({ store }) => {
+export const useAuth = () => {
   const getToken = () => {
     const { useState } = createNamespacedHelpers(store, "wxUsers");
     const { token } = useState(["token"]);
