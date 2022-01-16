@@ -25,16 +25,16 @@
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
     "@vue/composition-api": "^1.4.4",
-    "async-validator": "^3.5.2",
+    "async-validator": "^4.0.7",
     "jt-helpers": "^1.0.10",
     "jt-rest": "^2.0.3",
     "jweixin-module": "^1.6.0",
-    "query-string": "^7.0.1",
+    "query-string": "^7.1.0",
     "sass-utils": "^1.1.1",
     "uni-composition-api": "^0.6.1",
     "vue": "^2.6.14",
     "vuex-composition-helpers": "^1.1.0",
-    "wx-bridge": "0.0.39"
+    "wx-bridge": "^0.0.39"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^6.0.0",
