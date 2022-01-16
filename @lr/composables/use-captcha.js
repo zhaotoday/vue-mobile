@@ -1,7 +1,7 @@
 import wx from "wx-bridge";
 import AsyncValidator from "async-validator";
-import { reactive } from "vue";
-import { onHide } from "@dcloudio/uni-app";
+import { reactive } from "@vue/composition-api";
+import { onHide } from "uni-composition-api";
 
 export const useCaptcha = ({
   sendCaptchaText = "获取验证码",

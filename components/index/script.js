@@ -1,5 +1,5 @@
 import cities from "./cities";
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, reactive, ref } from "@vue/composition-api";
 
 export default {
   name: "CIndex",
