@@ -145,6 +145,7 @@ const request = async ({
       }
     }
   } else if (error) {
+    return Promise.reject(error);
   }
 };
 
