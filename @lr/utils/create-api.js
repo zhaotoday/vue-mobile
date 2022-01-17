@@ -42,14 +42,12 @@ const request = async ({
   url,
   method,
   headers,
-  baseQuery,
+  baseQuery = {},
   query,
   body,
   showLoading = true,
   showError = true,
 }) => {
-  showLoading && wx.showLoading();
-
   if (query) {
     query.where = formatQuery(
       query.where
@@ -75,6 +73,8 @@ const request = async ({
     }
   }
 
+  showLoading && wx.showLoading();
+
   const [error, res] = await to(
     wx.request({
       method: method.toUpperCase(),
@@ -85,12 +85,12 @@ const request = async ({
     })
   );
 
+  showLoading && wx.hideLoading();
+
   if (res) {
     if ((res.statusCode + "").charAt(0) === "2") {
       return res.data.data;
     } else {
-      showLoading && wx.hideLoading();
-
       if (res.statusCode === 500) {
         showError && wx.showToast({ title: "服务器出错" });
       } else if (res.statusCode === 401) {
