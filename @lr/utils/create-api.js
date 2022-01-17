@@ -49,32 +49,28 @@ const request = async ({
 }) => {
   showLoading && wx.showLoading();
 
-  if (headers) {
-    config.headers = headers;
-  }
-
-  if (params) {
-    if (params.where) {
-      config.params.where = formatQuery({
-        ...params.where,
+  if (query) {
+    if (query.where) {
+      query.where = formatQuery({
+        ...query.where,
         ...(query.where || {}),
       });
     } else {
-      config.params.where = formatQuery(query.where || {});
+      query.where = formatQuery(query.where || {});
     }
   }
 
   ["include", "order", "attributes"].forEach((key) => {
-    if (params && params[key]) {
-      config.params[key] = JSON.stringify(params[key]);
+    if (query && query[key]) {
+      query[key] = JSON.stringify(query[key]);
     }
   });
 
   if (method === "get") {
-    if (params) {
-      config.params._ = new Date().getTime();
+    if (query) {
+      query._ = new Date().getTime();
     } else {
-      config.params = { _: new Date().getTime() };
+      query = { _: new Date().getTime() };
     }
   }
 
