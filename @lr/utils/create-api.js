@@ -78,7 +78,7 @@ const request = async ({
   const [error, res] = await to(
     wx.request({
       method: method.toUpperCase(),
-      url: `${baseUrl}${url}`,
+      url: `${baseUrl}${query ? url + toQueryString(query) : url}`,
       header: headers,
       dataType: "json",
       data: body,
