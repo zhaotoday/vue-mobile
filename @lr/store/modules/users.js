@@ -1,5 +1,5 @@
 import helpers from "jt-helpers";
-import { publicusersApi } from "../../apis/public/users";
+import { publicUsersApi } from "../../apis/public/users";
 import { usersApi } from "../../apis/client/users";
 
 const state = {
@@ -28,7 +28,7 @@ const mutations = {
 
 const actions = {
   async wxMpLogin({ commit }, { code, iv, encryptedData }) {
-    const { user, token } = await publicusersApi.post({
+    const { user, token } = await publicUsersApi.post({
       showLoading: true,
       action: "wxMpLogin",
       body: { code, iv, encryptedData },
@@ -41,7 +41,7 @@ const actions = {
     { commit },
     { nickName, phoneNumber, captcha, password }
   ) {
-    const { user, token } = await publicusersApi.post({
+    const { user, token } = await publicUsersApi.post({
       showLoading: true,
       action: "accountRegister",
       body: { nickName, phoneNumber, captcha, password },
@@ -51,7 +51,7 @@ const actions = {
     return { user, token };
   },
   async accountLogin({ commit }, { account, password }) {
-    const { user, token } = await publicusersApi.post({
+    const { user, token } = await publicUsersApi.post({
       showLoading: true,
       action: "accountLogin",
       body: { account, password },
