@@ -106,9 +106,11 @@ const request = async ({
             title:
               res.data && res.data.error
                 ? res.data.error.message
-                : "服务器出错",
+                : serverError.message,
           });
-        return Promise.reject(res.data && res.data.error ? res.data.error : {});
+        return Promise.reject(
+          res.data && res.data.error ? res.data.error : serverError
+        );
       }
     }
   } else {
@@ -126,6 +128,7 @@ export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
         method: "get",
         baseUrl,
         headers,
+        baseQuery,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
         params: query,
         showLoading,
@@ -144,6 +147,7 @@ export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
         method: "post",
         baseUrl,
         headers,
+        baseQuery,
         url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
         body,
         query,
@@ -163,6 +167,7 @@ export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
         method: "put",
         baseUrl,
         headers,
+        baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
         body,
@@ -179,6 +184,9 @@ export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
     }) =>
       request({
         method: "delete",
+        baseUrl,
+        headers,
+        baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
         showLoading,
