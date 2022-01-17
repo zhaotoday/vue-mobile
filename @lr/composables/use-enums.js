@@ -1,6 +1,6 @@
 import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
-import { PublicEnumsApi } from "../apis/public/enums";
+import { publicEnumsApi } from "../apis/public/enums";
 
 export const useEnums = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "enums");
@@ -8,7 +8,7 @@ export const useEnums = () => {
   const { get } = useActions(["get"]);
 
   const getEnums = async () => {
-    const { version } = await new PublicEnumsApi().post({
+    const { version } = await publicEnumsApi.post({
       action: "getVersion",
     });
 
