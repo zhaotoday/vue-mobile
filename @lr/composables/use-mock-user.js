@@ -3,7 +3,7 @@ import { store } from "@/store";
 const { user, token } = require("@/mock/user.json");
 
 export const useMockUser = () => {
-  const login = () => {
+  const mockLogin = () => {
     store.commit("users/SetUser", user);
     store.commit("users/SetToken", `Bearer ${token}`);
 
@@ -11,6 +11,6 @@ export const useMockUser = () => {
   };
 
   return {
-    login,
+    mockLogin,
   };
 };
