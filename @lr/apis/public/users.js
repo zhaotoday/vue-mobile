@@ -1,11 +1,5 @@
-import { Rest } from "../../utils/rest";
-import { useConsts } from "@/composables/use-consts";
+import { createApi } from "../../utils/create-api";
 
-export class PublicUsersApi extends Rest {
-  constructor() {
-    super();
-
-    this.baseUrl = useConsts().ApiUrl;
-    this.path = "public/users";
-  }
-}
+export const publicUsersApi = createApi({
+  url: "/public/users",
+});
