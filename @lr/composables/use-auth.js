@@ -2,8 +2,9 @@ import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 
 export const useAuth = () => {
+  const { useState } = createNamespacedHelpers(store, "users");
+
   const getToken = () => {
-    const { useState } = createNamespacedHelpers(store, "users");
     const { token } = useState(["token"]);
 
     return token.value || "";
