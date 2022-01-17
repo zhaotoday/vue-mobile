@@ -1,9 +1,6 @@
-import axios from "axios";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
-import { ElMessage } from "element-plus";
-
-NProgress.configure({ showSpinner: false });
+import wx from "wx-bridge";
+import { useConsts } from "@/composables/use-consts";
+import { to } from "jt-helpers";
 
 const createRequest = ({ baseUrl, timeout = 5000, headers, query }) => {
   const request = axios.create({
@@ -103,6 +100,52 @@ const formatQuery = (obj) => {
   });
 
   return JSON.stringify(ret);
+};
+
+const request = async ({
+  baseUrl,
+  url,
+  method,
+  headers,
+  joinUrl = "",
+  id,
+  query,
+  body,
+  showLoading = true,
+  showError = true,
+}) => {
+  const [error, res] = await to(
+    wx.request({
+      url: useConsts().ApiUrl + url,
+      header: headers,
+      method,
+      dataType: "json",
+      data: body,
+    })
+  );
+
+  if (res) {
+    if ((res.statusCode + "").charAt(0) === "2") {
+      resolve(res);
+    } else {
+      showLoading && wx.hideLoading();
+
+      if (res.statusCode === 500) {
+        showError && wx.showToast({ title: "服务器出错" });
+      } else if (res.statusCode === 401) {
+        wx.navigateTo({ url: "/pages/login/index" });
+      } else {
+        if (showError) {
+          if (res.data && res.data.error) {
+            wx.showToast({ title: res.data.error.message });
+          } else {
+            wx.showToast({ title: "服务器出错" });
+          }
+        }
+      }
+    }
+  } else if (error) {
+  }
 };
 
 export const createApi = ({ baseUrl, headers, url, query = {} }) => {

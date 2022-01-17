@@ -26,7 +26,7 @@
   "dependencies": {
     "@vue/composition-api": "^1.4.4",
     "async-validator": "^4.0.7",
-    "jt-helpers": "^1.0.10",
+    "jt-helpers": "^1.0.11",
     "jt-rest": "^2.0.3",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.1.0",
