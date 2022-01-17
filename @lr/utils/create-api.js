@@ -1,83 +1,5 @@
 import wx from "wx-bridge";
-import { useConsts } from "@/composables/use-consts";
 import { to } from "jt-helpers";
-
-const createRequest = ({ baseUrl, timeout = 5000, headers, query }) => {
-  const request = axios.create({
-    baseURL: baseUrl || process.env.VUE_APP_API_URL,
-    timeout,
-  });
-
-  request.interceptors.request.use(
-    (config) => {
-      const { method, params, showLoading } = config;
-
-      showLoading && NProgress.start();
-
-      if (headers) {
-        config.headers = headers;
-      }
-
-      if (params) {
-        if (params.where) {
-          config.params.where = formatQuery({
-            ...params.where,
-            ...(query.where || {}),
-          });
-        } else {
-          config.params.where = formatQuery(query.where || {});
-        }
-      }
-
-      ["include", "order", "attributes"].forEach((key) => {
-        if (params && params[key]) {
-          config.params[key] = JSON.stringify(params[key]);
-        }
-      });
-
-      if (method === "get") {
-        if (params) {
-          config.params._ = new Date().getTime();
-        } else {
-          config.params = { _: new Date().getTime() };
-        }
-      }
-
-      return config;
-    },
-    (error) => Promise.reject(error)
-  );
-
-  request.interceptors.response.use(
-    (response) => {
-      const {
-        config,
-        data: { data },
-      } = response;
-
-      config.showLoading && NProgress.done();
-
-      return data;
-    },
-    (error) => {
-      const {
-        response: { config, status, data },
-      } = error;
-
-      config.showLoading && NProgress.done();
-
-      if (status === 401) {
-        window.location.href = "/#/logout";
-      } else {
-        config.showError && ElMessage.error(data.error || "服务器内部错误");
-      }
-
-      return Promise.reject(error);
-    }
-  );
-
-  return request;
-};
 
 const formatQuery = (obj) => {
   const ret = {};
@@ -102,21 +24,63 @@ const formatQuery = (obj) => {
   return JSON.stringify(ret);
 };
 
+const toQueryString = (query) => {
+  if (!query || !Object.keys(query).length) {
+    return "";
+  }
+
+  return (
+    "?" +
+    Object.keys(query)
+      .map((key) => `${key}=${encodeURIComponent(query[key])}`)
+      .join("&")
+  );
+};
+
 const request = async ({
   baseUrl,
   url,
   method,
   headers,
-  joinUrl = "",
-  id,
   query,
   body,
   showLoading = true,
   showError = true,
 }) => {
+  showLoading && wx.showLoading();
+
+  if (headers) {
+    config.headers = headers;
+  }
+
+  if (params) {
+    if (params.where) {
+      config.params.where = formatQuery({
+        ...params.where,
+        ...(query.where || {}),
+      });
+    } else {
+      config.params.where = formatQuery(query.where || {});
+    }
+  }
+
+  ["include", "order", "attributes"].forEach((key) => {
+    if (params && params[key]) {
+      config.params[key] = JSON.stringify(params[key]);
+    }
+  });
+
+  if (method === "get") {
+    if (params) {
+      config.params._ = new Date().getTime();
+    } else {
+      config.params = { _: new Date().getTime() };
+    }
+  }
+
   const [error, res] = await to(
     wx.request({
-      url: useConsts().ApiUrl + url,
+      url: `${baseUrl}${query ? url + toQueryString(query) : url}`,
       header: headers,
       method,
       dataType: "json",
@@ -126,7 +90,7 @@ const request = async ({
 
   if (res) {
     if ((res.statusCode + "").charAt(0) === "2") {
-      resolve(res);
+      return res.data.data;
     } else {
       showLoading && wx.hideLoading();
 
@@ -135,16 +99,18 @@ const request = async ({
       } else if (res.statusCode === 401) {
         wx.navigateTo({ url: "/pages/login/index" });
       } else {
-        if (showError) {
-          if (res.data && res.data.error) {
-            wx.showToast({ title: res.data.error.message });
-          } else {
-            wx.showToast({ title: "服务器出错" });
-          }
-        }
+        showError &&
+          wx.showToast({
+            title:
+              res.data && res.data.error
+                ? res.data.error.message
+                : "服务器出错",
+          });
+        return Promise.reject(res.data && res.data.error ? res.data.error : {});
       }
     }
   } else if (error) {
+    showError && wx.showToast({ title: "服务器出错" });
     return Promise.reject(error);
   }
 };
