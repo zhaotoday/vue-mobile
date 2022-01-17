@@ -1,5 +1,5 @@
 import helpers from "jt-helpers";
-import { PublicEnumsApi } from "../../apis/public/enums";
+import { publicEnumsApi } from "../../apis/public/enums";
 
 const state = {
   data: {
@@ -21,7 +21,7 @@ const mutations = {
 
 const actions = {
   async get({ commit }) {
-    const res = await new PublicEnumsApi().get({});
+    const res = await publicEnumsApi.get({});
     commit(types.SetData, res);
     return res;
   },
