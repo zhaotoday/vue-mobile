@@ -6,6 +6,7 @@ export const useMockUser = () => {
   const login = () => {
     store.commit("users/SetUser", user);
     store.commit("users/SetToken", `Bearer ${token}`);
+
     return { user, token };
   };
 
