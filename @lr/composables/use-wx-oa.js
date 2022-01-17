@@ -6,7 +6,7 @@ import { ApisApi } from "../apis/wx/apis";
 const { _, code } = qs.parse(window.location.search);
 const page = window.location.hash.substr(1);
 
-export const useOa = () => {
+export const useWxOa = () => {
   const login = async (query) => {
     const { wxUser, token } = await PublicWxUsersApi.post({
       action: "login",
