@@ -112,18 +112,18 @@ const request = async ({
 };
 
 export const createApi = ({ baseUrl, headers, url, query = {} }) => {
-  const request = createRequest({ baseUrl, headers, query });
-
   return {
     config: { baseUrl, headers, url, query },
 
     get: ({ joinUrl = "", id, query, showLoading = true, showError = true }) =>
-      request.get(`${url}${joinUrl}${id ? `/${id}` : ""}`, {
+      request({
+        baseUrl,
+        headers,
+        url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
         params: query,
         showLoading,
         showError,
       }),
-
     post: ({
       joinUrl = "",
       action,
