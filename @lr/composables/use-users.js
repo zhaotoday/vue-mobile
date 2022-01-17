@@ -17,18 +17,18 @@ export const useUsers = () => {
     ]);
 
   const name = computed(() => {
-    const { name, nickName, wxNickName, qqNickName } = userInfo.value;
+    const { name, nickName, wxNickName } = userInfo.value;
 
-    return name || nickName || wxNickName || qqNickName;
+    return name || nickName || wxNickName;
   });
 
   const avatarUrl = computed(() => {
-    const { wxAvatarUrl, qqAvatarUrl, avatarFileId } = userInfo.value;
+    const { wxAvatarUrl, avatarFileId } = userInfo.value;
 
     if (avatarFileId) {
       return useHelpers().getImageUrl({ id: avatarFileId });
     } else {
-      return wxAvatarUrl || qqAvatarUrl || "";
+      return wxAvatarUrl || "";
     }
   });
 
