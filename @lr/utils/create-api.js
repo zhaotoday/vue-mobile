@@ -42,6 +42,7 @@ const request = async ({
   url,
   method,
   headers,
+  baseQuery,
   query,
   body,
   showLoading = true,
@@ -50,14 +51,14 @@ const request = async ({
   showLoading && wx.showLoading();
 
   if (query) {
-    if (query.where) {
-      query.where = formatQuery({
-        ...query.where,
-        ...(query.where || {}),
-      });
-    } else {
-      query.where = formatQuery(query.where || {});
-    }
+    query.where = formatQuery(
+      query.where
+        ? {
+            ...baseQuery.where,
+            ...query.where,
+          }
+        : baseQuery.where
+    );
   }
 
   ["include", "order", "attributes"].forEach((key) => {
@@ -76,9 +77,9 @@ const request = async ({
 
   const [error, res] = await to(
     wx.request({
-      url: `${baseUrl}${query ? url + toQueryString(query) : url}`,
+      method: method.toUpperCase(),
+      url: `${baseUrl}${url}`,
       header: headers,
-      method,
       dataType: "json",
       data: body,
     })
@@ -111,12 +112,13 @@ const request = async ({
   }
 };
 
-export const createApi = ({ baseUrl, headers, url, query = {} }) => {
+export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
   return {
-    config: { baseUrl, headers, url, query },
+    config: { baseUrl, headers, url, baseQuery },
 
     get: ({ joinUrl = "", id, query, showLoading = true, showError = true }) =>
       request({
+        method: "get",
         baseUrl,
         headers,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
@@ -134,6 +136,7 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
       showError = true,
     }) =>
       request({
+        method: "post",
         baseUrl,
         headers,
         url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
@@ -157,6 +160,7 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
         headers,
         url: `${url}${joinUrl}/${id}`,
         query,
+        body,
         showLoading,
         showError,
       }),
