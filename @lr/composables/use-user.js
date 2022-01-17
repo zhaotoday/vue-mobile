@@ -32,14 +32,6 @@ export const useUser = () => {
     }
   });
 
-  const getWxMpUserProfileAndLogin = async () => {
-    const { iv, encryptedData } = await wx.getUserProfile({
-      desc: "完善用户资料",
-    });
-    const { code } = await wx.login();
-    return wxMpLogin({ code, iv, encryptedData });
-  };
-
   const loggedIn = () => !!token.value;
 
   const navigateTo = ({
@@ -53,14 +45,14 @@ export const useUser = () => {
   };
 
   return {
-    getWxMpUserProfileAndLogin,
     user,
     userInfo,
     token,
     name,
     avatarUrl,
-    accountLogin,
+    wxMpLogin,
     accountRegister,
+    accountLogin,
     getUserInfo,
     logout,
     loggedIn,

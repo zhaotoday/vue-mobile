@@ -6,6 +6,7 @@ export const useWxMp = () => {
       desc: "完善用户资料",
     });
     const { code } = await wx.login();
+
     return { code, iv, encryptedData };
   };
 
