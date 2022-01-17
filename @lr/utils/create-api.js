@@ -124,6 +124,7 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
         showLoading,
         showError,
       }),
+
     post: ({
       joinUrl = "",
       action,
@@ -132,15 +133,15 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
       showLoading = true,
       showError = true,
     }) =>
-      request.post(
-        action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
+      request({
+        baseUrl,
+        headers,
+        url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
         body,
-        {
-          params: query,
-          showLoading,
-          showError,
-        }
-      ),
+        query,
+        showLoading,
+        showError,
+      }),
 
     put: ({
       joinUrl = "",
@@ -150,8 +151,12 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
       showLoading = true,
       showError = true,
     }) =>
-      request.put(`${url}${joinUrl}/${id}`, body, {
-        params: query,
+      request({
+        method: "put",
+        baseUrl,
+        headers,
+        url: `${url}${joinUrl}/${id}`,
+        query,
         showLoading,
         showError,
       }),
@@ -163,8 +168,10 @@ export const createApi = ({ baseUrl, headers, url, query = {} }) => {
       showLoading = true,
       showError = true,
     }) =>
-      request.delete(`${url}${joinUrl}/${id}`, {
-        params: query,
+      request({
+        method: "delete",
+        url: `${url}${joinUrl}/${id}`,
+        query,
         showLoading,
         showError,
       }),
