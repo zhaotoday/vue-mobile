@@ -1,5 +1,5 @@
 import areas from "./areas.json";
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch } from "@vue/composition-api";
 
 export default {
   props: {
