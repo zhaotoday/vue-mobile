@@ -87,14 +87,19 @@ const request = async ({
 
   showLoading && wx.hideLoading();
 
+  const defaultError = { message: "服务器错误" };
+  const unauthedError = { message: "没有权限" };
+
   if (res) {
     if ((res.statusCode + "").charAt(0) === "2") {
       return res.data.data;
     } else {
       if (res.statusCode === 500) {
-        showError && wx.showToast({ title: "服务器出错" });
+        showError && wx.showToast({ title: defaultError.message });
+        return Promise.reject(defaultError);
       } else if (res.statusCode === 401) {
         wx.navigateTo({ url: "/pages/login/index" });
+        return Promise.reject(unauthedError);
       } else {
         showError &&
           wx.showToast({
@@ -106,9 +111,9 @@ const request = async ({
         return Promise.reject(res.data && res.data.error ? res.data.error : {});
       }
     }
-  } else if (error) {
-    showError && wx.showToast({ title: "服务器出错" });
-    return Promise.reject(error);
+  } else {
+    showError && wx.showToast({ title: defaultError.message });
+    return Promise.reject(error || defaultError);
   }
 };
 
