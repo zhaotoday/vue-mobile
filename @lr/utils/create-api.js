@@ -1,5 +1,6 @@
 import wx from "wx-bridge";
 import { to } from "jt-helpers";
+import { useConsts } from "@/composables/use-consts";
 
 const formatQuery = (obj) => {
   const ret = {};
@@ -119,7 +120,12 @@ const request = async ({
   }
 };
 
-export const createApi = ({ baseUrl, headers, url, baseQuery = {} }) => {
+export const createApi = ({
+  baseUrl = useConsts().ApiUrl,
+  headers,
+  url,
+  baseQuery = {},
+}) => {
   return {
     config: { baseUrl, headers, url, baseQuery },
 
