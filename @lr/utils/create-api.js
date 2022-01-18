@@ -129,7 +129,7 @@ export const createApi = ({
   return {
     config: { baseUrl, headers, url, baseQuery },
 
-    get: ({ joinUrl = "", id, query, showLoading = true, showError = true }) =>
+    get: ({ joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "get",
         baseUrl,
@@ -141,14 +141,7 @@ export const createApi = ({
         showError,
       }),
 
-    post: ({
-      joinUrl = "",
-      action,
-      body,
-      query,
-      showLoading = true,
-      showError = true,
-    }) =>
+    post: ({ joinUrl = "", action, body, query, showLoading, showError }) =>
       request({
         method: "post",
         baseUrl,
@@ -161,14 +154,7 @@ export const createApi = ({
         showError,
       }),
 
-    put: ({
-      joinUrl = "",
-      id,
-      body,
-      query,
-      showLoading = true,
-      showError = true,
-    }) =>
+    put: ({ joinUrl = "", id, body, query, showLoading, showError }) =>
       request({
         method: "put",
         baseUrl,
@@ -181,13 +167,7 @@ export const createApi = ({
         showError,
       }),
 
-    delete: ({
-      joinUrl = "",
-      id,
-      query,
-      showLoading = true,
-      showError = true,
-    }) =>
+    delete: ({ joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "delete",
         baseUrl,
