@@ -46,7 +46,7 @@ const request = async ({
   baseQuery = {},
   query,
   body,
-  showLoading = true,
+  showLoading = false,
   showError = true,
 }) => {
   if (query) {

@@ -6,24 +6,22 @@ import { useHelpers } from "./use-helpers";
 
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
-  const { user, userInfo, token } = useState(["user", "userInfo", "token"]);
-  const { wxMpLogin, accountRegister, accountLogin, getUserInfo, logout } =
-    useActions([
-      "wxMpLogin",
-      "accountRegister",
-      "accountLogin",
-      "getUserInfo",
-      "logout",
-    ]);
+  const { user, token } = useState(["user", "token"]);
+  const { wxMpLogin, accountRegister, accountLogin, logout } = useActions([
+    "wxMpLogin",
+    "accountRegister",
+    "accountLogin",
+    "logout",
+  ]);
 
   const name = computed(() => {
-    const { name, nickName, wxNickName } = userInfo.value;
+    const { name, nickName, wxNickName } = user.value;
 
     return name || nickName || wxNickName;
   });
 
   const avatarUrl = computed(() => {
-    const { wxAvatarUrl, avatarFileId } = userInfo.value;
+    const { wxAvatarUrl, avatarFileId } = user.value;
 
     if (avatarFileId) {
       return useHelpers().getImageUrl({ id: avatarFileId });

@@ -1,17 +1,14 @@
 import helpers from "jt-helpers";
 import { publicUsersApi } from "../../apis/public/users";
-import { usersApi } from "../../apis/client/users";
 
 const state = {
   user: {},
   token: "",
-  userInfo: {},
 };
 
 const types = helpers.keyMirror({
   SetUser: null,
   SetToken: null,
-  SetUserInfo: null,
 });
 
 const mutations = {
@@ -20,9 +17,6 @@ const mutations = {
   },
   [types.SetToken](state, token) {
     state.token = token;
-  },
-  [types.SetUserInfo](state, userInfo) {
-    state.userInfo = userInfo;
   },
 };
 
@@ -60,17 +54,9 @@ const actions = {
     commit(types.SetToken, `Bearer ${token}`);
     return { user, token };
   },
-  async getUserInfo({ commit }) {
-    const res = await usersApi.post({
-      action: "getUserInfo",
-    });
-    commit(types.SetUserInfo, res);
-    return res;
-  },
   logout({ commit }) {
     commit(types.SetUser, {});
     commit(types.SetToken, "");
-    commit(types.SetUserInfo, {});
     return {};
   },
 };
