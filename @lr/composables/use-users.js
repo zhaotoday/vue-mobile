@@ -44,14 +44,12 @@ export const useUsers = () => {
 
   return {
     user,
-    userInfo,
     token,
     name,
     avatarUrl,
     wxMpLogin,
     accountRegister,
     accountLogin,
-    getUserInfo,
     logout,
     loggedIn,
     navigateTo,
