@@ -2,7 +2,7 @@
   <div>
     <picker
       :range="enums.map((item) => item.label)"
-      @change="$emit('input', enums[$event.detail.value].value)"
+      @change="onChange"
     >
       <div
         v-if="enums.find((item) => item.value === value)"

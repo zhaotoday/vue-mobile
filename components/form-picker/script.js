@@ -13,12 +13,18 @@ export default {
     },
     error: String,
   },
-  setup(props, { parent }) {
+  emits: ["input"],
+  setup(props, { emit, parent }) {
     const { validate } = useValidators();
+
+    const onChange = (e) => {
+      emit("input", props.enums[e.detail.value].value);
+    };
 
     return {
       prop: parent.prop,
       validate,
+      onChange,
     };
   },
 };
