@@ -1,14 +1,16 @@
 <template>
   <div>
     <picker
-      class="c-list__value"
       :range="enums.map((item) => item.label)"
-      @change="$emit('change')"
+      @change="$emit('input', enums[$event.detail.value].value)"
     >
-      <div v-if="value">
-        {{ $helpers.getItem(range, "value", value)["label"] || "" }}
+      <div
+        v-if="enums.find((item) => item.value === value)"
+        class="c-form__input"
+      >
+        {{ $helpers.getItem(enums, "value", value)["label"] || "" }}
       </div>
-      <div v-else class="t-placeholder">{{ placeholder }}</div>
+      <div v-else class="c-form__input t-placeholder">{{ placeholder }}</div>
     </picker>
     <div v-if="error" class="c-form__error">
       {{ error }}

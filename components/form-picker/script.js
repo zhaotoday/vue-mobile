@@ -2,9 +2,10 @@ import { useValidators } from "vue-validation";
 
 export default {
   props: {
+    value: [String, Number],
     placeholder: {
       type: String,
-      default: "请输入",
+      default: "请选择",
     },
     enums: Array,
     customStyle: {
