@@ -7,7 +7,7 @@ export default {
     },
     normalClass: {
       type: String,
-      default: "t-gray7",
+      default: "t-g7",
     },
     activeClass: {
       type: String,

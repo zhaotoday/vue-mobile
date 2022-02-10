@@ -6,7 +6,7 @@
   @include e(input-wrap) {
     @include margin(null, px2rpx(30px), null, px2rpx(30px));
 
-    background: map-get($colors, gray1);
+    background: map-get($colors, g1);
     height: px2rpx(68px);
     border-radius: px2rpx(16px);
     background: {

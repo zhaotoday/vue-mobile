@@ -26,7 +26,7 @@
     @include size(px2rpx(180px), px2rpx(180px));
 
     position: relative;
-    background-color: map-get($colors, gray1);
+    background-color: map-get($colors, g1);
     border-radius: px2rpx(10px);
 
     &::before,
@@ -36,7 +36,7 @@
       transform: translateX(-50%) translateY(-50%);
       display: block;
       content: "";
-      background-color: map-get($colors, gray4);
+      background-color: map-get($colors, g4);
     }
 
     &::before {

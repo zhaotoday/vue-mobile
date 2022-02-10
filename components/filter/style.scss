@@ -4,7 +4,7 @@
   @include text--middle(px2rpx(66px));
 
   vertical-align: middle;
-  border-bottom: 1px solid map-get($colors, gray4);
+  border-bottom: 1px solid map-get($colors, g4);
   z-index: map-get($z-indexes, c-filter);
 
   @include c(icon) {

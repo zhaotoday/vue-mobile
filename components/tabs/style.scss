@@ -2,7 +2,7 @@
 
 @include c(tabs) {
   $tabs-height: 76px;
-  $tabs-border-color: map-get($colors, gray4);
+  $tabs-border-color: map-get($colors, g4);
   $tabs-active-color: map-get($colors, primary);
 
   position: relative;

@@ -4,7 +4,7 @@
 
     position: relative;
     margin-left: px2rpx(30px);
-    border-bottom: 1px solid map-get($colors, gray2);
+    border-bottom: 1px solid map-get($colors, g2);
   }
 
   @include e(extra) {

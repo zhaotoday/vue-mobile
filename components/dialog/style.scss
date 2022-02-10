@@ -2,7 +2,7 @@
 
 @include c(dialog) {
   $background-color: map-get($colors, white);
-  $border-color: map-get($colors, gray4);
+  $border-color: map-get($colors, g4);
   $border-radius: 8px;
 
   @include position--fixed(50%, null, null, 50%);

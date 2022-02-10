@@ -18,7 +18,7 @@
     @include size(100%, px2rpx(124px));
 
     position: relative;
-    border-bottom: 1px solid map-get($colors, gray4);
+    border-bottom: 1px solid map-get($colors, g4);
   }
 
   @include e(title, time, extra) {
