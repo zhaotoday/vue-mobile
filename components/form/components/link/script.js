@@ -2,23 +2,18 @@ import { useValidators } from "vue-validation";
 
 export default {
   props: {
-    type: {
-      type: String,
-      default: "text",
-    },
+    label: String,
+    value: [String, Number],
     placeholder: {
       type: String,
-      default: "请输入",
-    },
-    maxlength: {
-      type: String,
-      default: "140",
+      default: "请选择",
     },
     customStyle: {
       type: [String, Object],
     },
     error: String,
   },
+  emits: ["click"],
   setup(props, { parent }) {
     const { validate } = useValidators();
 

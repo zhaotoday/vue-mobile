@@ -19,6 +19,7 @@ export default {
     },
     error: String,
   },
+  emits: ["input", "blur"],
   setup(props, { parent }) {
     const { validate } = useValidators();
 
