@@ -29,7 +29,7 @@
     "jt-helpers": "^1.0.11",
     "jweixin-module": "^1.6.0",
     "query-string": "^7.1.0",
-    "sass-utils": "^1.1.1",
+    "sass-utils": "^1.1.2",
     "uni-composition-api": "^0.6.1",
     "vue-validation": "1.0.3",
     "vuex-composition-helpers": "^1.1.0",
