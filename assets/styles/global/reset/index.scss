@@ -22,3 +22,15 @@ uni-page-head .uni-page-head__title {
   font-weight: normal;
 }
 /* #endif */
+
+page {
+  div,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  label {
+    line-height: 100%;
+  }
+}
