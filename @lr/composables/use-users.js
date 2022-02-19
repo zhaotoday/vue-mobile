@@ -3,6 +3,7 @@ import { computed } from "@vue/composition-api";
 import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { useHelpers } from "./use-helpers";
+import { usersApi } from "../apis/client/users";
 
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
@@ -13,6 +14,10 @@ export const useUsers = () => {
     "accountLogin",
     "logout",
   ]);
+
+  const getUserInfo = () => {
+    usersApi.post({})
+  };
 
   const name = computed(() => {
     const { name, nickName, wxNickName } = user.value;
@@ -51,6 +56,7 @@ export const useUsers = () => {
     accountRegister,
     accountLogin,
     logout,
+    getUserInfo,
     loggedIn,
     navigateTo,
   };
