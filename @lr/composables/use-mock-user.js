@@ -4,8 +4,8 @@ const { user, token } = require("@/mock/user.json");
 
 export const useMockUser = () => {
   const mockLogin = () => {
-    store.commit("users/SetUser", user);
-    store.commit("users/SetToken", `Bearer ${token}`);
+    store.commit("users/SetUser", { user });
+    store.commit("users/SetToken", { token });
 
     return { user, token };
   };

@@ -28,7 +28,7 @@ const actions = {
       body: { loginType, code, iv, encryptedData },
     });
     commit(types.SetUser, { user });
-    commit(types.SetToken, { token: `Bearer ${token}` });
+    commit(types.SetToken, { token });
     return { user, token };
   },
   async accountRegister(
@@ -41,7 +41,7 @@ const actions = {
       body: { nickName, phoneNumber, captcha, password },
     });
     commit(types.SetUser, { user });
-    commit(types.SetToken, { token: `Bearer ${token}` });
+    commit(types.SetToken, { token });
     return { user, token };
   },
   async accountLogin({ commit }, { account, password }) {
@@ -51,7 +51,7 @@ const actions = {
       body: { account, password },
     });
     commit(types.SetUser, { user });
-    commit(types.SetToken, { token: `Bearer ${token}` });
+    commit(types.SetToken, { token });
     return { user, token };
   },
   async setUser({ commit }, { user }) {

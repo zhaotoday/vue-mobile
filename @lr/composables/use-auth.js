@@ -11,7 +11,7 @@ export const useAuth = () => {
   };
 
   const getHeaders = () => {
-    return { Authorization: getToken() };
+    return { Authorization: `Bearer ${getToken()}` };
   };
 
   const loggedIn = () => {
