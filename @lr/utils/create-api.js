@@ -127,13 +127,13 @@ export const createApi = ({
   baseQuery = {},
 }) => {
   return {
-    config: () => ({ baseUrl, headers: getHeaders(), url, baseQuery }),
+    config: () => ({ baseUrl, headers: getHeaders ? getHeaders() : undefined, url, baseQuery }),
 
     get: ({ joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "get",
         baseUrl,
-        headers: getHeaders(),
+        headers: getHeaders ? getHeaders() : undefined,
         baseQuery,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
         query,
@@ -145,7 +145,7 @@ export const createApi = ({
       request({
         method: "post",
         baseUrl,
-        headers: getHeaders(),
+        headers: getHeaders ? getHeaders() : undefined,
         baseQuery,
         url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
         query,
@@ -158,7 +158,7 @@ export const createApi = ({
       request({
         method: "put",
         baseUrl,
-        headers: getHeaders(),
+        headers: getHeaders ? getHeaders() : undefined,
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
@@ -171,7 +171,7 @@ export const createApi = ({
       request({
         method: "delete",
         baseUrl,
-        headers: getHeaders(),
+        headers: getHeaders ? getHeaders() : undefined,
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
