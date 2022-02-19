@@ -122,18 +122,18 @@ const request = async ({
 
 export const createApi = ({
   baseUrl = useConsts().ApiUrl,
-  headers,
+  getHeaders,
   url,
   baseQuery = {},
 }) => {
   return {
-    config: { baseUrl, headers, url, baseQuery },
+    config: () => ({ baseUrl, headers: getHeaders(), url, baseQuery }),
 
     get: ({ joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "get",
         baseUrl,
-        headers,
+        headers: getHeaders(),
         baseQuery,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
         query,

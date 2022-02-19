@@ -3,5 +3,5 @@ import { useAuth } from "../../composables/use-auth";
 
 export const usersApi = createApi({
   url: "/client/users",
-  headers: useAuth().getHeaders(),
+  getHeaders: useAuth().getHeaders,
 });
