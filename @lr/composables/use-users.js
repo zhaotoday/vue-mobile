@@ -8,15 +8,40 @@ import { usersApi } from "../apis/client/users";
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
   const { user, token } = useState(["user", "token"]);
-  const { wxLogin, accountRegister, accountLogin, logout } = useActions([
-    "wxLogin",
-    "accountRegister",
-    "accountLogin",
-    "logout",
-  ]);
+  const { wxLogin, accountRegister, accountLogin, setUser, logout } =
+    useActions([
+      "wxLogin",
+      "accountRegister",
+      "accountLogin",
+      "setUser",
+      "logout",
+    ]);
 
-  const getUserInfo = () => {
-    usersApi.post({})
+  const getUserInfo = async () => {
+    const {
+      id,
+      name,
+      nickName,
+      avatarFileId,
+      phoneNumber,
+      wxNickName,
+      wxAvatarUrl,
+      ...rest
+    } = await usersApi.post({ action: "getUserInfo" });
+
+    const user = {
+      id,
+      name,
+      nickName,
+      avatarFileId,
+      phoneNumber,
+      wxNickName,
+      wxAvatarUrl,
+    };
+
+    setUser({ user });
+
+    return { ...user, ...rest };
   };
 
   const name = computed(() => {
