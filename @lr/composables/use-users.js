@@ -7,8 +7,8 @@ import { useHelpers } from "./use-helpers";
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
   const { user, token } = useState(["user", "token"]);
-  const { wxMpLogin, accountRegister, accountLogin, logout } = useActions([
-    "wxMpLogin",
+  const { wxLogin, accountRegister, accountLogin, logout } = useActions([
+    "wxLogin",
     "accountRegister",
     "accountLogin",
     "logout",
@@ -47,7 +47,7 @@ export const useUsers = () => {
     token,
     name,
     avatarUrl,
-    wxMpLogin,
+    wxLogin,
     accountRegister,
     accountLogin,
     logout,

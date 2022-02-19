@@ -21,11 +21,11 @@ const mutations = {
 };
 
 const actions = {
-  async wxMpLogin({ commit }, { code, iv, encryptedData }) {
+  async wxLogin({ commit }, { loginType = "Mp", code, iv, encryptedData }) {
     const { user, token } = await publicUsersApi.post({
       showLoading: true,
-      action: "wxMpLogin",
-      body: { code, iv, encryptedData },
+      action: "wxLogin",
+      body: { loginType, code, iv, encryptedData },
     });
     commit(types.SetUser, user);
     commit(types.SetToken, `Bearer ${token}`);
