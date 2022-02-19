@@ -145,7 +145,7 @@ export const createApi = ({
       request({
         method: "post",
         baseUrl,
-        headers,
+        headers: getHeaders(),
         baseQuery,
         url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
         query,
@@ -158,7 +158,7 @@ export const createApi = ({
       request({
         method: "put",
         baseUrl,
-        headers,
+        headers: getHeaders(),
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
@@ -171,7 +171,7 @@ export const createApi = ({
       request({
         method: "delete",
         baseUrl,
-        headers,
+        headers: getHeaders(),
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
