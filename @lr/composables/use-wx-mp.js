@@ -11,12 +11,12 @@ export const useWxMp = () => {
       desc: "完善用户资料",
     });
 
-    return { code: state.code, iv, encryptedData };
+    return { code: state.loginCode, iv, encryptedData };
   };
 
   const getLoginCode = async () => {
     const { code } = await wx.login();
-    state.code = code;
+    state.loginCode = code;
   };
 
   const onRefreshLoginCode = async () => {
@@ -24,11 +24,11 @@ export const useWxMp = () => {
 
     state.loginTimer = setInterval(async () => {
       await getLoginCode();
-    }, 5 * 60 * 1000);
+    }, 4 * 60 * 1000);
   };
 
   const offRefreshLoginCode = () => {
-    clearInterval(state.loginCode);
+    clearInterval(state.loginTimer);
   };
 
   return {
