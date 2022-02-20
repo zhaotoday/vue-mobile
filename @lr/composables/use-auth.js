@@ -4,23 +4,30 @@ import { createNamespacedHelpers } from "vuex-composition-helpers";
 export const useAuth = () => {
   const { useState } = createNamespacedHelpers(store, "users");
 
+  const getUser = () => {
+    const { user } = useState(["user"]);
+
+    return user.value || {};
+  };
+
   const getToken = () => {
     const { token } = useState(["token"]);
 
     return token.value || "";
   };
 
-  const getHeaders = () => {
-    return { Authorization: `Bearer ${getToken()}` };
+  const loggedIn = () => {
+    return getToken() && getUser().phoneNumber;
   };
 
-  const loggedIn = () => {
-    return !!getToken();
+  const getHeaders = () => {
+    return loggedIn() ? { Authorization: `Bearer ${getToken()}` } : undefined;
   };
 
   return {
+    getUser,
     getToken,
-    getHeaders,
     loggedIn,
+    getHeaders,
   };
 };

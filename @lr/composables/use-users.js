@@ -60,7 +60,7 @@ export const useUsers = () => {
     }
   });
 
-  const loggedIn = () => !!token.value;
+  const loggedIn = () => token.value && user.value.phoneNumber;
 
   const navigateTo = ({
     requiresLogin = false,

@@ -19,7 +19,7 @@ export default {
     const onGetPhoneNumber = async (e) => {
       cModal.visible = false;
 
-      if (!e.errMsg) {
+      if (e.detail.code) {
         await usersApi.post({
           action: "getWxPhoneNumber",
           body: { code: e.detail.code },
