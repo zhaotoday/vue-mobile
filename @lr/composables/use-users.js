@@ -17,7 +17,7 @@ export const useUsers = () => {
       "logout",
     ]);
 
-  const getUserInfo = async ({ headers }) => {
+  const getUserInfo = async ({ headers } = {}) => {
     const {
       id,
       name,
