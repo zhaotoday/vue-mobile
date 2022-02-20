@@ -23,7 +23,6 @@ const mutations = {
 const actions = {
   async wxLogin({ commit }, { loginType = "Mp", code, iv, encryptedData }) {
     const { user, token } = await publicUsersApi.post({
-      showLoading: true,
       action: "wxLogin",
       body: { loginType, code, iv, encryptedData },
     });
@@ -36,7 +35,6 @@ const actions = {
     { nickName, phoneNumber, captcha, password }
   ) {
     const { user, token } = await publicUsersApi.post({
-      showLoading: true,
       action: "accountRegister",
       body: { nickName, phoneNumber, captcha, password },
     });
@@ -46,7 +44,6 @@ const actions = {
   },
   async accountLogin({ commit }, { account, password }) {
     const { user, token } = await publicUsersApi.post({
-      showLoading: true,
       action: "accountLogin",
       body: { account, password },
     });
