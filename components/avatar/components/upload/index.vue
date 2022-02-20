@@ -1,5 +1,5 @@
 <template name="yq-avatar">
-  <view>
+  <view :class="customClass">
     <image
       :src="imgSrc.imgSrc"
       @click="fSelect"
@@ -113,6 +113,7 @@ export default {
     }
   },
   props: {
+    customClass: [Object, String],
     avatarSrc: "",
     avatarStyle: "",
     selWidth: "",
