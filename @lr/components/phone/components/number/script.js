@@ -1,8 +1,8 @@
 import wx from "wx-bridge";
 import { reactive } from "@vue/composition-api";
-import { usersApi } from "../../../../@lr/apis/client/users";
-import { useUsers } from "../../../../@lr/composables/use-users";
-import { useHelpers } from "../../../../@lr/composables/use-helpers";
+import { usersApi } from "../../../../apis/client/users";
+import { useUsers } from "../../../../composables/use-users";
+import { useHelpers } from "../../../../composables/use-helpers";
 
 export default {
   setup() {
