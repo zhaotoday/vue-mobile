@@ -6,7 +6,7 @@ import { useHelpers } from "../../../../composables/use-helpers";
 
 export default {
   setup() {
-    const { getUserInfo } = useUsers();
+    const { token, getUserInfo } = useUsers();
 
     const cModal = reactive({
       visible: false,
@@ -20,12 +20,17 @@ export default {
       cModal.visible = false;
 
       if (e.detail.code) {
+        const headers = {
+          Authorization: `Bearer ${token.value}`,
+        };
+
         await usersApi.post({
+          headers,
           action: "getWxPhoneNumber",
           body: { code: e.detail.code },
         });
 
-        await getUserInfo();
+        await getUserInfo({ headers });
         wx.showToast({ title: "登陆成功" });
         await useHelpers().sleep(1500);
       }

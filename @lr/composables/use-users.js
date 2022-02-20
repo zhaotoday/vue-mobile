@@ -17,7 +17,7 @@ export const useUsers = () => {
       "logout",
     ]);
 
-  const getUserInfo = async () => {
+  const getUserInfo = async ({ headers }) => {
     const {
       id,
       name,
@@ -27,7 +27,7 @@ export const useUsers = () => {
       wxNickName,
       wxAvatarUrl,
       ...rest
-    } = await usersApi.post({ action: "getUserInfo" });
+    } = await usersApi.post({ headers, action: "getUserInfo" });
 
     const user = {
       id,

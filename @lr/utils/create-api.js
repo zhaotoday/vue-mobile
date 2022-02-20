@@ -127,13 +127,18 @@ export const createApi = ({
   baseQuery = {},
 }) => {
   return {
-    config: () => ({ baseUrl, headers: getHeaders ? getHeaders() : undefined, url, baseQuery }),
+    config: () => ({
+      baseUrl,
+      headers: getHeaders ? getHeaders() : undefined,
+      url,
+      baseQuery,
+    }),
 
-    get: ({ joinUrl = "", id, query, showLoading, showError }) =>
+    get: ({ headers, joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "get",
         baseUrl,
-        headers: getHeaders ? getHeaders() : undefined,
+        headers: headers || (getHeaders ? getHeaders() : undefined),
         baseQuery,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
         query,
@@ -141,11 +146,19 @@ export const createApi = ({
         showError,
       }),
 
-    post: ({ joinUrl = "", action, body, query, showLoading, showError }) =>
+    post: ({
+      headers,
+      joinUrl = "",
+      action,
+      body,
+      query,
+      showLoading,
+      showError,
+    }) =>
       request({
         method: "post",
         baseUrl,
-        headers: getHeaders ? getHeaders() : undefined,
+        headers: headers || (getHeaders ? getHeaders() : undefined),
         baseQuery,
         url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
         query,
@@ -154,11 +167,11 @@ export const createApi = ({
         showError,
       }),
 
-    put: ({ joinUrl = "", id, body, query, showLoading, showError }) =>
+    put: ({ headers, joinUrl = "", id, body, query, showLoading, showError }) =>
       request({
         method: "put",
         baseUrl,
-        headers: getHeaders ? getHeaders() : undefined,
+        headers: headers || (getHeaders ? getHeaders() : undefined),
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
@@ -167,11 +180,11 @@ export const createApi = ({
         showError,
       }),
 
-    delete: ({ joinUrl = "", id, query, showLoading, showError }) =>
+    delete: ({ headers, joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "delete",
         baseUrl,
-        headers: getHeaders ? getHeaders() : undefined,
+        headers: headers || (getHeaders ? getHeaders() : undefined),
         baseQuery,
         url: `${url}${joinUrl}/${id}`,
         query,
