@@ -32,11 +32,11 @@ const actions = {
   },
   async accountRegister(
     { commit },
-    { nickName, phoneNumber, captcha, password }
+    { name, nickName, phoneNumber, captcha, password }
   ) {
     const { user, token } = await publicUsersApi.post({
       action: "accountRegister",
-      body: { nickName, phoneNumber, captcha, password },
+      body: { name, nickName, phoneNumber, captcha, password },
     });
     commit(types.SetUser, { user });
     commit(types.SetToken, { token });
