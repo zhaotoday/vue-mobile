@@ -149,6 +149,7 @@ export const createApi = ({
     post: ({
       headers,
       joinUrl = "",
+      id,
       action,
       body,
       query,
@@ -160,7 +161,9 @@ export const createApi = ({
         baseUrl,
         headers: headers || (getHeaders ? getHeaders() : undefined),
         baseQuery,
-        url: action ? `${url}${joinUrl}/actions/${action}` : url + joinUrl,
+        url: action
+          ? `${url}${joinUrl}${id ? `/${id}` : ""}/actions/${action}`
+          : url + joinUrl + (id ? `/${id}` : ""),
         query,
         body,
         showLoading,
