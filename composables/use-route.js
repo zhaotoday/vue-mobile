@@ -8,7 +8,7 @@ export const useRoute = () => {
   });
 
   onLoad((query) => {
-    currentRoute.query = { ...query, ...getSwitchTabQuery() };
+    currentRoute.query = query;
   });
 
   onShow(() => {
