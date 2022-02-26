@@ -8,24 +8,29 @@ export const useTabBar = () => {
   });
 
   onShow(() => {
+    const route = getRoute();
     const query = getQuery();
 
-    if (Object.keys(query)) {
+    if (Object.keys(query).length) {
       currentRoute.query = query;
+      wx.removeStorageSync(route);
     }
   });
 
   const switchTab = (url, query) => {
     wx.switchTab({ url });
-    wx.setStorageSync(url, JSON.stringify(query));
+    wx.setStorageSync(url, query);
+  };
+
+  const getRoute = () => {
+    const currentPage = getCurrentPages().pop();
+    return currentPage && currentPage.route ? "/" + currentPage.route : "";
   };
 
   const getQuery = () => {
-    const currentPage = getCurrentPages().pop();
+    const route = getRoute();
 
-    return currentPage && currentPage.route
-      ? JSON.parse(wx.getStorageSync("/" + currentPage.route))
-      : {};
+    return route ? wx.getStorageSync("/" + route) || {} : {};
   };
 
   return {
