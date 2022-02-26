@@ -30,7 +30,7 @@ export const useTabBar = () => {
   const getQuery = () => {
     const route = getRoute();
 
-    return route ? wx.getStorageSync("/" + route) || {} : {};
+    return route ? wx.getStorageSync(route) || {} : {};
   };
 
   return {
