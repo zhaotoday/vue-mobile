@@ -56,7 +56,7 @@ const request = async ({
             ...baseQuery.where,
             ...query.where,
           }
-        : baseQuery.where
+        : baseQuery.where || {}
     );
   }
 
