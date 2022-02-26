@@ -7,6 +7,7 @@ module.exports = {
   globals: {
     wx: true,
     uni: true,
+    getCurrentPages: true,
   },
   parserOptions: {
     parser: "babel-eslint",
