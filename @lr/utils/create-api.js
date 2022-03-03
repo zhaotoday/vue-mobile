@@ -99,7 +99,7 @@ const request = async ({
         showError && wx.showToast({ title: serverError.message });
         return Promise.reject(serverError);
       } else if (res.statusCode === 401) {
-        wx.navigateTo({ url: "/pages/login/index" });
+        wx.navigateTo({ url: "/pages/user/mp-login/index" });
         return Promise.reject(unauthorizedError);
       } else {
         showError &&
