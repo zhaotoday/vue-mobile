@@ -5,6 +5,8 @@ import { onHide } from "uni-composition-api";
 
 export const useCaptcha = ({
   sendCaptchaText = "获取验证码",
+  sendCaptchaSuccessText = "验证码获取成功",
+  waitText = "{seconds}s 后获取",
   model,
   rules,
   request,
@@ -41,16 +43,22 @@ export const useCaptcha = ({
 
       await request();
 
-      wx.showToast({ title: "验证码获取成功" });
+      wx.showToast({ title: sendCaptchaSuccessText });
 
       captcha.i = 0;
       captcha.leftSeconds = 120;
 
       cCaptcha.disabled = true;
-      cCaptcha.message = `${captcha.leftSeconds}s 后获取`;
+      cCaptcha.message = waitText.replace(
+        "{seconds}",
+        captcha.leftSeconds + ""
+      );
 
       captcha.timer = setInterval(() => {
-        cCaptcha.message = `${captcha.leftSeconds - ++captcha.i}s 后获取`;
+        cCaptcha.message = waitText.replace(
+          "{seconds}",
+          captcha.leftSeconds - ++captcha.i + ""
+        );
 
         if (captcha.leftSeconds === captcha.i) {
           clearInterval(captcha.timer);
