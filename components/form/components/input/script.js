@@ -2,7 +2,7 @@ import { useValidators } from "vue-validation";
 
 export default {
   props: {
-    value: String,
+    value: [String, Number],
     type: {
       type: String,
       default: "text",
