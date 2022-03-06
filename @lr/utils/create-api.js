@@ -2,6 +2,8 @@ import wx from "wx-bridge";
 import { to } from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
 
+const { ApiUrl, LoginUrl } = useConsts();
+
 const formatQuery = (obj) => {
   const ret = {};
 
@@ -99,7 +101,7 @@ const request = async ({
         showError && wx.showToast({ title: serverError.message });
         return Promise.reject(serverError);
       } else if (res.statusCode === 401) {
-        wx.navigateTo({ url: "/pages/user/mp-login/index" });
+        wx.navigateTo({ url: LoginUrl || "/pages/user/mp-login/index" });
         return Promise.reject(unauthorizedError);
       } else {
         showError &&
@@ -121,7 +123,7 @@ const request = async ({
 };
 
 export const createApi = ({
-  baseUrl = useConsts().ApiUrl,
+  baseUrl = ApiUrl,
   getHeaders,
   url,
   baseQuery = {},
