@@ -14,8 +14,8 @@ export default {
       visible: false,
     });
 
-    const show = ({ token }) => {
-      token.value = token;
+    const show = (options) => {
+      token.value = options.token;
       cModal.visible = true;
     };
 
