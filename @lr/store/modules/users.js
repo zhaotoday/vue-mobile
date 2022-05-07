@@ -26,13 +26,20 @@ const mutations = {
 };
 
 const actions = {
-  async wxLogin({ commit }, { loginType = "Mp", code, iv, encryptedData }) {
+  async wxLogin(
+    { commit },
+    { loginType = "Mp", code, iv, encryptedData, store = true }
+  ) {
     const { user, token } = await publicUsersApi.post({
       action: "wxLogin",
       body: { loginType, code, iv, encryptedData },
     });
-    commit(types.SetUser, { user });
-    commit(types.SetToken, { token });
+
+    if (store) {
+      commit(types.SetUser, { user });
+      commit(types.SetToken, { token });
+    }
+
     return { user, token };
   },
   async accountRegister(
