@@ -67,6 +67,10 @@ const actions = {
     commit(types.SetUser, { user });
     return { user };
   },
+  async setToken({ commit }, { token }) {
+    commit(types.SetToken, { token });
+    return { token };
+  },
   logout({ commit }) {
     commit(types.Logout);
     return null;
