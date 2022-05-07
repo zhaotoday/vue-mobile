@@ -1,18 +1,21 @@
 import wx from "wx-bridge";
-import { reactive } from "@vue/composition-api";
+import { reactive, ref } from "@vue/composition-api";
 import { usersApi } from "../../../../apis/client/users";
 import { useUsers } from "../../../../composables/use-users";
 import { useHelpers } from "../../../../composables/use-helpers";
 
 export default {
   setup() {
-    const { token, getUserInfo } = useUsers();
+    const token = ref("");
+
+    const { getUserInfo } = useUsers();
 
     const cModal = reactive({
       visible: false,
     });
 
-    const show = () => {
+    const show = ({ token }) => {
+      token.value = token;
       cModal.visible = true;
     };
 
