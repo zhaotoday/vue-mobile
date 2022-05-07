@@ -4,6 +4,7 @@ import { publicUsersApi } from "../../apis/public/users";
 const types = helpers.keyMirror({
   SetUser: null,
   SetToken: null,
+  Logout: null,
 });
 
 const state = {
@@ -17,6 +18,10 @@ const mutations = {
   },
   [types.SetToken](state, { token }) {
     state.token = token;
+  },
+  [types.Logout](state) {
+    state.user = {};
+    state.token = "";
   },
 };
 
@@ -56,9 +61,8 @@ const actions = {
     return { user };
   },
   logout({ commit }) {
-    commit(types.SetUser, { user: {} });
-    commit(types.SetToken, { token: "" });
-    return {};
+    commit(types.Logout);
+    return null;
   },
 };
 
