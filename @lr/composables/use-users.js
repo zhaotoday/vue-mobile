@@ -28,6 +28,10 @@ export const useUsers = () => {
       phoneNumber,
       wxNickName,
       wxAvatarUrl,
+      wxMpOpenId,
+      wxOaOpenId,
+      wxAppOpenId,
+      wxWebOpenId,
       ...rest
     } = await usersApi.post({ headers, action: "getUserInfo" });
 
@@ -39,6 +43,10 @@ export const useUsers = () => {
       phoneNumber,
       wxNickName,
       wxAvatarUrl,
+      wxMpOpenId,
+      wxOaOpenId,
+      wxAppOpenId,
+      wxWebOpenId,
     };
 
     setUser({ user });
