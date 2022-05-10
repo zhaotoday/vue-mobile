@@ -8,7 +8,7 @@ export default {
   setup() {
     const token = ref("");
 
-    const { getUserInfo } = useUsers();
+    const { getUserInfo, setToken } = useUsers();
 
     const cModal = reactive({
       visible: false,
@@ -33,6 +33,7 @@ export default {
           body: { code: e.detail.code },
         });
 
+        await setToken({ token: token.value });
         await getUserInfo({ headers });
         wx.showToast({ title: "登陆成功" });
         await useHelpers().sleep(1500);
