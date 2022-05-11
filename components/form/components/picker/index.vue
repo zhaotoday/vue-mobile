@@ -2,7 +2,7 @@
   <div>
     <picker
       :range="enums.map((item) => item.label)"
-      :value="enums.findIndex((item) => item.value === value)"
+      :value="defaultValue"
       @change="onChange"
     >
       <div

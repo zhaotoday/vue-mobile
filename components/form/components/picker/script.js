@@ -1,4 +1,5 @@
 import { useValidators } from "vue-validation";
+import { computed } from "@vue/composition-api";
 
 export default {
   props: {
@@ -14,15 +15,20 @@ export default {
     error: String,
   },
   emits: ["input"],
-  setup(props, { emit, parent }) {
+  setup(props, context) {
     const { validate } = useValidators();
 
+    const defaultValue = computed(() => {
+      const index = props.enums.findIndex((item) => item.value === props.value);
+      return index === -1 ? 0 : index;
+    });
+
     const onChange = (e) => {
-      emit("input", props.enums[e.detail.value].value);
+      context.emit("input", props.enums[e.detail.value].value);
     };
 
     return {
-      prop: parent.prop,
+      defaultValue,
       validate,
       onChange,
     };
