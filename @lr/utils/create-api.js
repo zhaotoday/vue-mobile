@@ -4,7 +4,7 @@ import { useConsts } from "@/composables/use-consts";
 
 const { ApiUrl, LoginUrl } = useConsts();
 
-const formatQuery = (obj) => {
+const formatWhere = (obj) => {
   const ret = {};
 
   Object.keys(obj).forEach((attribute) => {
@@ -45,21 +45,13 @@ const request = async ({
   url,
   method,
   headers,
-  baseQuery = {},
   query,
   body,
   showLoading = false,
   showError = true,
 }) => {
   if (query) {
-    query.where = formatQuery(
-      query.where
-        ? {
-            ...baseQuery.where,
-            ...query.where,
-          }
-        : baseQuery.where || {}
-    );
+    query.where = formatWhere(query.where);
   }
 
   ["include", "order", "attributes"].forEach((key) => {
