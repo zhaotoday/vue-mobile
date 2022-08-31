@@ -24,24 +24,24 @@
   },
   "homepage": "https://github.com/zhaotoday/vue-mobile#readme",
   "dependencies": {
-    "@vue/composition-api": "^1.4.4",
-    "async-validator": "^4.0.7",
+    "@vue/composition-api": "^1.7.0",
+    "async-validator": "^4.2.5",
     "jt-helpers": "^1.0.11",
     "jweixin-module": "^1.6.0",
-    "query-string": "^7.1.0",
-    "sass-utils": "^1.1.2",
+    "query-string": "^7.1.1",
+    "sass-utils": "^1.1.10",
     "uni-composition-api": "^0.6.1",
-    "uni-plugins": "1.0.2",
-    "vue-validation": "1.0.3",
-    "vuex-composition-helpers": "^1.1.0",
+    "uni-plugins": "^1.0.3",
+    "vue-validation": "^1.0.4",
+    "vuex-composition-helpers": "^1.1.2",
     "wx-bridge": "^0.0.39"
   },
   "devDependencies": {
-    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.30.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.13.0",
-    "prettier": "^2.3.2"
+    "eslint": "^8.23.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.4.0",
+    "prettier": "^2.7.1"
   }
 }
