@@ -55,7 +55,7 @@ const request = async ({
   showLoading = false,
   showError = true,
 }) => {
-  if (query) {
+  if (query && query.where) {
     query.where = formatWhere(query.where);
   }
 
