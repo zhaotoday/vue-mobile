@@ -124,26 +124,23 @@ const request = async ({
 
 export const createApi = ({
   baseUrl = ApiUrl,
-  getHeaders,
   url,
-  baseQuery = {},
+  headers = () => ({}),
+  query = () => ({}),
+  body = () => ({}),
 }) => {
-  return {
-    config: () => ({
-      baseUrl,
-      headers: getHeaders ? getHeaders() : undefined,
-      url,
-      baseQuery,
-    }),
+  const getHeaders = headers;
+  const getQuery = query;
+  const getBody = body;
 
+  return {
     get: ({ headers, joinUrl = "", id, query, showLoading, showError }) =>
       request({
         method: "get",
         baseUrl,
-        headers: headers || (getHeaders ? getHeaders() : undefined),
-        baseQuery,
         url: `${url}${joinUrl}${id ? `/${id}` : ""}`,
-        query,
+        headers: { ...getHeaders(), ...headers },
+        query: { ...getQuery(), ...query },
         showLoading,
         showError,
       }),
@@ -161,13 +158,12 @@ export const createApi = ({
       request({
         method: "post",
         baseUrl,
-        headers: headers || (getHeaders ? getHeaders() : undefined),
-        baseQuery,
         url: action
           ? `${url}${joinUrl}${id ? `/${id}` : ""}/actions/${action}`
           : url + joinUrl + (id ? `/${id}` : ""),
-        query,
-        body,
+        headers: { ...getHeaders(), ...headers },
+        query: { ...getQuery(), ...query },
+        body: { ...getBody(), ...body },
         showLoading,
         showError,
       }),
@@ -176,11 +172,10 @@ export const createApi = ({
       request({
         method: "put",
         baseUrl,
-        headers: headers || (getHeaders ? getHeaders() : undefined),
-        baseQuery,
         url: `${url}${joinUrl}/${id}`,
-        query,
-        body,
+        headers: { ...getHeaders(), ...headers },
+        query: { ...getQuery(), ...query },
+        body: { ...getBody(), ...body },
         showLoading,
         showError,
       }),
@@ -189,10 +184,9 @@ export const createApi = ({
       request({
         method: "delete",
         baseUrl,
-        headers: headers || (getHeaders ? getHeaders() : undefined),
-        baseQuery,
         url: `${url}${joinUrl}/${id}`,
-        query,
+        headers: { ...getHeaders(), ...headers },
+        query: { ...getQuery(), ...query },
         showLoading,
         showError,
       }),
