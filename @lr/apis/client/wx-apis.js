@@ -3,5 +3,5 @@ import { useAuth } from "../../composables/use-auth";
 
 export const wxApisApi = createApi({
   url: "/client/wxApis",
-  getHeaders: useAuth().getHeaders,
+  headers: useAuth().getHeaders,
 });

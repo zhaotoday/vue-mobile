@@ -3,5 +3,5 @@ import { useAuth } from "../../composables/use-auth";
 
 export const wxPaymentsApi = createApi({
   url: "/client/wxPayments",
-  getHeaders: useAuth().getHeaders,
+  headers: useAuth().getHeaders,
 });
