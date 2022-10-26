@@ -1,4 +1,3 @@
-import wx from "wx-bridge";
 import AsyncValidator from "async-validator";
 import { reactive } from "@vue/composition-api";
 import { onHide } from "uni-composition-api";
@@ -37,13 +36,13 @@ export const useCaptcha = ({
 
     await new AsyncValidator(rules()).validate(model(), async (errors) => {
       if (errors) {
-        wx.showToast({ title: errors[0].message });
+        uni.showToast({ title: errors[0].message });
         return;
       }
 
       await request();
 
-      wx.showToast({ title: sendCaptchaSuccessText });
+      uni.showToast({ title: sendCaptchaSuccessText });
 
       captcha.i = 0;
       captcha.leftSeconds = 120;

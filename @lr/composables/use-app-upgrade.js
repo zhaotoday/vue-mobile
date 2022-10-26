@@ -1,4 +1,3 @@
-import wx from "wx-bridge";
 import { publicAppUpgradesApi } from "../apis/public/app-upgrades";
 import { appUpgrade } from "uni-plugins/utils/app-upgrade";
 
@@ -35,7 +34,7 @@ export const useAppUpgrade = () => {
 
         case "Wgt":
           {
-            const { statusCode, tempFilePath } = await wx.downloadFile({
+            const { statusCode, tempFilePath } = await uni.downloadFile({
               url: wgtUrl,
             });
 

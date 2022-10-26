@@ -1,4 +1,3 @@
-import wx from "wx-bridge";
 import { computed } from "@vue/composition-api";
 import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
@@ -77,7 +76,7 @@ export const useUsers = () => {
     loginUrl = useConsts().LoginUrl || "/pages/user/mp-login/index",
     url,
   }) => {
-    wx.navigateTo({
+    uni.navigateTo({
       url: requiresLogin && !loggedIn() ? loginUrl : url,
     });
   };

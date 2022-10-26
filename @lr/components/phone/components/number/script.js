@@ -1,4 +1,3 @@
-import wx from "wx-bridge";
 import { reactive, ref } from "@vue/composition-api";
 import { usersApi } from "../../../../apis/client/users";
 import { useUsers } from "../../../../composables/use-users";
@@ -35,11 +34,11 @@ export default {
 
         await setToken({ token: token.value });
         await getUserInfo({ headers });
-        wx.showToast({ title: "登陆成功" });
+        uni.showToast({ title: "登陆成功" });
         await useHelpers().sleep(1500);
       }
 
-      wx.navigateBack();
+      uni.navigateBack();
     };
 
     return {

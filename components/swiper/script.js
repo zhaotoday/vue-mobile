@@ -1,5 +1,4 @@
 import { ref } from "@vue/composition-api";
-import wx from "wx-bridge";
 
 export default {
   name: "CSwiper",
@@ -42,14 +41,14 @@ export default {
 
     const onClick = (item) => {
       if (props.previewable) {
-        wx.previewImage({
+        uni.previewImage({
           urls: props.items.map((item) => item.image),
           current: item.image,
           loop: true,
           indicator: "number",
         });
       } else {
-        wx.navigateTo({ url: item.url });
+        uni.navigateTo({ url: item.url });
       }
     };
 

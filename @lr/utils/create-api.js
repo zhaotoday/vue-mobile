@@ -1,4 +1,3 @@
-import wx from "wx-bridge";
 import { to } from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
 
@@ -73,10 +72,10 @@ const request = async ({
     }
   }
 
-  showLoading && wx.showLoading();
+  showLoading && uni.showLoading();
 
   const [error, res] = await to(
-    wx.request({
+    uni.request({
       method: method.toUpperCase(),
       url: `${baseUrl}${query ? url + toQueryString(query) : url}`,
       header: headers,
@@ -85,7 +84,7 @@ const request = async ({
     })
   );
 
-  showLoading && wx.hideLoading();
+  showLoading && uni.hideLoading();
 
   const serverError = { message: "服务器错误" };
   const unauthorizedError = { message: "没有权限" };
@@ -95,14 +94,14 @@ const request = async ({
       return res.data.data;
     } else {
       if (res.statusCode === 500) {
-        showError && wx.showToast({ title: serverError.message });
+        showError && uni.showToast({ title: serverError.message });
         return Promise.reject(serverError);
       } else if (res.statusCode === 401) {
-        wx.navigateTo({ url: LoginUrl || "/pages/user/mp-login/index" });
+        uni.navigateTo({ url: LoginUrl || "/pages/user/mp-login/index" });
         return Promise.reject(unauthorizedError);
       } else {
         showError &&
-          wx.showToast({
+          uni.showToast({
             title:
               res.data && res.data.error
                 ? res.data.error.message
@@ -114,7 +113,7 @@ const request = async ({
       }
     }
   } else {
-    showError && wx.showToast({ title: serverError.message });
+    showError && uni.showToast({ title: serverError.message });
     return Promise.reject(error || serverError);
   }
 };

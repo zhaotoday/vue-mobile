@@ -1,5 +1,4 @@
 import { ref, watch } from "@vue/composition-api";
-import wx from "wx-bridge";
 
 export default {
   name: "CSearch",
@@ -38,7 +37,7 @@ export default {
 
     const navigateToLink = () => {
       if (props.link) {
-        wx.navigateTo({ url: props.link });
+        uni.navigateTo({ url: props.link });
       }
     };
 

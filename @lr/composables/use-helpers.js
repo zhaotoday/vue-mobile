@@ -1,6 +1,5 @@
 import helpers from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
-import wx from "wx-bridge";
 
 export const useHelpers = () => {
   const { ApiUrl, CdnUrl } = useConsts();
@@ -38,16 +37,16 @@ export const useHelpers = () => {
       // #endif
 
       // #ifdef APP-PLUS
-      wx.showLoading({
+      uni.showLoading({
         title: "文件下载中...",
         mask: true,
       });
 
-      const { tempFilePath } = await wx.downloadFile({ url });
+      const { tempFilePath } = await uni.downloadFile({ url });
 
-      wx.hideLoading();
+      uni.hideLoading();
 
-      wx.openDocument({ filePath: tempFilePath });
+      uni.openDocument({ filePath: tempFilePath });
       // #endif
     },
   };

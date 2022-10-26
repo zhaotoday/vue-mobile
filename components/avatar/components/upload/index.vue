@@ -101,16 +101,16 @@ export default {
       selStyle: {},
       showOper: true,
       imgSrc: {
-        imgSrc: ""
+        imgSrc: "",
       },
       btnWidth: "19%",
-      btnDsp: "flex"
+      btnDsp: "flex",
     };
   },
   watch: {
     avatarSrc() {
       this.imgSrc.imgSrc = this.avatarSrc;
-    }
+    },
   },
   props: {
     customClass: [Object, String],
@@ -131,7 +131,7 @@ export default {
     noTab: "",
     inner: "",
     quality: "",
-    index: ""
+    index: "",
   },
   created() {
     this.ctxCanvas = uni.createCanvasContext("avatar-canvas", this);
@@ -162,10 +162,10 @@ export default {
       this.fWindowResize();
     } else {
       uni.showTabBar({
-        complete: res => {
+        complete: (res) => {
           this.moreHeight = res.errMsg === "showTabBar:ok" ? 50 : 0;
           this.fWindowResize();
-        }
+        },
       });
     }
   },
@@ -244,12 +244,12 @@ export default {
         count: 1,
         sizeType: ["original", "compressed"],
         sourceType: ["album", "camera"],
-        success: r => {
+        success: (r) => {
           uni.showLoading({ mask: true });
           let path = (this.imgPath = r.tempFilePaths[0]);
           uni.getImageInfo({
             src: path,
-            success: r => {
+            success: (r) => {
               this.imgWidth = r.width;
               this.imgHeight = r.height;
               this.path = path;
@@ -272,7 +272,7 @@ export default {
                 } else {
                   uni.showModal({
                     title: "裁剪框的宽或高没有设置",
-                    showCancel: false
+                    showCancel: false,
                   });
                   return;
                 }
@@ -285,21 +285,21 @@ export default {
                 uni.hideTabBar({
                   complete: () => {
                     this.fDrawInit(true);
-                  }
+                  },
                 });
               }
             },
             fail: () => {
               uni.showToast({
                 title: "error3",
-                duration: 2000
+                duration: 2000,
               });
             },
             complete() {
               uni.hideLoading();
-            }
+            },
           });
-        }
+        },
       });
     },
     fUpload() {
@@ -340,10 +340,10 @@ export default {
           canvasId: "avatar-canvas",
           fileType: "png",
           quality: this.qlty,
-          success: r => {
+          success: (r) => {
             r = r.tempFilePath;
             // #ifdef H5
-            this.btop(r).then(r => {
+            this.btop(r).then((r) => {
               if (this.exportWidth && this.exportHeight) {
                 let ctxCanvas = this.ctxCanvas;
                 (expWidth = this.exportWidth), (expHeight = this.exportHeight);
@@ -360,23 +360,23 @@ export default {
                     canvasId: "avatar-canvas",
                     fileType: "png",
                     quality: this.qlty,
-                    success: r => {
+                    success: (r) => {
                       r = r.tempFilePath;
-                      this.btop(r).then(r => {
+                      this.btop(r).then((r) => {
                         this.$emit("upload", {
                           avatar: this.imgSrc,
                           path: r,
                           index: this.indx,
-                          data: this.rtn
+                          data: this.rtn,
                         });
                       });
                     },
                     fail: () => {
                       uni.showToast({
                         title: "error0",
-                        duration: 2000
+                        duration: 2000,
                       });
-                    }
+                    },
                   });
                 });
               } else {
@@ -384,7 +384,7 @@ export default {
                   avatar: this.imgSrc,
                   path: r,
                   index: this.indx,
-                  data: this.rtn
+                  data: this.rtn,
                 });
               }
             });
@@ -394,20 +394,20 @@ export default {
               avatar: this.imgSrc,
               path: r,
               index: this.indx,
-              data: this.rtn
+              data: this.rtn,
             });
             // #endif
           },
-          fail: res => {
+          fail: (res) => {
             uni.showToast({
               title: "error1",
-              duration: 2000
+              duration: 2000,
             });
           },
           complete: () => {
             uni.hideLoading();
             this.noBar || uni.showTabBar();
-          }
+          },
         },
         this
       );
@@ -453,10 +453,10 @@ export default {
           canvasId: "prv-canvas",
           fileType: "png",
           quality: this.qlty,
-          success: r => {
+          success: (r) => {
             r = r.tempFilePath;
             // #ifdef H5
-            this.btop(r).then(r => {
+            this.btop(r).then((r) => {
               if (this.exportWidth && this.exportHeight) {
                 let ctxCanvas = this.ctxCanvas;
                 (expWidth = this.exportWidth), (expHeight = this.exportHeight);
@@ -473,23 +473,23 @@ export default {
                     canvasId: "avatar-canvas",
                     fileType: "png",
                     quality: this.qlty,
-                    success: r => {
+                    success: (r) => {
                       r = r.tempFilePath;
-                      this.btop(r).then(r => {
+                      this.btop(r).then((r) => {
                         this.$emit("upload", {
                           avatar: this.imgSrc,
                           path: r,
                           index: this.indx,
-                          data: this.rtn
+                          data: this.rtn,
                         });
                       });
                     },
                     fail: () => {
                       uni.showToast({
                         title: "error0",
-                        duration: 2000
+                        duration: 2000,
                       });
-                    }
+                    },
                   });
                 });
               } else {
@@ -497,7 +497,7 @@ export default {
                   avatar: this.imgSrc,
                   path: r,
                   index: this.indx,
-                  data: this.rtn
+                  data: this.rtn,
                 });
               }
             });
@@ -507,20 +507,20 @@ export default {
               avatar: this.imgSrc,
               path: r,
               index: this.indx,
-              data: this.rtn
+              data: this.rtn,
             });
             // #endif
           },
           fail: () => {
             uni.showToast({
               title: "error_prv",
-              duration: 2000
+              duration: 2000,
             });
           },
           complete: () => {
             uni.hideLoading();
             this.noBar || uni.showTabBar();
-          }
+          },
         },
         this
       );
@@ -758,7 +758,7 @@ export default {
           canvasId: "avatar-canvas",
           fileType: "png",
           quality: this.qlty,
-          success: r => {
+          success: (r) => {
             this.prvImgTmp = r = r.tempFilePath;
 
             let ctxCanvasPrv = this.ctxCanvasPrv,
@@ -788,7 +788,7 @@ export default {
             ctxCanvasPrv.draw(false);
 
             // #ifdef H5
-            this.btop(r).then(r => {
+            this.btop(r).then((r) => {
               this.showOper = false;
               this.prvTop = this.drawTop + "px";
             });
@@ -803,12 +803,12 @@ export default {
           fail: () => {
             uni.showToast({
               title: "error2",
-              duration: 2000
+              duration: 2000,
             });
           },
           complete: () => {
             uni.hideLoading();
-          }
+          },
         },
         this
       );
@@ -1033,7 +1033,7 @@ export default {
             },
             fail(err) {
               reject(err);
-            }
+            },
           },
           this
         );
@@ -1048,10 +1048,10 @@ export default {
 
       if (!this.prvImgData) {
         if (
-          !(this.prvImgData = await this.fGetImgData().catch(res => {
+          !(this.prvImgData = await this.fGetImgData().catch((res) => {
             uni.showToast({
               title: "error_read",
-              duration: 2000
+              duration: 2000,
             });
           }))
         )
@@ -1133,7 +1133,7 @@ export default {
             tR = hK + 1 / 3;
             tG = hK;
             tB = hK - 1 / 3;
-            let correctRGB = t => {
+            let correctRGB = (t) => {
               if (t < 0) {
                 return t + 1.0;
               }
@@ -1142,7 +1142,7 @@ export default {
               }
               return t;
             };
-            let createRGB = t => {
+            let createRGB = (t) => {
               if (t < 1 / 6) {
                 return p + (q - p) * 6 * t;
               } else if (t >= 1 / 6 && t < 1 / 2) {
@@ -1188,18 +1188,18 @@ export default {
           fail() {
             uni.showToast({
               title: "error_put",
-              duration: 2000
+              duration: 2000,
             });
           },
           complete() {
             uni.hideLoading();
-          }
+          },
         },
         this
       );
     },
     btop(base64) {
-      return new Promise(function(resolve, reject) {
+      return new Promise(function (resolve, reject) {
         var arr = base64.split(","),
           mime = arr[0].match(/:(.*?);/)[1],
           bstr = atob(arr[1]),
@@ -1214,8 +1214,8 @@ export default {
           )
         );
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

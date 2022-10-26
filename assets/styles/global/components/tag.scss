@@ -4,7 +4,12 @@
   @each $item in map-get($c-tag, heights) {
     &.h#{calc($item / 1px)} {
       @include text--middle(px2rpx($item));
-      @include padding(null, px2rpx(calc($item / 2)), null, px2rpx(calc($item / 2)));
+      @include padding(
+        null,
+        px2rpx(calc($item / 2)),
+        null,
+        px2rpx(calc($item / 2))
+      );
     }
 
     &.r#{calc($item / 1px)} {

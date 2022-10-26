@@ -1,5 +1,3 @@
-import wx from "wx-bridge";
-
 export const useWxMp = () => {
   const state = {
     loginTimer: null,
@@ -7,7 +5,7 @@ export const useWxMp = () => {
   };
 
   const getUserProfileAndLogin = async () => {
-    const { iv, encryptedData } = await wx.getUserProfile({
+    const { iv, encryptedData } = await uni.getUserProfile({
       desc: "完善用户资料",
     });
 
@@ -15,7 +13,7 @@ export const useWxMp = () => {
   };
 
   const getLoginCode = async () => {
-    const { code } = await wx.login();
+    const { code } = await uni.login();
     state.loginCode = code;
   };
 

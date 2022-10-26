@@ -1,6 +1,5 @@
 import { reactive } from "@vue/composition-api";
 import { onShow } from "uni-composition-api";
-import wx from "wx-bridge";
 
 export const useTabBar = () => {
   const currentRoute = reactive({
@@ -13,13 +12,13 @@ export const useTabBar = () => {
 
     if (Object.keys(query).length) {
       currentRoute.query = query;
-      wx.removeStorageSync(route);
+      uni.removeStorageSync(route);
     }
   });
 
   const switchTab = (url, query) => {
-    wx.switchTab({ url });
-    wx.setStorageSync(url, query);
+    uni.switchTab({ url });
+    uni.setStorageSync(url, query);
   };
 
   const getRoute = () => {
@@ -30,7 +29,7 @@ export const useTabBar = () => {
   const getQuery = () => {
     const route = getRoute();
 
-    return route ? wx.getStorageSync(route) || {} : {};
+    return route ? uni.getStorageSync(route) || {} : {};
   };
 
   return {
