@@ -1,1 +1,3 @@
-export const helpers = require("jt-helpers");
+import helpers from "jt-helpers";
+
+export default helpers;

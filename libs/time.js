@@ -1,1 +1,3 @@
-export const time = require("jt-time");
+import time from "jt-time";
+
+export default time;

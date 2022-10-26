@@ -1,1 +1,3 @@
-export const jweixin = require("jweixin-module");
+import jweixin from "jweixin-module";
+
+export default jweixin;
