@@ -1,5 +1,5 @@
 import { reactive } from "@vue/composition-api";
-import { useHelpers } from "vue-mobile/@lr/composables/use-helpers";
+import { useHelpers } from "../../composables/use-helpers";
 import BForm from "./components/form";
 
 export default {

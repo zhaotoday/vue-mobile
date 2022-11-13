@@ -1,4 +1,4 @@
-import { useUsers } from "vue-mobile/@lr/composables/use-users";
+import { useUsers } from "../../composables/use-users";
 import BPhoneNumber from "../phone-number";
 import BUserInfo from "../user-info";
 

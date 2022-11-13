@@ -1,9 +1,9 @@
-import defaultAvatar from "vue-mobile/assets/images/components/avatar/default.png";
+import defaultAvatar from "../../../../../assets/images/components/avatar/default.png";
 import { reactive } from "@vue/composition-api";
 import { useValidators } from "vue-validation";
 import { useConsts } from "@/composables/use-consts";
-import { useUsers } from "vue-mobile/@lr/composables/use-users";
-import { usersApi } from "vue-mobile/@lr/apis/client/users";
+import { useUsers } from "../../../../composables/use-users";
+import { usersApi } from "../../../../apis/client/users";
 
 export default {
   setup() {
