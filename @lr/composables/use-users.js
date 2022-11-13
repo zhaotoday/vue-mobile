@@ -7,9 +7,9 @@ import { usersApi } from "../apis/client/users";
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
   const { user, token } = useState(["user", "token"]);
-  const { wxLogin, accountRegister, accountLogin, setUser, setToken, logout } =
+  const { wxMpLogin, accountRegister, accountLogin, setUser, setToken, logout } =
     useActions([
-      "wxLogin",
+      "wxMpLogin",
       "accountRegister",
       "accountLogin",
       "setUser",
@@ -79,7 +79,7 @@ export const useUsers = () => {
     token,
     name,
     avatarUrl,
-    wxLogin,
+    wxMpLogin,
     accountRegister,
     accountLogin,
     setUser,
