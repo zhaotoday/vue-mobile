@@ -68,6 +68,10 @@ export const useUsers = () => {
     }
   });
 
+  const getHeaders = () => {
+    return loggedIn() ? { Authorization: `Bearer ${token.value}` } : undefined;
+  };
+
   const loggedIn = () => !!token.value;
 
   return {
@@ -82,6 +86,7 @@ export const useUsers = () => {
     setToken,
     logout,
     getUserInfo,
+    getHeaders,
     loggedIn,
   };
 };

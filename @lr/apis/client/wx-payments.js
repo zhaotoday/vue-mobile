@@ -1,7 +1,9 @@
 import { createApi } from "../../utils/create-api";
-import { useAuth } from "../../composables/use-auth";
+import { store } from "@/store";
 
 export const wxPaymentsApi = createApi({
   url: "/client/wxPayments",
-  headers: useAuth().getHeaders,
+  headers: () => ({
+    authorization: `Bearer ${store.state.users.token}`,
+  }),
 });
