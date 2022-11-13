@@ -18,7 +18,7 @@ export const useUsers = () => {
       "logout",
     ]);
 
-  const getUserInfo = async ({ headers } = {}) => {
+  const getUserInfo = async () => {
     const {
       id,
       name,
@@ -32,7 +32,7 @@ export const useUsers = () => {
       wxAppOpenId,
       wxWebOpenId,
       ...rest
-    } = await usersApi.post({ headers, action: "getUserInfo" });
+    } = await usersApi.post({ action: "getUserInfo" });
 
     const user = {
       id,
