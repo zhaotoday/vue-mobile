@@ -69,17 +69,7 @@ export const useUsers = () => {
     }
   });
 
-  const loggedIn = () => token.value && user.value.phoneNumber;
-
-  const navigateTo = ({
-    requiresLogin = false,
-    loginUrl = useConsts().LoginUrl || "/pages/user/mp-login/index",
-    url,
-  }) => {
-    uni.navigateTo({
-      url: requiresLogin && !loggedIn() ? loginUrl : url,
-    });
-  };
+  const loggedIn = () => !!token.value;
 
   return {
     user,
@@ -94,6 +84,5 @@ export const useUsers = () => {
     logout,
     getUserInfo,
     loggedIn,
-    navigateTo,
   };
 };
