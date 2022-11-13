@@ -62,7 +62,7 @@ export const useUsers = () => {
   const name = computed(() => {
     const { name, nickName, wxNickName } = user.value;
 
-    return name || nickName || wxNickName;
+    return name || nickName || wxNickName || "微信用户";
   });
 
   const avatarUrl = computed(() => {
