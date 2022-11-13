@@ -1,7 +1,7 @@
 import { computed } from "@vue/composition-api";
 import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
-import { useHelpers } from "./use-helpers";
+import { useHelpers } from "@/composables/use-helpers";
 import { useConsts } from "@/composables/use-consts";
 import { usersApi } from "../apis/client/users";
 
