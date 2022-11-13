@@ -3,19 +3,26 @@ import { store } from "@/store";
 import { createNamespacedHelpers } from "vuex-composition-helpers";
 import { useHelpers } from "@/composables/use-helpers";
 import { usersApi } from "../apis/client/users";
+import { useConsts } from "@/composables/use-consts";
 
 export const useUsers = () => {
   const { useState, useActions } = createNamespacedHelpers(store, "users");
   const { user, token } = useState(["user", "token"]);
-  const { wxMpLogin, accountRegister, accountLogin, setUser, setToken, logout } =
-    useActions([
-      "wxMpLogin",
-      "accountRegister",
-      "accountLogin",
-      "setUser",
-      "setToken",
-      "logout",
-    ]);
+  const {
+    wxMpLogin,
+    accountRegister,
+    accountLogin,
+    setUser,
+    setToken,
+    logout,
+  } = useActions([
+    "wxMpLogin",
+    "accountRegister",
+    "accountLogin",
+    "setUser",
+    "setToken",
+    "logout",
+  ]);
 
   const getUserInfo = async () => {
     const {
@@ -74,6 +81,16 @@ export const useUsers = () => {
 
   const loggedIn = () => !!token.value;
 
+  const navigateTo = ({
+    requiresLogin = false,
+    loginUrl = useConsts().LoginUrl || "/pages/user/mp-login/index",
+    url,
+  }) => {
+    wx.navigateTo({
+      url: requiresLogin && !loggedIn() ? loginUrl : url,
+    });
+  };
+
   return {
     user,
     token,
@@ -88,5 +105,6 @@ export const useUsers = () => {
     getUserInfo,
     getHeaders,
     loggedIn,
+    navigateTo,
   };
 };
