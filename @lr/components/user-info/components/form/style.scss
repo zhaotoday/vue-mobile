@@ -1,0 +1,14 @@
+@import "~@/assets/styles/utils";
+
+@include b(avatar) {
+  @include circle(px2rpx(80px));
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  image {
+    @include size(100%, 100%);
+
+    display: block;
+  }
+}

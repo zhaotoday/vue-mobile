@@ -1,0 +1,13 @@
+@import "~@/assets/styles/utils";
+
+@include c(phone-number) {
+  width: 100%;
+
+  @include e(logo) {
+    @include block--center;
+    @include circle(px2rpx(150px));
+
+    display: block;
+    box-shadow: 0 0 px2rpx(20px) px2rpx(1px) rgba(gray, 0.2);
+  }
+}
