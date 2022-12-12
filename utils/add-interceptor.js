@@ -3,6 +3,12 @@ const isPromise = (obj) =>
   (typeof obj === "object" || typeof obj === "function") &&
   typeof obj.then === "function";
 
+const toQueryString = (obj) => {
+  return Object.keys(obj)
+    .map((key) => `${key}=${obj[key]}`)
+    .join("&");
+};
+
 uni.addInterceptor({
   returnValue(res) {
     if (!isPromise(res)) {
@@ -28,8 +34,10 @@ uni.addInterceptor("showToast", {
 
 uni.addInterceptor("navigateTo", {
   invoke(args) {
+    const qs = args.query ? "?" + toQueryString(args.query) : "";
+
     const url = args.url
-      ? args.url
+      ? args.url + qs
       : Object.keys(args)
           .filter((key) => !isNaN(Number(key, 10)))
           .map((key) => args[key])
@@ -56,8 +64,10 @@ uni.addInterceptor("navigateTo", {
 ["switchTab", "redirectTo", "reLaunch"].forEach((key) => {
   uni.addInterceptor(key, {
     invoke(args) {
+      const qs = args.query ? "?" + toQueryString(args.query) : "";
+
       const url = args.url
-        ? args.url
+        ? args.url + qs
         : Object.keys(args)
             .filter((key) => !isNaN(Number(key, 10)))
             .map((key) => args[key])
