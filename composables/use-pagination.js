@@ -36,7 +36,7 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
   };
 
   const onScrollToLower = async () => {
-    if (cPagination.lastPageItems.length > 0) {
+    if (cPagination.lastPageItems.length === pageSize) {
       cPagination.offset += pageSize;
       await render();
     } else {
