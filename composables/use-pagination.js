@@ -1,6 +1,6 @@
 import { reactive } from "@vue/composition-api";
 
-export const usePagination = ({ list, pageSize = 10 } = {}) => {
+export const usePagination = ({ pageSize = 10, list, render } = {}) => {
   const cPagination = reactive({
     offset: 0,
     limit: pageSize,
@@ -36,12 +36,29 @@ export const usePagination = ({ list, pageSize = 10 } = {}) => {
   const afterRequest = ({ items }) => {
     cPagination.loading = false;
 
+    cPagination.lastPageItems = items;
+
     if (cPagination.offset) {
       list.value = {
         items: [...list.value.items, ...items],
       };
     } else {
       list.value = { items };
+    }
+
+    if (items.length > 0) {
+      cPagination.offset += pageSize;
+    } else {
+      cPagination.finished = true;
+    }
+  };
+
+  const onScrollToLower = async () => {
+    if (cPagination.lastPageItems.length > 0) {
+      cPagination.offset += pageSize;
+      await render();
+    } else {
+      cPagination.finished = true;
     }
   };
 
@@ -51,5 +68,6 @@ export const usePagination = ({ list, pageSize = 10 } = {}) => {
     setPagination,
     beforeRequest,
     afterRequest,
+    onScrollToLower,
   };
 };
