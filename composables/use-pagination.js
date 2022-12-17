@@ -1,4 +1,5 @@
 import { reactive } from "@vue/composition-api";
+import { debounce } from "throttle-debounce";
 
 export const usePagination = ({ pageSize = 10, list, render } = {}) => {
   const cPagination = reactive({
@@ -7,6 +8,7 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     loading: false,
     finished: false,
     lastPageItems: [],
+    scrollTop: 0,
   });
 
   const resetPagination = () => {
@@ -15,6 +17,7 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     cPagination.loading = false;
     cPagination.finished = false;
     cPagination.lastPageItems = [];
+    cPagination.scrollTop = 0;
   };
 
   const beforeRequest = () => {
@@ -44,11 +47,16 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     }
   };
 
+  const onScrollTop = debounce(100, (e) => {
+    cPagination.scrollTop = e.detail.scrollTop;
+  });
+
   return {
     cPagination,
     resetPagination,
     beforeRequest,
     afterRequest,
     onScrollToLower,
+    onScrollTop,
   };
 };

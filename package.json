@@ -1,6 +1,6 @@
 {
   "name": "vue-mobile",
-  "version": "1.4.17",
+  "version": "1.4.18",
   "description": "a simple UI framework based on Vue.",
   "main": "index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "jweixin-module": "^1.6.0",
     "query-string": "^7.1.1",
     "sass-utils": "^1.1.10",
+    "throttle-debounce": "^5.0.0",
     "uni-composition-api": "^0.6.1",
     "uni-plugins": "^1.0.3",
     "vue": "^2.6.14",
