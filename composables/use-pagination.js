@@ -17,18 +17,6 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     cPagination.lastPageItems = [];
   };
 
-  const setPagination = () => {
-    return new Promise((resolve, reject) => {
-      if (cPagination.lastPageItems.length > 0) {
-        cPagination.offset += pageSize;
-        resolve();
-      } else {
-        cPagination.finished = true;
-        reject();
-      }
-    });
-  };
-
   const beforeRequest = () => {
     cPagination.loading = true;
   };
@@ -45,12 +33,6 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     } else {
       list.value = { items };
     }
-
-    if (items.length > 0) {
-      cPagination.offset += pageSize;
-    } else {
-      cPagination.finished = true;
-    }
   };
 
   const onScrollToLower = async () => {
@@ -65,7 +47,6 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
   return {
     cPagination,
     resetPagination,
-    setPagination,
     beforeRequest,
     afterRequest,
     onScrollToLower,
