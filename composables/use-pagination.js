@@ -47,7 +47,7 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     }
   };
 
-  const onScrollTop = debounce(100, (e) => {
+  const onScroll = debounce(100, (e) => {
     cPagination.scrollTop = e.detail.scrollTop;
   });
 
@@ -57,6 +57,6 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     beforeRequest,
     afterRequest,
     onScrollToLower,
-    onScrollTop,
+    onScroll,
   };
 };
