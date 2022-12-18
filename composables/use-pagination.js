@@ -38,6 +38,11 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     }
   };
 
+  const reRender = async () => {
+    await resetPagination();
+    await render();
+  };
+
   const onScrollToLower = async () => {
     if (cPagination.lastPageItems.length === pageSize) {
       cPagination.offset += pageSize;
@@ -56,6 +61,7 @@ export const usePagination = ({ pageSize = 10, list, render } = {}) => {
     resetPagination,
     beforeRequest,
     afterRequest,
+    reRender,
     onScrollToLower,
     onScroll,
   };
