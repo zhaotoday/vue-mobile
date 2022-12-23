@@ -1,15 +1,18 @@
-import { computed } from "@vue/composition-api";
-
 export default {
-  name: "CImage",
   props: {
+    customClass: [String, Object],
     src: String,
-  },
-  setup(props) {
-    const html = computed(() => `<img src="${props.src}" />`);
-
-    return {
-      html,
-    };
+    mode: {
+      type: String,
+      default: "aspectFill",
+    },
+    width: {
+      type: String,
+      default: "100%",
+    },
+    height: String,
+    radius: String,
+    errorText: String,
+    emptyText: String,
   },
 };
