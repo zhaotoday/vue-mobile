@@ -70,6 +70,7 @@ export const useCaptcha = ({
   };
 
   return {
+    captcha,
     cCaptcha,
     sendCaptcha,
   };
