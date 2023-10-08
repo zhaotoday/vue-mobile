@@ -1,7 +1,7 @@
 import { to } from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
 
-const { ApiUrl, LoginUrl } = useConsts();
+const { API_URL, LOGIN_URL } = useConsts();
 
 const formatWhere = (obj) => {
   const ret = {};
@@ -97,7 +97,7 @@ const request = async ({
         showError && uni.showToast({ title: serverError.message });
         return Promise.reject(serverError);
       } else if (res.statusCode === 401) {
-        uni.navigateTo({ url: LoginUrl || "/pages/user/mp-login/index" });
+        uni.navigateTo({ url: LOGIN_URL || "/pages/user/mp-login/index" });
         return Promise.reject(unauthorizedError);
       } else {
         showError &&
@@ -119,7 +119,7 @@ const request = async ({
 };
 
 export const createApi = ({
-  baseUrl = ApiUrl,
+  baseUrl = API_URL,
   url,
   headers = () => ({}),
   query = () => ({}),
