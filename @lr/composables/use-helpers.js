@@ -49,5 +49,14 @@ export const useHelpers = () => {
       uni.openDocument({ filePath: tempFilePath });
       // #endif
     },
+    async navigateBack({ homePage } = {}) {
+      const pages = getCurrentPages();
+
+      if (pages.length > 1) {
+        await uni.navigateBack();
+      } else {
+        await uni.switchTab({ url: homePage || "/pages/home/index" });
+      }
+    },
   };
 };
