@@ -130,7 +130,7 @@ export const createApi = ({
   const getBody = body;
 
   return {
-    get: ({ headers, joinUrl = "", id, query, showLoading, showError }) =>
+    get: ({ headers, joinUrl = "", id, query, showLoading, showError } = {}) =>
       request({
         method: "get",
         baseUrl,
@@ -150,7 +150,7 @@ export const createApi = ({
       query,
       showLoading,
       showError,
-    }) =>
+    } = {}) =>
       request({
         method: "post",
         baseUrl,
@@ -164,7 +164,15 @@ export const createApi = ({
         showError,
       }),
 
-    put: ({ headers, joinUrl = "", id, body, query, showLoading, showError }) =>
+    put: ({
+      headers,
+      joinUrl = "",
+      id,
+      body,
+      query,
+      showLoading,
+      showError,
+    } = {}) =>
       request({
         method: "put",
         baseUrl,
@@ -176,7 +184,14 @@ export const createApi = ({
         showError,
       }),
 
-    delete: ({ headers, joinUrl = "", id, query, showLoading, showError }) =>
+    delete: ({
+      headers,
+      joinUrl = "",
+      id,
+      query,
+      showLoading,
+      showError,
+    } = {}) =>
       request({
         method: "delete",
         baseUrl,
