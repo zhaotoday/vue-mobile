@@ -2,12 +2,12 @@ import helpers from "jt-helpers";
 import { useConsts } from "@/composables/use-consts";
 
 export const useHelpers = () => {
-  const { ApiUrl, CdnUrl } = useConsts();
+  const { API_URL, CDN_URL } = useConsts();
 
   return {
     ...helpers,
     getFileUrl({ id }) {
-      return `${ApiUrl}/public/files/${id}`;
+      return `${API_URL}/public/files/${id}`;
     },
     getImageUrl({ id, width, height }) {
       const params = (() => {
@@ -26,7 +26,7 @@ export const useHelpers = () => {
         }
       })();
 
-      return `${CdnUrl}/${id}${params}`;
+      return `${CDN_URL}/${id}${params}`;
     },
     async openDocument({
       serviceUrl = "https://view.officeapps.live.com/op/view.aspx?src=",

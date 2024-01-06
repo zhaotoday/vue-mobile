@@ -7,7 +7,7 @@ import { usersApi } from "../../../../apis/client/users";
 
 export default {
   setup() {
-    const { ApiUrl } = useConsts();
+    const { API_URL } = useConsts();
 
     const { isRequired, validate } = useValidators();
 
@@ -38,7 +38,7 @@ export default {
 
     const onChooseAvatar = async (e) => {
       const { statusCode, data } = await uni.uploadFile({
-        url: `${ApiUrl}/client/files/actions/upload`,
+        url: `${API_URL}/client/files/actions/upload`,
         header: getHeaders(),
         formData: { dir: "avatars" },
         filePath: e.detail.avatarUrl,

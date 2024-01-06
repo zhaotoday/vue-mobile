@@ -83,7 +83,7 @@ export const useUsers = () => {
 
   const navigateTo = ({
     requiresLogin = false,
-    loginUrl = useConsts().LoginUrl || "/pages/user/mp-login/index",
+    loginUrl = useConsts().LOGIN_PAGE || "/pages/user/mp-login/index",
     url,
   }) => {
     wx.navigateTo({
